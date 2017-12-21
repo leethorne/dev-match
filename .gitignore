@@ -1,5 +1,5 @@
-	bin
-	obj
-	Packages
-	Node_modules
-	.vscode
+BackEnd/bin
+BackEnd/obj
+FrontEnd/node_modules
+.vscode
+.vs

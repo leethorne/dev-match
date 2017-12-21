@@ -8,3 +8,13 @@
 /Users/feliciathorne/Desktop/DevMatch/BackEnd/bin/Debug/netcoreapp2.0/BackEnd.pdb
 /Users/feliciathorne/Desktop/DevMatch/BackEnd/obj/Debug/netcoreapp2.0/BackEnd.dll
 /Users/feliciathorne/Desktop/DevMatch/BackEnd/obj/Debug/netcoreapp2.0/BackEnd.pdb
+C:\Users\natal\Desktop\DevMatch\BackEnd\bin\Debug\netcoreapp2.0\BackEnd.deps.json
+C:\Users\natal\Desktop\DevMatch\BackEnd\bin\Debug\netcoreapp2.0\BackEnd.runtimeconfig.json
+C:\Users\natal\Desktop\DevMatch\BackEnd\bin\Debug\netcoreapp2.0\BackEnd.runtimeconfig.dev.json
+C:\Users\natal\Desktop\DevMatch\BackEnd\bin\Debug\netcoreapp2.0\BackEnd.dll
+C:\Users\natal\Desktop\DevMatch\BackEnd\bin\Debug\netcoreapp2.0\BackEnd.pdb
+C:\Users\natal\Desktop\DevMatch\BackEnd\obj\Debug\netcoreapp2.0\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\natal\Desktop\DevMatch\BackEnd\obj\Debug\netcoreapp2.0\BackEnd.AssemblyInfoInputs.cache
+C:\Users\natal\Desktop\DevMatch\BackEnd\obj\Debug\netcoreapp2.0\BackEnd.AssemblyInfo.cs
+C:\Users\natal\Desktop\DevMatch\BackEnd\obj\Debug\netcoreapp2.0\BackEnd.dll
+C:\Users\natal\Desktop\DevMatch\BackEnd\obj\Debug\netcoreapp2.0\BackEnd.pdb

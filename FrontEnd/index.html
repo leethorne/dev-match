@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DevMatchApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dev Match</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- Angular CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+    <!-- Angular UI Router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+</head>
+<body>
+  
+  <div class="container">
+    <div ui-view></div>
+  </div>
+
+  <!-- Module -->
+  <script type="text/javascript" src="./app.js"></script>
+
+  <!-- Services -->
+  <script type="text/javascript" src="./services/userService.js"></script>
+  <script type="text/javascript" src="./services/projectService.js"></script>
+
+  <!-- Controllers -->
+  <script type="text/javascript" src="./controllers/userController.js"></script>
+  <script type="text/javascript" src="./controllers/projectController.js"></script>
+  
+</body>
+</html>
