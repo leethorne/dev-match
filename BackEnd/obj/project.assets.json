@@ -12530,7 +12530,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.3",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "microsoft.entityframeworkcore >= 2.0.1"
     ]
   },
   "packageFolders": {
@@ -12540,6 +12541,9 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\Users\\natal\\Desktop\\DevMatch\\BackEnd\\BackEnd.csproj",
       "projectName": "BackEnd",
@@ -12585,6 +12589,10 @@
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
+          },
+          "microsoft.entityframeworkcore": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           }
         },
         "imports": [
