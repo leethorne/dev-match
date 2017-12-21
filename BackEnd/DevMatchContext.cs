@@ -1,11 +1,12 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using BackEnd.Controllers;
-namespace API_Review
+
+namespace BackEnd
 {
-    public class SchoolContext : DbContext
+    public class DevMatchContext : DbContext
     {
-        public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
+        public DevMatchContext(DbContextOptions<DevMatchContext> options) : base(options)
         {
         }
         public DbSet<User> Users { get; set; }
