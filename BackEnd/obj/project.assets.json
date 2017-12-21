@@ -12541,9 +12541,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\natal\\Desktop\\DevMatch\\BackEnd\\BackEnd.csproj",
       "projectName": "BackEnd",
@@ -12602,5 +12599,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\natal\\Desktop\\DevMatch\\BackEnd\\obj\\BackEnd.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

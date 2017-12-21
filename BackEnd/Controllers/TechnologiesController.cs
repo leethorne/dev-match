@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackEnd.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Route("api/technologies")]
+    public class TechnologiesController : Controller
     {
         // GET api/values
         [HttpGet]
