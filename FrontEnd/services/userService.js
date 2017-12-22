@@ -1,5 +1,7 @@
 app.service("userService", function($http, $state) {
     
+    var currentUser = null;
+
     this.getUsers = function () {
         return $http.get(serverLink + "users");
     }
@@ -9,7 +11,7 @@ app.service("userService", function($http, $state) {
             var user = {};
             cb(user);
         } else {
-            $http.get(serverLink + "users" + id)
+            $http.get(serverLink + "users/" + id)
             .then (function(response) {
                 console.log(response)
                 cb(response.data)
@@ -31,4 +33,14 @@ app.service("userService", function($http, $state) {
     this.deleteUser = function(id) {
         return $http.delete(serverLink + "users" + id);
     }
+
+    this.login = function(user) {
+        $http.get(serverLink + "users/?username=" + user.username + "&password=" + user.password)
+            .then(function(response) {
+                console.log("res", response);
+            }, function(error) {
+                console.log(error);
+            })   
+    }
+
 });
