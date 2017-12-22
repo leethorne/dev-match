@@ -1,4 +1,7 @@
 app.controller("projectController", function($scope, $state, $stateParams, projectService) {
+
+    $(".tags").select2({ tags: true, width: '100%' }); //jquery box
+    
     // collapse Form
     $('.add-proj').click(function () {
         console.log("clicked");
