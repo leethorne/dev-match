@@ -1,7 +1,7 @@
 app.service("userService", function($http, $state) {
     
     this.getUsers = function () {
-        return $http.get("http://localhost:50771/api/users");
+        return $http.get(serverLink + "users");
     }
 
     this.getUserById = function(id, cb) {
@@ -9,7 +9,7 @@ app.service("userService", function($http, $state) {
             var user = {};
             cb(user);
         } else {
-            $http.get("http://localhost:50771/api/users" + id)
+            $http.get(serverLink + "users" + id)
             .then (function(response) {
                 console.log(response)
                 cb(response.data)
@@ -21,14 +21,14 @@ app.service("userService", function($http, $state) {
     }
 
     this.addUser = function(user) {
-        return $http.post("http://localhost:50771/api/users" + user)
+        return $http.post(serverLink + "users" + user)
     }
 
     this.updateUser = function(id, user) {
-        return $http.put("http://localhost:50771/api/users" + id, user)
+        return $http.put(serverLink + "users" + id, user)
     }
 
     this.deleteUser = function(id) {
-        return $http.delete("http://localhost:50771/api/users" + id);
+        return $http.delete(serverLink + "users" + id);
     }
 });

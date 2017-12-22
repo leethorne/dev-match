@@ -1,7 +1,7 @@
 app.service("projectService", function($http, $state) {
   
     this.getProjects = function() {
-        return $http.get("http://localhost:5000/api/projects")
+        return $http.get(serverLink + "projects")
     }
 
     this.getProjectById = function(id, cb) {
@@ -9,7 +9,7 @@ app.service("projectService", function($http, $state) {
             var project = {};
             cb(project)
         } else {
-            $http.get("http://localhost:5000/api/projects" + id)
+            $http.get(serverLink + "projects" + id)
             .then (function(repsonse) {
                 console.log(response)
                 cb(response.data)
@@ -20,14 +20,14 @@ app.service("projectService", function($http, $state) {
     }
 
     this.addProject = function(project) {
-        return $http.post("http://localhost:5000/api/projects" + project)
+        return $http.post(serverLink + "projects" + project)
     }
 
     this.updateProject = function(id, project) {
-        return $http.put("http://localhost:5000/api/projects" + id, project)
+        return $http.put(serverLink + "projects" + id, project)
     }
 
     this.deleteProject = function(id) {
-        return $http.delete("http://localhost:5000/api/projects" + id)
+        return $http.delete(serverLink + "projects" + id)
     }
 });

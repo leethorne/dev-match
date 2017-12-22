@@ -29,14 +29,14 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
     });
   });
   
-  userService.getUsers()
-    .then(function(response){
-        console.log(response.data)
-        //do something with route data to display. set equal to $scope.something to ng-repeat
-    }, function(error){
-        console.log(error);
-        //do something else here to alert user of a fail
-    })
+    userService.getUsers()
+        .then(function(response){
+            console.log(response.data)
+            //do something with route data to display. set equal to $scope.something to ng-repeat
+        }, function(error){
+            console.log(error);
+            //do something else here to alert user of a fail
+        })
 
     if($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
         $scope.submitButton = true;
