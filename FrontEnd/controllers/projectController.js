@@ -1,13 +1,24 @@
-app.controller("projectController", function($scope, $state,$stateParams, projectService) {
+app.controller("projectController", function($scope, $state, $stateParams, projectService) {
+  // collapse Form
+  $('.add-proj').click(function () {
+    console.log("clicked");
+    $addProj = $(this);
+    $projForm = $('.create-project');
+    $projForm.slideToggle(500, function () {
+      $addProj.text(function () {
+        return $addProj.is(':visible') ? '-' : '+';
+      });
+    });
+  });
 
     projectService.getProjects()
-    .then(function(response) {
-        console.log(response);
-        //set $scope.projects to something here once we can get data
-    }, function(error) {
-        console.log(error);
-        //handle error messages here to the user
-    })
+        .then(function(response) {
+            console.log(response);
+            //set $scope.projects to something here once we can get data
+        }, function(error) {
+            console.log(error);
+            //handle error messages here to the user
+        })
 
     if($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
         projectService.getProjectById($stateParams.id, function(project) {

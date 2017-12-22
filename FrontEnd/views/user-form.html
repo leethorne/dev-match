@@ -1,1 +1,79 @@
-Register Form / Update User info
+<div class="container">
+  <h1 class="text-center"> {{ heading }} </h1>
+  <div class="form-group col-md-3">
+    <label for="username">Username</label>
+    <input id="username" type="text" class="form-control" placeholder="Password">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="password">Password</label>
+    <input id="password" type="password" class="form-control" placeholder="Password">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="confirmPassword">Confirm Password</label>
+    <input id="confirmPassword" type="password" class="form-control" placeholder="Confirm Password">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="firstName">First Name</label>
+    <input id="firstName" type="text" class="form-control" placeholder="First Name">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="lastName">Last Name</label>
+    <input id="lastName" type="text" class="form-control" placeholder="Last Name">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="jobTitle">Job Title</label>
+    <input id="jobTitle" type="text" class="form-control" placeholder="Job Title">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="email">Email</label>
+    <input id="email" type="email" class="form-control" placeholder="Email">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="phoneNumber">Phone</label>
+    <input id="phoneNumber" type="text" class="form-control" placeholder="Phone">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="addressLine1">Address Line 1</label>
+    <input id="addressLine1" type="text" class="form-control" placeholder="Address Line 1">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="addressLine2">Address Line 2</label>
+    <input id="addressLine2" type="text" class="form-control" placeholder="Address Line 2">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="city">City</label>
+    <input id="city" type="text" class="form-control" placeholder="City">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="state">State</label>
+    <input id="state" type="text" class="form-control" placeholder="State">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="zip">Zip Code</label>
+    <input id="zip" type="number" class="form-control" placeholder="Zip Code">
+  </div>
+  <div class="form-group col-md-3">
+    <select name="text" title="Proficiency Level">
+      <option value="value1" selected>Beginner</option> 
+      <option value="value2">Intermediate</option>
+      <option value="value3">Advanced</option>
+    </select>
+  </div>
+  <div class="form-group col-md-3">
+    <label for="linkedIn">LinkedIn</label>
+    <input id="linkedIn" type="text" class="form-control" placeholder="LinkedIn">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="gitHub">GitHub</label>
+    <input id="gitHub" type="text" class="form-control" placeholder="GitHub">
+  </div>
+  <div class="form-group">
+    <div id="image-preview">
+      <label for="image-upload" id="image-label">Choose File</label>
+      <input type="file" name="image" id="image-upload" />
+    </div>
+  </div>
+
+  <button class="btn btn-primary btn-lg" ng-show="submitButton" ng-click="addUser()">Submit</button>
+  <button class="btn btn-success btn-lg" ng-show="!submitButton" ng-click="updateUser()">Update</button>
+</div>

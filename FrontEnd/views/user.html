@@ -1,1 +1,60 @@
-User Profile
+<div>
+  <img src="{{user.Image}}">
+  <div>
+    <h3>Contact</h3>
+    <h4><strong>Phone:</strong> {{user.PhoneNumber}}</h4>
+    <h4><strong>Email:</strong> {{user.Email}}</h4>
+    <h4><a href="{{user.LinkedIn}}">View LinkedIn Profile</a></h4>
+    <h4><a href="{{user.GitHubLink}}">View GitHub Profile</a></h4>
+    <button>Contact Me</button>
+  </div>
+</div>
+<div>
+  <img class="edit" src="./img/edit.svg">
+  <h1>{{user.FirstName}} {{user.LastName}}</h1>
+  <h4>{{user.UserName}}</h4>
+
+  <h4><strong>Job Title:</strong> {{user.JobTitle}}</h4>
+  <h4><strong>Proficiency Level:</strong> {{user.ProficiencyLevel}}</h4>
+
+  <div>
+    <h3>My Skills: </h3>
+    
+  </div>
+
+  <div>
+    <h3>My Projects: </h3>
+    <p class="add-proj">+</p>
+    <div class="form-group col-md-12 create-project">
+      <input type="text" class="form-control" placeholder="Project Name">
+      <textarea placeholder="Blurb"></textarea>
+      <select name="text" title="Desired Team Size">
+        <option value="value1" selected>2</option>
+        <option value="value2">3</option>
+        <option value="value3">4</option>
+        <option value="value4">5</option>
+        <option value="value5">6</option>
+        <option value="value6">7</option>
+        <option value="value7">8</option>
+        <option value="value8">9</option>
+        <option value="value9">10</option>
+      </select>
+      <select name="text" title="Desired Team Size">
+        <option value="value1" selected>Not Started</option>
+        <option value="value2">In Progress</option>
+      </select>
+      <p>Seeking developers with the following skills:</p>
+      <input type="text" class="form-control" placeholder="Skills">
+      <p>Technologies Using:</p>
+      <input type="text" class="form-control" placeholder="Technologies">
+    </div>
+    <div>
+      <img class="edit" src="./img/edit.svg">
+      <img class="delete" src="./img/delete.png">
+      <img src="{{user.Image}}">
+      <h4>{{project.ProjectName}}</h4>
+      <p>{{project.Description}}</p>
+      <p>{{project.Status}}</p>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,35 @@
 app.controller("userController", function($scope, $state, $stateParams, userService) {
   
-    userService.getUsers()
+  // collapse create project form
+  $('.add-proj').click(function () {
+    console.log("clicked");
+    $addProj = $(this);
+    $projForm = $('.create-project');
+    $projForm.slideToggle(500, function () {
+      $addProj.text(function () {
+        return $addProj.is(':visible') ? '-' : '+';
+      });
+    });
+  });
+
+  // collapse login form
+  $('.login').click(function () {
+    console.log("clicked");
+    $addProj = $(this);
+    $projForm = $('.login-form');
+    $projForm.slideToggle(500);
+  });
+
+  // profile pic preview
+  $(document).ready(function() {
+    $.uploadPreview({
+      input_field: "#image-upload",
+      preview_box: "#image-preview",
+      label_field: "#image-label"
+    });
+  });
+  
+  userService.getUsers()
     .then(function(response){
         console.log(response.data)
         //do something with route data to display. set equal to $scope.something to ng-repeat

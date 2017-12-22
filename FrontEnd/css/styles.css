@@ -1,0 +1,156 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+	background-color: #F8F6F5;
+}
+/* buttons */
+.edit, .delete {
+	height: 20px;
+}
+/* home */
+.hero {
+	background: url('../img/workspace.jpg') center no-repeat;
+	background-size: cover;
+	height: 100%;
+	height: 100vh;
+	width: 100%;
+	color: #FFF;
+}
+.shadow {
+	background: rgba(0,0,0,.6);
+	height: 100%;
+	height: 100vh;
+	width: 100%;
+}
+.brand {
+	display: inline-block;
+	margin-top: 40px;
+}
+.logo {
+	margin-left: 60px;
+	height: 80px;
+	display: inline;
+}
+.name {
+	display: inline-block;
+	margin-left: 20px;
+}
+.account-functions {
+	display: inline-block;
+	float: right;
+	margin-right: 60px;
+	margin-top: 40px;
+	width: 300px;
+}
+.login-btns {
+	float: right;
+}
+.users-create, .login {
+	display: inline;
+	margin: 0px 20px;
+}
+.login-form {
+	width: 300px;
+	margin-top: 20px;
+	display: none;
+}
+.home-username, .home-password {
+	margin-bottom: 20px;
+	margin-bottom: 20px;
+	border-radius: 0px;
+	background: transparent;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: 2px solid white;
+}
+.home-username::-webkit-input-placeholder, .home-password::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+.home-username::-moz-placeholder, .home-password::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+.home-username:-ms-input-placeholder, 
+.home-password:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+.home-username:-moz-placeholder, 
+.home-password:-ms-input-placeholder { /* Firefox 18- */
+  color: white;
+}
+.header {
+	width: 570px;
+	margin: 0px auto;
+	position: absolute;
+	top: 50%;
+	left: 50%; 
+	transform: translate(-50%, -50%); 
+}
+.headline {
+	font-size: 48px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 0px;
+}
+.subheadline {
+	font-size: 28px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.register-btn {
+	background: #0844A4;
+	font-size: 24px;
+	padding: 10px 40px;
+	border: 4px solid #FFF;
+	margin: 0px auto;
+	display: block;
+	text-transform: uppercase;
+}
+/* Register */
+#image-preview {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #ecf0f1;
+}
+#image-preview input {
+  line-height: 200px;
+  font-size: 200px;
+  position: absolute;
+  opacity: 0;
+  z-index: 10;
+}
+#image-preview label {
+  position: absolute;
+  z-index: 5;
+  opacity: 0.8;
+  cursor: pointer;
+  background-color: #bdc3c7;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 50px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+
+/* Projects */
+.add-proj {
+	cursor: pointer;
+	font-size: 20px;
+}
+.create-project {
+	display: none;
+}
