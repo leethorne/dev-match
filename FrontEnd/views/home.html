@@ -11,8 +11,9 @@
       </div>
       <div class="form-group col-md-12 login-form">
         <div class="form-group">
-          <input type="text" class="form-control home-username" placeholder="Username">
-          <input type="password" class="form-control home-password" placeholder="Password">
+          <input type="text" class="form-control home-username" placeholder="Username" required ng-model="user.username">
+          <input type="password" class="form-control home-password" placeholder="Password" required ng-model="user.password">
+          <button ng-click="login()">submit</button>
         </div>
       </div>
     </div>

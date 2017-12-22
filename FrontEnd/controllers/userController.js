@@ -1,45 +1,19 @@
 app.controller("userController", function($scope, $state, $stateParams, userService) {
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
 
-  // collapse create project form
-  $('.add-proj').click(function () {
-    console.log("clicked");
-    $addProj = $(this);
-    $projForm = $('.create-project');
-    $projForm.slideToggle(500, function () {
-      $addProj.text(function () {
-        return $addProj.is(':visible') ? '-' : '+';
-      });
-    });
-  });
+    $scope.errorMessage = false;
 
-  // collapse login form
-  $('.login').click(function () {
-    console.log("clicked");
-    $addProj = $(this);
-    $projForm = $('.login-form');
-    $projForm.slideToggle(500);
-  });
-
-  // profile pic preview
-  $(document).ready(function() {
-    $.uploadPreview({
-      input_field: "#image-upload",
-      preview_box: "#image-preview",
-      label_field: "#image-label"
-    });
-  });
-  
     userService.getUsers()
-        .then(function(response){
-            console.log(response.data)
+        .then(function (response) {
+            console.log(response.data);
+            // $scope.users = response.data;
             //do something with route data to display. set equal to $scope.something to ng-repeat
-        }, function(error){
+        }, function (error) {
             console.log(error);
             //do something else here to alert user of a fail
         })
 
-    if($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
+    if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
         $scope.submitButton = true;
         $scope.heading = "Create Your DevMatch Profile!"
 
@@ -51,45 +25,79 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         $scope.submitButton = false;
         $scope.heading = "Update Your DevMatch Profile!";
 
-        userService.getUserById($stateParams.id, function(user) {
+        userService.getUserById($stateParams.id, function (user) {
             $scope.user = user;
             console.log($scope.user);
+
         })
     }
 
-    $scope.addUser = function() {
+    $scope.addUser = function () {
         userService.addUser($scope.user)
-        .then(function(response) {
-            console.log(response.data);
-            //do something with route data to display. set equal to $scope.something to ng-repeat
-            //$state.go to profile page or dev map?
-        }, function(error) {
-            console.log(error)
-            //do something here to display error msg
-        })
+            .then(function (response) {
+                console.log(response.data);
+                //do something with route data to display. set equal to $scope.something to ng-repeat
+                //$state.go to profile page or dev map?
+            }, function (error) {
+                console.log(error)
+                //do something here to display error msg
+            })
     }
 
-    $scope.updateUser = function() {
+    $scope.updateUser = function () {
         userService.updateUser($stateParams.id, $scope.user)
-        .then(function (response) {
-            console.log(response.data);
-            //once we get results set the $scope.user to response.data
-            //state.go to profile/"my account" page?
-        }, function(error) {
-            console.log(error)
-            //insert error message here for users
-        })
+            .then(function (response) {
+                console.log(response.data);
+                //once we get results set the $scope.user to response.data
+                //state.go to profile/"my account" page?
+            }, function (error) {
+                console.log(error)
+                //insert error message here for users
+            })
     }
 
-    $scope.deleteUser = function() {
+    $scope.deleteUser = function () {
         userService.deleteUser($stateParams.id)
-        .then(function(response) {
-            $state.go("home");
-        }, function(error) {
-            console.log(error)
-            //set error message here for users to see
-        })
+            .then(function (response) {
+                $state.go("home");
+            }, function (error) {
+                console.log(error)
+                //set error message here for users to see
+            })
     }
 
-}); 
+    $scope.login = function (user) {
+        if (userService.login($scope.user) == false) {
+            $scope.errorMessage = true;
+        }
+    }
+
+    // collapse create project form
+    $('.add-proj').click(function () {
+        $addProj = $(this);
+        $projForm = $('.create-project');
+        $projForm.slideToggle(500, function () {
+            $addProj.text(function () {
+                return $addProj.is(':visible') ? '-' : '+';
+            });
+        });
+    });
+
+    // collapse login form
+    $('.login').click(function () {
+        console.log("clicked");
+        $addProj = $(this);
+        $projForm = $('.login-form');
+        $projForm.slideToggle(500);
+    });
+
+    // profile pic preview
+    $(document).ready(function () {
+        $.uploadPreview({
+            input_field: "#image-upload",
+            preview_box: "#image-preview",
+            label_field: "#image-label"
+        });
+    });
+});
 

@@ -56,6 +56,8 @@ body {
 	width: 300px;
 	margin-top: 20px;
 	display: none;
+	background: rgba(0, 0, 0, 0.7);
+	padding: 10px 20px;
 }
 .home-username, .home-password {
 	margin-bottom: 20px;
@@ -66,6 +68,7 @@ body {
 	border-right: none;
 	border-top: none;
 	border-bottom: 2px solid white;
+	color: #FFF;
 }
 .home-username::-webkit-input-placeholder, .home-password::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;

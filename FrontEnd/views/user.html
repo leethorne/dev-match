@@ -1,21 +1,21 @@
 <div>
-  <img src="{{user.Image}}">
+  <img src="{{currentUser.Image}}">
   <div>
     <h3>Contact</h3>
-    <h4><strong>Phone:</strong> {{user.PhoneNumber}}</h4>
-    <h4><strong>Email:</strong> {{user.Email}}</h4>
-    <h4><a href="{{user.LinkedIn}}">View LinkedIn Profile</a></h4>
-    <h4><a href="{{user.GitHubLink}}">View GitHub Profile</a></h4>
+    <h4><strong>Phone:</strong> {{currentUser.PhoneNumber}}</h4>
+    <h4><strong>Email:</strong> {{currentUser.Email}}</h4>
+    <h4><a href="{{currentUser.LinkedIn}}">View LinkedIn Profile</a></h4>
+    <h4><a href="{{currentUser.GitHubLink}}">View GitHub Profile</a></h4>
     <button>Contact Me</button>
   </div>
 </div>
 <div>
   <img class="edit" src="./img/edit.svg">
-  <h1>{{user.FirstName}} {{user.LastName}}</h1>
-  <h4>{{user.UserName}}</h4>
+  <h1>{{currentUser.FirstName}} {{currentUser.LastName}}</h1>
+  <h4>{{currentUser.currentUserName}}</h4>
 
-  <h4><strong>Job Title:</strong> {{user.JobTitle}}</h4>
-  <h4><strong>Proficiency Level:</strong> {{user.ProficiencyLevel}}</h4>
+  <h4><strong>Job Title:</strong> {{currentUser.JobTitle}}</h4>
+  <h4><strong>Proficiency Level:</strong> {{currentUser.ProficiencyLevel}}</h4>
 
   <div>
     <h3>My Skills: </h3>
@@ -51,7 +51,7 @@
     <div>
       <img class="edit" src="./img/edit.svg">
       <img class="delete" src="./img/delete.png">
-      <img src="{{user.Image}}">
+      <img src="{{currentUser.Image}}">
       <h4>{{project.ProjectName}}</h4>
       <p>{{project.Description}}</p>
       <p>{{project.Status}}</p>

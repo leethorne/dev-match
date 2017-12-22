@@ -3,4 +3,4 @@ BackEnd/obj
 FrontEnd/node_modules
 .vscode
 .vs
-FrontEnd/js/globalvar.js
+FrontEnd/js/globalVar.js

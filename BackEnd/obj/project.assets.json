@@ -12541,11 +12541,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\natal\\Desktop\\DevMatch\\BackEnd\\BackEnd.csproj",
+      "projectName": "BackEnd",
+      "projectPath": "C:\\Users\\natal\\Desktop\\DevMatch\\BackEnd\\BackEnd.csproj",
+      "packagesPath": "C:\\Users\\natal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\natal\\Desktop\\DevMatch\\BackEnd\\obj\\",
+=======
       "projectUniqueName": "/Users/feliciathorne/Desktop/DevMatch/BackEnd/BackEnd.csproj",
       "projectName": "BackEnd",
       "projectPath": "/Users/feliciathorne/Desktop/DevMatch/BackEnd/BackEnd.csproj",
       "packagesPath": "/Users/feliciathorne/.nuget/packages/",
       "outputPath": "/Users/feliciathorne/Desktop/DevMatch/BackEnd/obj/",
+>>>>>>> f520ad95878812a7747f67b4b3f336901ca48ba9
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
