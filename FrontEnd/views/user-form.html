@@ -74,6 +74,54 @@
     </div>
   </div>
 
+  <div id="skills" class="tab-pane cont">
+    <div class="panel-body form-horizontal">
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Technical Skills:</label>
+        <div class="col-sm-10">
+          <select multiple="" class="tags" data-ng-model="profile.primarySkills">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>BootStrap</option>
+                    <option>JavaScript</option>
+                    <option>AngularJS</option>
+                    <option>C#</option>
+                    <option>ASP.NET Core</option>
+                    <option>Node.js</option>
+                    <option>MySQL</option>
+                    <option>React</option>
+                    <option>Ojective-C</option>
+                    <option>jQuery</option>
+                    <option>MongoDB</option>
+                    <option>C / C++</option>
+                    <option>Ruby</option>
+                    <option>SpringMVC</option>
+                    <option>Java</option>
+                    <option>PHP</option>
+                    <option>AWS</option>
+                    <option>Azure</option>
+                    <option>Entity Framework Core</option>
+                    <option>SQL Server</option>
+                    <option>Dapper</option>
+                    <option>NancyFX</option>
+                    <option>.Net Core 2.0</option>
+                    <option>C#</option>
+                    <option>Xcode</option>
+                    <option>Swift</option>
+                    <option>Django</option>
+                    <option>Ajax</option>
+                    <option>Python</option>
+                  </select>
+        </div>
+      </div>
+
+      <button class="btn btn-info pull-right next-tab" data-tab="#projectsTab">Save & Continue</button>
+
+    </div>
+  </div>
+
+
   <button class="btn btn-primary btn-lg" ng-show="submitButton" ng-click="addUser()">Submit</button>
   <button class="btn btn-success btn-lg" ng-show="!submitButton" ng-click="updateUser()">Update</button>
 </div>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace BackEnd.Controllers
 {
@@ -36,14 +38,32 @@ namespace BackEnd.Controllers
                 _context.SaveChanges();
             }
         }
-        // GET api/values
+        // GET api/users
         [HttpGet]
-        public List<User> Get()
+        public List<User> Get(string username, string password)
         {
-            return _context.Users.ToList();
+            Console.WriteLine("it works");
+            Console.WriteLine(username);
+            Console.WriteLine(password);
+
+            if(username == null || password == null)
+            {
+                return _context.Users.ToList();
+            }
+
+            foreach (User u in _context.Users)
+            {
+                if (u.UserName == username && u.Password == password)
+                {
+                    var x = new List<User>();
+                    x.Add(u);
+                    return x;
+                }
+            }
+            return null;    
         }
 
-        // GET api/values/5
+        // GET api/users/5
         [HttpGet("{id}")]
         public User Get(int id)
         {

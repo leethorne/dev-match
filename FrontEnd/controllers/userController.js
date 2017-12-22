@@ -1,5 +1,6 @@
 app.controller("userController", function($scope, $state, $stateParams, userService) {
-  
+    $(".tags").select2({ tags: true, width: '100%' }); //jquery box
+
   // collapse create project form
   $('.add-proj').click(function () {
     console.log("clicked");

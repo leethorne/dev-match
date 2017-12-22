@@ -23,7 +23,7 @@ namespace BackEnd.Controllers
                 _context.Technologies.Add(new Technology() { Id = 4, Name = "Django" });
                 _context.Technologies.Add(new Technology() { Id = 5, Name = "MySQL" });
                 _context.Technologies.Add(new Technology() { Id = 6, Name = "MongoDB" });
-                _context.Technologies.Add(new Technology() { Id = 7, Name = "Angular" });
+                _context.Technologies.Add(new Technology() { Id = 7, Name = "AngularJS" });
                 _context.Technologies.Add(new Technology() { Id = 8, Name = "React" });
                 _context.Technologies.Add(new Technology() { Id = 9, Name = "Node.js" });
                 _context.Technologies.Add(new Technology() { Id = 10, Name = "Swift" });
