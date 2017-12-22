@@ -1,5 +1,5 @@
-bin
-obj
-node_modules
+BackEnd/bin
+BackEnd/obj
+FrontEnd/node_modules
 .vscode
 .vs
