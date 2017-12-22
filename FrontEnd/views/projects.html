@@ -4,8 +4,7 @@
     <p class="add-proj">+</p>
     <div class="form-group col-md-12 create-project">
       <input type="text" class="form-control" placeholder="Project Name">
-      <textarea placeholder="Blurb"></textarea>
-      Desired Team Size
+      <textarea placeholder="Blurb"></textarea> Desired Team Size
       <select name="text" title="Desired Team Size">
         <option value="value1" selected>2</option>
         <option value="value2">3</option>
@@ -21,10 +20,90 @@
         <option value="value1" selected>Not Started</option>
         <option value="value2">In Progress</option>
       </select>
-      <p>Seeking developers with the following skills:</p>
-      <input type="text" class="form-control" placeholder="Skills">
-      <p>Technologies Using:</p>
-      <input type="text" class="form-control" placeholder="Technologies">
+
+      <div id="skills" class="tab-pane cont">
+        <div class="panel-body form-horizontal">
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Seeking developers with the following skills:</label>
+            <div class="col-sm-10">
+              <select multiple="" class="tags" data-ng-model="profile.primarySkills">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>BootStrap</option>
+                    <option>JavaScript</option>
+                    <option>AngularJS</option>
+                    <option>C#</option>
+                    <option>ASP.NET Core</option>
+                    <option>Node.js</option>
+                    <option>MySQL</option>
+                    <option>React</option>
+                    <option>Ojective-C</option>
+                    <option>jQuery</option>
+                    <option>MongoDB</option>
+                    <option>C / C++</option>
+                    <option>Ruby</option>
+                    <option>SpringMVC</option>
+                    <option>Java</option>
+                    <option>PHP</option>
+                    <option>AWS</option>
+                    <option>Azure</option>
+                    <option>Entity Framework Core</option>
+                    <option>SQL Server</option>
+                    <option>Dapper</option>
+                    <option>NancyFX</option>
+                    <option>.Net Core 2.0</option>
+                    <option>C#</option>
+                    <option>Xcode</option>
+                    <option>Swift</option>
+                    <option>Django</option>
+                    <option>Ajax</option>
+                    <option>Python</option>
+                  </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Technologies Using:</label>
+            <div class="col-sm-10">
+              <select multiple="" class="tags" data-ng-model="profile.secondarySkills">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>BootStrap</option>
+                    <option>JavaScript</option>
+                    <option>AngularJS</option>
+                    <option>C#</option>
+                    <option>ASP.NET Core</option>
+                    <option>Node.js</option>
+                    <option>MySQL</option>
+                    <option>React</option>
+                    <option>Ojective-C</option>
+                    <option>jQuery</option>
+                    <option>MongoDB</option>
+                    <option>C / C++</option>
+                    <option>Ruby</option>
+                    <option>SpringMVC</option>
+                    <option>Java</option>
+                    <option>PHP</option>
+                    <option>AWS</option>
+                    <option>Azure</option>
+                    <option>Entity Framework Core</option>
+                    <option>SQL Server</option>
+                    <option>Dapper</option>
+                    <option>NancyFX</option>
+                    <option>.Net Core 2.0</option>
+                    <option>C#</option>
+                    <option>Xcode</option>
+                    <option>Swift</option>
+                    <option>Django</option>
+                    <option>Ajax</option>
+                    <option>Python</option>
+                  </select>
+            </div>
+          </div>
+        </div>
+      </div> <!--end of skills div-->
+      <button class="btn btn-info pull-right next-tab" data-tab="#projectsTab">Save & Continue</button>
+
     </div>
     <div>
       <img class="edit" src="./img/edit.svg">
@@ -48,8 +127,13 @@
 </div>
 <div>
   <h2>News Feed</h2>
-  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae voluptatibus natus.</div>
-  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae voluptatibus natus.</div>
-  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae voluptatibus natus.</div>
+  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt
+    sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae
+    voluptatibus natus.</div>
+  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt
+    sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae
+    voluptatibus natus.</div>
+  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt
+    sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae
+    voluptatibus natus.</div>
 </div>
-
