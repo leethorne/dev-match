@@ -9,36 +9,84 @@ namespace BackEnd.Controllers
     [Route("api/messages")]
     public class MessagesController : Controller
     {
+        private readonly DevMatchContext _context;
+
+        public MessagesController(DevMatchContext context)
+        {
+            _context = context;
+
+            if(_context.Messages.Count()== 0)
+            {
+                _context.Messages.Add(new Message() { Id = 1, Content = "Hey - your idea sounds pretty great. I am a C# dev and would love to join the team. When can we get started?", Date = "2017-12-10" });
+                _context.Messages.Add(new Message() { Id = 2, Content = "Hello! I'd love to get together to discuss your project in more depth. I think my skills match up with what you want.", Date = "2017-12-20" });
+                _context.Messages.Add(new Message() { Id = 3, Content = "Hola! I'm a code newbie and would like to work on my Front End Dev skills. Let me know how you'd like to proceed.", Date = "2017-12-12" });
+                _context.Messages.Add(new Message() { Id = 4, Content = "Sounds like an awesome idea, I'd love to get involved.", Date = "2017-12-8" });
+                _context.Messages.Add(new Message() { Id = 5, Content = "I'm picking up Node as a new skill. This project sounds like a great way to level up. Count me in!", Date = "2017-12-11" });
+                _context.SaveChanges();
+            }
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Message> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _context.Messages.ToList();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Message Get(int id)
         {
-            return "value";
+            foreach(Message m in _context.Messages)
+            {
+                if (m.Id == id)
+                {
+                    return m;
+                }
+            }
+            return null;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public Message Post([FromBody]Message m)
         {
+            _context.Messages.Add(m);
+            _context.SaveChanges();
+            return m;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public Message Put(int id, [FromBody]Message msg)
         {
+            foreach (Message m in _context.Messages)
+            {
+                if (m.Id == id)
+                {
+                    _context.Messages.Remove(m);
+                    _context.SaveChanges();
+                    _context.Messages.Add(msg);
+                    _context.SaveChanges();
+                    return msg;
+                }
+            }
+            return null;
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(int id)
         {
+            foreach(Message m in _context.Messages)
+            {
+                if (m.Id == id)
+                {
+                    _context.Messages.Remove(m);
+                    _context.SaveChanges();
+                    return "Deleted";
+                }
+            } return "Msg Not Found";
         }
     }
 }
