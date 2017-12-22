@@ -1,10 +1,19 @@
 ﻿<Properties StartupConfiguration="{9CB5770F-AC03-43BA-A51D-5C299ECA4D42}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ProjectsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/UsersController.cs">
     <Files>
-      <File FileName="Controllers/MessagesController.cs" Line="66" Column="18" />
-      <File FileName="Controllers/UsersController.cs" Line="42" Column="10" />
-      <File FileName="Controllers/TechnologiesController.cs" Line="21" Column="87" />
-      <File FileName="Controllers/ProjectsController.cs" Line="1" Column="1" />
+      <File FileName="Controllers/MessagesController.cs" Line="20" Column="204" />
+      <File FileName="Controllers/UsersController.cs" Line="13" Column="9" />
+      <File FileName="Controllers/TechnologiesController.cs" Line="26" Column="87" />
+      <File FileName="Controllers/UserProjectsController.cs" Line="8" Column="2" />
+      <File FileName="Model/UserProject.cs" Line="11" Column="2" />
+      <File FileName="DevMatchContext.cs" Line="20" Column="2" />
+      <File FileName="Controllers/UserTechnologiesController.cs" Line="93" Column="2" />
+      <File FileName="Model/UserTechnology.cs" Line="5" Column="32" />
+      <File FileName="Model/ProjectTechnology.cs" Line="12" Column="2" />
+      <File FileName="Controllers/ProjectTechnologiesController.cs" Line="32" Column="9" />
+      <File FileName="Model/Message.cs" Line="9" Column="41" />
+      <File FileName="Model/User.cs" Line="23" Column="45" />
+      <File FileName="Controllers/EmptyClass.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

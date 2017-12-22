@@ -1,4 +1,5 @@
-app.controller("userController", function ($scope, $state, $stateParams, userService) {
+app.controller("userController", function($scope, $state, $stateParams, userService) {
+    $(".tags").select2({ tags: true, width: '100%' }); //jquery box
 
     $scope.errorMessage = false;
 

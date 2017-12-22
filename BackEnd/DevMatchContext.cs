@@ -13,5 +13,8 @@ namespace BackEnd
         public DbSet<Project> Projects { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Technology> Technologies { get; set; }
+        public DbSet<UserProject> UserProjects { get; set; }
+        public DbSet<UserTechnology> UserTechnologies { get; set; }
+        public DbSet<ProjectTechnology> ProjectTechnologies { get; set; }
     }
 }

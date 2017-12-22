@@ -6,8 +6,8 @@ app.service("userService", function($http, $state) {
         return $http.get(serverLink + "users");
     }
 
-    this.getUserById = function(id, cb) {
-        if(id == null || id == undefined || id == "") {
+    this.getUserById = function (id, cb) {
+        if (id == null || id == undefined || id == "") {
             var user = {};
             cb(user);
         } else {

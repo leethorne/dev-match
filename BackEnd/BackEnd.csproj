@@ -18,4 +18,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Controllers\EmptyClass.cs" />
+  </ItemGroup>
 </Project>
