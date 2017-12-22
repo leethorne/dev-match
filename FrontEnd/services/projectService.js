@@ -1,7 +1,7 @@
 app.service("projectService", function($http, $state) {
   
     this.getProjects = function() {
-        return $http.get("http://localhost:5000/api/projects")
+        return $http.get(serverLink + "projects")
     }
 
     this.getProjectById = function(id, cb) {
@@ -9,7 +9,7 @@ app.service("projectService", function($http, $state) {
             var project = {};
             cb(project)
         } else {
-            $http.get("http://localhost:5000/api/projects" + id)
+            $http.get(serverLink + "projects" + id)
             .then (function(repsonse) {
                 console.log(response)
                 cb(response.data)
