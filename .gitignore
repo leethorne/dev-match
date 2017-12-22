@@ -1,6 +1,6 @@
-BackEnd/bin/*
-BackEnd/obj/*
-FrontEnd/node_modules/*
-.vscode/*
-.vs/*
+BackEnd/bin
+BackEnd/obj
+FrontEnd/node_modules
+.vscode
+.vs
 FrontEnd/js/globalvar.js
