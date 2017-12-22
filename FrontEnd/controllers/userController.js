@@ -13,6 +13,8 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
             //do something else here to alert user of a fail
         })
 
+    $scope.currentUser = userService.getCurrentUser();
+
     if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
         $scope.submitButton = true;
         $scope.heading = "Create Your DevMatch Profile!"
@@ -28,7 +30,6 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         userService.getUserById($stateParams.id, function (user) {
             $scope.user = user;
             console.log($scope.user);
-
         })
     }
 
@@ -66,10 +67,10 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
             })
     }
 
-    $scope.login = function (user) {
-        if (userService.login($scope.user) == false) {
-            $scope.errorMessage = true;
-        }
+    $scope.login = function () {
+        userService.login($scope.user, function(message) {
+            $scope.errorMessage = message;
+        })
     }
 
     // collapse create project form

@@ -13,6 +13,7 @@
         <div class="form-group">
           <input type="text" class="form-control home-username" placeholder="Username" required ng-model="user.username">
           <input type="password" class="form-control home-password" placeholder="Password" required ng-model="user.password">
+          <p ng-show="errorMessage">invalid username and password</p>
           <button ng-click="login()">submit</button>
         </div>
       </div>
