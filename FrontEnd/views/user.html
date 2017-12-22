@@ -1,9 +1,9 @@
 <div>
-  <img src="{{currentUser.Image}}">
+  <img src="{{user.Image}}">
   <div>
     <h3>Contact</h3>
-    <h4><strong>Phone:</strong> {{currentUser.PhoneNumber}}</h4>
-    <h4><strong>Email:</strong> {{currentUser.Email}}</h4>
+    <h4><strong>Phone:</strong> {{currentUser.phoneNumber}}</h4>
+    <h4><strong>Email:</strong> {{currentUser.email}}</h4>
     <h4><a href="{{currentUser.LinkedIn}}">View LinkedIn Profile</a></h4>
     <h4><a href="{{currentUser.GitHubLink}}">View GitHub Profile</a></h4>
     <button>Contact Me</button>
@@ -11,11 +11,11 @@
 </div>
 <div>
   <img class="edit" src="./img/edit.svg">
-  <h1>{{currentUser.FirstName}} {{currentUser.LastName}}</h1>
-  <h4>{{currentUser.currentUserName}}</h4>
+  <h1>{{currentUser.firstName}} {{currentUser.lastName}}</h1>
+  <h4>{{currentUser.userName}}</h4>
 
-  <h4><strong>Job Title:</strong> {{currentUser.JobTitle}}</h4>
-  <h4><strong>Proficiency Level:</strong> {{currentUser.ProficiencyLevel}}</h4>
+  <h4><strong>Job Title:</strong> {{currentUser.jobTitle}}</h4>
+  <h4><strong>Proficiency Level:</strong> {{currentUser.proficiencyLevel}}</h4>
 
   <div>
     <h3>My Skills: </h3>
@@ -51,7 +51,7 @@
     <div>
       <img class="edit" src="./img/edit.svg">
       <img class="delete" src="./img/delete.png">
-      <img src="{{currentUser.Image}}">
+      <img src="{{currentUser.image}}">
       <h4>{{project.ProjectName}}</h4>
       <p>{{project.Description}}</p>
       <p>{{project.Status}}</p>
