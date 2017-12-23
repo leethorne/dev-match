@@ -18,7 +18,7 @@ namespace BackEnd.Controllers
             if (_context.ProjectTechnologies.Count() == 0)
             {
                 _context.ProjectTechnologies.Add(new ProjectTechnology() { Id = 1, ProjectId = 1, TechnologyId = 1, IsSeeking = true });
-                _context.ProjectTechnologies.Add(new ProjectTechnology() { Id = 2, ProjectId = 2, TechnologyId = 2, IsSeeking = false });
+                _context.ProjectTechnologies.Add(new ProjectTechnology() { Id = 2, ProjectId = 1, TechnologyId = 2, IsSeeking = false });
                 _context.SaveChanges();
             }
         }

@@ -24,15 +24,15 @@ app.service("userService", function ($http, $state) {
     }
 
     this.addUser = function (user) {
-        return $http.post(serverLink + "users" + user)
+        return $http.post(serverLink + "users/", user)
     }
 
     this.updateUser = function (id, user) {
-        return $http.put(serverLink + "users" + id, user)
+        return $http.put(serverLink + "users/" + id, user)
     }
 
     this.deleteUser = function (id) {
-        return $http.delete(serverLink + "users" + id);
+        return $http.delete(serverLink + "users/" + id);
     }
 
     this.getCurrentUser = function () {

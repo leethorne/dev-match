@@ -59,6 +59,7 @@ namespace BackEnd.Controllers
                     x.Add(u);
                     return x;
                 }
+
             }
             return null;    
         }
@@ -81,6 +82,7 @@ namespace BackEnd.Controllers
         [HttpPost]
         public User Post([FromBody]User u)
         {
+            u.Id = _context.Users.Count() + 1;
             _context.Users.Add(u);
             _context.SaveChanges();
             return u;
