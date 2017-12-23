@@ -1,60 +1,73 @@
-<div>
-  <img src="{{user.Image}}">
-  <div>
-    <h3>Contact</h3>
-    <h4><strong>Phone:</strong> {{currentUser.phoneNumber}}</h4>
-    <h4><strong>Email:</strong> {{currentUser.email}}</h4>
-    <h4><a href="{{currentUser.LinkedIn}}">View LinkedIn Profile</a></h4>
-    <h4><a href="{{currentUser.GitHubLink}}">View GitHub Profile</a></h4>
-    <button>Contact Me</button>
+<div class="container">
+  <div class="user-header">
+    <a href="./views/projects.html">
+      <img class="page-logo-black" src="./img/Logo.png">
+    </a>
   </div>
-</div>
-<div>
-  <img class="edit" src="./img/edit.svg">
-  <h1>{{currentUser.firstName}} {{currentUser.lastName}}</h1>
-  <h4>{{currentUser.userName}}</h4>
-
-  <h4><strong>Job Title:</strong> {{currentUser.jobTitle}}</h4>
-  <h4><strong>Proficiency Level:</strong> {{currentUser.proficiencyLevel}}</h4>
-
-  <div>
-    <h3>My Skills: </h3>
-    
-  </div>
-
-  <div>
-    <h3>My Projects: </h3>
-    <p class="add-proj">+</p>
-    <div class="form-group col-md-12 create-project">
-      <input type="text" class="form-control" placeholder="Project Name">
-      <textarea placeholder="Blurb"></textarea>
-      <select name="text" title="Desired Team Size">
-        <option value="value1" selected>2</option>
-        <option value="value2">3</option>
-        <option value="value3">4</option>
-        <option value="value4">5</option>
-        <option value="value5">6</option>
-        <option value="value6">7</option>
-        <option value="value7">8</option>
-        <option value="value8">9</option>
-        <option value="value9">10</option>
-      </select>
-      <select name="text" title="Desired Team Size">
-        <option value="value1" selected>Not Started</option>
-        <option value="value2">In Progress</option>
-      </select>
-      <p>Seeking developers with the following skills:</p>
-      <input type="text" class="form-control" placeholder="Skills">
-      <p>Technologies Using:</p>
-      <input type="text" class="form-control" placeholder="Technologies">
+  <div class="col-md-4 user-contact-block">
+    <img class="user-profile-pic img-responsive" src="{{user.image}}">
+    <div class="">
+      <h3 class="text-center user-contact-header">Contact</h3>
+      <h4><strong>Phone:</strong> {{currentUser.phoneNumber}}</h4>
+      <h4><strong>Email:</strong> {{currentUser.email}}</h4>
+      <h4><a href="{{currentUser.LinkedIn}}">View LinkedIn Profile</a></h4>
+      <h4><a href="{{currentUser.GitHubLink}}">View GitHub Profile</a></h4>
+      <button class="user-contact-me">Contact Me</button>
     </div>
+  </div>
+  <div class="col-md-8 user-info-block">
+    <img class="edit user-edit" src="./img/edit.svg">
+    <h1 class="user-full-name">{{currentUser.firstName}} {{currentUser.lastName}}</h1>
+    <h4>{{currentUser.userName}}</h4>
+
+    <h4><strong>Job Title:</strong> {{currentUser.jobTitle}}</h4>
+    <h4><strong>Proficiency Level:</strong> {{currentUser.proficiencyLevel}}</h4>
+
     <div>
-      <img class="edit" src="./img/edit.svg">
-      <img class="delete" src="./img/delete.png">
-      <img src="{{currentUser.image}}">
-      <h4>{{project.ProjectName}}</h4>
-      <p>{{project.Description}}</p>
-      <p>{{project.Status}}</p>
+      <h3>My Skills: </h3>
+      
+    </div>
+
+    <div>
+      <h3>My Projects: </h3>
+      <div>
+        <p class="add-proj user-add-proj">+</p>
+        <div class="form-group col-md-12 create-project">
+          <input type="text" class="form-control" placeholder="Project Name">
+          <textarea placeholder="Blurb"></textarea>
+          <select name="text" title="Desired Team Size">
+            <option value="value1" selected>2</option>
+            <option value="value2">3</option>
+            <option value="value3">4</option>
+            <option value="value4">5</option>
+            <option value="value5">6</option>
+            <option value="value6">7</option>
+            <option value="value7">8</option>
+            <option value="value8">9</option>
+            <option value="value9">10</option>
+          </select>
+          <select name="text" title="Desired Team Size">
+            <option value="value1" selected>Not Started</option>
+            <option value="value2">In Progress</option>
+          </select>
+          <p>Seeking developers with the following skills:</p>
+          <input type="text" class="form-control" placeholder="Skills">
+          <p>Technologies Using:</p>
+          <input type="text" class="form-control" placeholder="Technologies">
+        </div>
+      </div>
+      <div class="user-proj-list">
+        <div class="user-proj-tile">
+          <div class="user-proj-fn">
+            <img class="edit user-proj-edit" src="./img/edit.svg">
+            <img class="delete" src="./img/delete.png">
+          </div>
+          <img class="user-proj-img" src="{{currentUser.image}}">
+          <h4>{{project.ProjectName}}</h4>
+          <p>{{project.Description}}</p>
+          <p>{{project.Status}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

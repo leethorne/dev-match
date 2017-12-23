@@ -157,3 +157,61 @@ body {
 .create-project {
 	display: none;
 }
+
+/* profile */
+.user-profile-pic {
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	margin: 0px auto;
+}
+.user-contact-me {
+	background: #FFF;
+	font-size: 18px;
+	padding: 8px 20px;
+	border: 3px solid #0844A4;
+	text-transform: uppercase;
+	color: #0844A4;
+	margin: 0px auto;
+}
+.user-header {
+	background: url('../img/user-header.jpg') no-repeat;
+	background-size: cover;
+	height: 200px;
+}
+.user-edit {
+	float: right;
+}
+.user-contact-block {
+	margin-top: -75px;
+}
+.user-contact-header {
+	margin: 40px 0px;
+}
+.user-info-block {
+	margin-top: 75px;
+}
+.user-full-name {
+	margin: 40px 0px;
+}
+.user-add-proj {
+	text-align: right;
+}
+.user-proj-tile {
+	border: 1px black;
+}
+.user-proj-edit {
+
+}
+.user-proj-delete {
+
+}
+.user-proj-fn {
+	float: right;
+}
+.user-proj-img {
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+	margin: 20px;
+}
