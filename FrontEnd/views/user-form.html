@@ -2,11 +2,11 @@
   <h1 class="text-center"> {{ heading }} </h1>
   <div class="form-group col-md-3">
     <label for="username">Username</label>
-    <input id="username" type="text" class="form-control" placeholder="Password" ng-model="currentUser.userName">
+    <input id="username" type="text" class="form-control" placeholder="Password" ng-model="user.userName">
   </div>
   <div class="form-group col-md-3">
     <label for="password">Password</label>
-    <input id="password" type="password" class="form-control" placeholder="Password" ng-model="currentUser.password">
+    <input id="password" type="password" class="form-control" placeholder="Password" ng-model="user.password">
   </div>
   <div class="form-group col-md-3">
     <label for="confirmPassword">Confirm Password</label>
@@ -14,46 +14,46 @@
   </div>
   <div class="form-group col-md-3">
     <label for="firstName">First Name</label>
-    <input id="firstName" type="text" class="form-control" placeholder="First Name" ng-model="currentUser.firstName">
+    <input id="firstName" type="text" class="form-control" placeholder="First Name" ng-model="user.firstName">
   </div>
   <div class="form-group col-md-3">
     <label for="lastName">Last Name</label>
-    <input id="lastName" type="text" class="form-control" placeholder="Last Name" ng-model="currentUser.lastName">
+    <input id="lastName" type="text" class="form-control" placeholder="Last Name" ng-model="user.lastName">
   </div>
   <div class="form-group col-md-3">
     <label for="jobTitle">Job Title</label>
-    <input id="jobTitle" type="text" class="form-control" placeholder="Job Title" ng-model="currentUser.jobTitle">
+    <input id="jobTitle" type="text" class="form-control" placeholder="Job Title" ng-model="user.jobTitle">
   </div>
   <div class="form-group col-md-3">
     <label for="email">Email</label>
-    <input id="email" type="email" class="form-control" placeholder="Email" ng-model="currentUser.email">
+    <input id="email" type="email" class="form-control" placeholder="Email" ng-model="user.email">
   </div>
   <div class="form-group col-md-3">
     <label for="phoneNumber">Phone</label>
-    <input id="phoneNumber" type="text" class="form-control" placeholder="Phone" ng-model="currentUser.phoneNumber">
+    <input id="phoneNumber" type="text" class="form-control" placeholder="Phone" ng-model="user.phoneNumber">
   </div>
   <div class="form-group col-md-3">
     <label for="addressLine1">Address Line 1</label>
-    <input id="addressLine1" type="text" class="form-control" placeholder="Address Line 1" ng-model="currentUser.addressLine1">
+    <input id="addressLine1" type="text" class="form-control" placeholder="Address Line 1" ng-model="user.addressLine1">
   </div>
   <div class="form-group col-md-3">
     <label for="addressLine2">Address Line 2</label>
-    <input id="addressLine2" type="text" class="form-control" placeholder="Address Line 2" ng-model="currentUser.addressLine2">
+    <input id="addressLine2" type="text" class="form-control" placeholder="Address Line 2" ng-model="user.addressLine2">
   </div>
   <div class="form-group col-md-3">
     <label for="city">City</label>
-    <input id="city" type="text" class="form-control" placeholder="City" ng-model="currentUser.city">
+    <input id="city" type="text" class="form-control" placeholder="City" ng-model="user.city">
   </div>
   <div class="form-group col-md-3">
     <label for="state">State</label>
-    <input id="state" type="text" class="form-control" placeholder="State" ng-model="currentUser.state">
+    <input id="state" type="text" class="form-control" placeholder="State" ng-model="user.state">
   </div>
   <div class="form-group col-md-3">
     <label for="zip">Zip Code</label>
-    <input id="zip" type="number" class="form-control" placeholder="Zip Code" ng-model="currentUser.zip">
+    <input id="zip" type="number" class="form-control" placeholder="Zip Code" ng-model="user.zip">
   </div>
   <div class="form-group col-md-3">
-    <select name="text" title="Proficiency Level" ng-model="currentUser.proficiencyLevel">
+    <select name="text" title="Proficiency Level" ng-model="user.proficiencyLevel">
       <option value="value1" selected>Beginner</option> 
       <option value="value2">Intermediate</option>
       <option value="value3">Advanced</option>
@@ -61,16 +61,16 @@
   </div>
   <div class="form-group col-md-3">
     <label for="linkedIn">LinkedIn</label>
-    <input id="linkedIn" type="text" class="form-control" placeholder="LinkedIn" ng-model="currentUser.linkedIn">
+    <input id="linkedIn" type="text" class="form-control" placeholder="LinkedIn" ng-model="user.linkedIn">
   </div>
   <div class="form-group col-md-3">
     <label for="gitHub">GitHub</label>
-    <input id="gitHub" type="text" class="form-control" placeholder="GitHub" ng-model="currentUser.gitHubLink">
+    <input id="gitHub" type="text" class="form-control" placeholder="GitHub" ng-model="user.gitHubLink">
   </div>
   <div class="form-group">
     <div id="image-preview">
       <label for="image-upload" id="image-label">Choose File</label>
-      <input type="file" name="image" id="image-upload" ng-model="currentUser.image"/>
+      <input type="file" name="image" id="image-upload" ng-model="user.image"/>
     </div>
   </div>
 
@@ -79,7 +79,7 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">Technical Skills:</label>
         <div class="col-sm-10">
-          <select multiple="" class="tags" ng-model=""> 
+          <select multiple="" class="tags"> 
                     <option>HTML</option>
                     <option>CSS</option>
                     <option>BootStrap</option>

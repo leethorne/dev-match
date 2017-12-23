@@ -1,4 +1,5 @@
 app.controller("userController", function($scope, $state, $stateParams, userService) {
+
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
 
     $scope.errorMessage = false;
@@ -28,17 +29,20 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         $scope.heading = "Update Your DevMatch Profile!";
 
         userService.getUserById($stateParams.id, function (user) {
-            $scope.currentUser = user;
-            console.log($scope.currentUser);
+            $scope.user = user;
+            console.log($scope.user);
         })
     }
 
     $scope.addUser = function () {
+        console.log("user berfore function: ", $scope.user)
         userService.addUser($scope.user)
             .then(function (response) {
                 console.log(response.data);
-                $scope.currentUser = response.data
-                $state.go("user", {id: $scope.currentUser.id})
+                $scope.user = response.data;
+                console.log("userrrr: ", $scope.user)
+                $state.go("user", {id: $scope.user.id});
+
             }, function (error) {
                 console.log("you have an error: ", error)
                 //do something here to display error msg
