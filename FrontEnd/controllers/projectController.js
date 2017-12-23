@@ -1,7 +1,16 @@
 app.controller("projectController", function($scope, $state, $stateParams, projectService) {
 
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
-    
+
+    console.log("tech: ", $scope.projectSeekingTechnology);
+//attempting to bind data
+$scope.ProjTech = [];
+    $scope.seekingTechnologies = function() {
+        if($scope.projectSeekingTechnology == technology.Name) {
+            console.log("tech fun: ", $scope.projectSeekingTechnology)
+            $scope.ProjTech.push(projectSeekingTechnology);
+        }
+    }
     // collapse Form
     $('.add-proj').click(function () {
         console.log("clicked");

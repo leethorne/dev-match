@@ -28,8 +28,8 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         $scope.heading = "Update Your DevMatch Profile!";
 
         userService.getUserById($stateParams.id, function (user) {
-            $scope.user = user;
-            console.log($scope.user);
+            $scope.currentUser = user;
+            console.log($scope.currentUser);
         })
     }
 
@@ -37,10 +37,10 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         userService.addUser($scope.user)
             .then(function (response) {
                 console.log(response.data);
-                //do something with route data to display. set equal to $scope.something to ng-repeat
-                //$state.go to profile page or dev map?
+                $scope.currentUser = response.data
+                $state.go("user", {id: $scope.currentUser.id})
             }, function (error) {
-                console.log(error)
+                console.log("you have an error: ", error)
                 //do something here to display error msg
             })
     }
