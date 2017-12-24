@@ -10,7 +10,7 @@ app.service("projectService", function($http, $state) {
             cb(project)
         } else {
             $http.get(serverLink + "projects/" + id)
-            .then (function(repsonse) {
+            .then (function(response) {
                 console.log(response)
                 cb(response.data)
             }, function(error) {

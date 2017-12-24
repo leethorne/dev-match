@@ -1,9 +1,9 @@
 <div class="container">
   <h1>Edit Project</h1>
   <div class="form-group col-md-12">
-    <input type="text" class="form-control" placeholder="Project Name">
+    <input type="text" class="form-control" placeholder="Project Name" ng-model="project.ProjectName">
     <textarea placeholder="Blurb"></textarea> Desired Team Size
-    <select name="text" title="Desired Team Size">
+    <select name="text" title="Desired Team Size" ng-model="project.DesiredTeamSize">
           <option value="value1" selected>2</option>
           <option value="value2">3</option>
           <option value="value3">4</option>
@@ -14,7 +14,7 @@
           <option value="value8">9</option>
           <option value="value9">10</option>
       </select> Current Team Size
-    <select name="text" title="Current Team Size">
+    <select name="text" title="Current Team Size" ng-model="project.CurrentTeamSize">
         <option value="value1" selected>2</option>
         <option value="value2">3</option>
         <option value="value3">4</option>
@@ -24,8 +24,8 @@
         <option value="value7">8</option>
         <option value="value8">9</option>
         <option value="value9">10</option>
-      </select>
-    <select name="text" title="Desired Team Size">
+      </select> Project Status
+    <select name="text" title="Project Status" ng-model="project.status">
         <option value="value1" selected>Not Started</option>
         <option value="value2">In Progress</option>
         <option value="value3">Completed</option>
