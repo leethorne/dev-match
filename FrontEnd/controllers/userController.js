@@ -1,5 +1,4 @@
-app.controller("userController", function($scope, $state, $stateParams, userService) {
-
+app.controller("userController", function ($scope, $state, $stateParams, userService) {
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
 
     $scope.errorMessage = false;
@@ -71,7 +70,7 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
     }
 
     $scope.login = function () {
-        userService.login($scope.user, function(message) {
+        userService.login($scope.user, function (message) {
             $scope.errorMessage = message;
         })
     }
@@ -80,23 +79,25 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         userService.logout($scope.currentUser);
     }
 
-    // collapse create project form
-    $('.add-proj').click(function () {
-        $addProj = $(this);
-        $projForm = $('.create-project');
-        $projForm.slideToggle(500, function () {
-            $addProj.text(function () {
-                return $addProj.is(':visible') ? '-' : '+';
-            });
-        });
-    });
-
     // collapse login form
     $('.login').click(function () {
         console.log("clicked");
         $addProj = $(this);
         $projForm = $('.login-form');
         $projForm.slideToggle(500);
+    });
+
+    // collapse create project form
+    $(document).ready(function () {
+        $(".add-proj").click(function () {
+            $(".create-project").slideToggle(500);
+            if ($(".add-proj").text() == "+") {
+                $(".add-proj").html("-")
+            }
+            else {
+                $(".add-proj").text("+")
+            }
+        });
     });
 
     // profile pic preview
@@ -107,5 +108,40 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
             label_field: "#image-label"
         });
     });
+
+    // input fields 
+    (function () {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+            (function () {
+                // Make sure we trim BOM and NBSP
+                var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                String.prototype.trim = function () {
+                    return this.replace(rtrim, '');
+                };
+            })();
+        }
+
+        [].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+            // in case the input is already filled..
+            if (inputEl.value.trim() !== '') {
+                classie.add(inputEl.parentNode, 'input--filled');
+            }
+
+            // events:
+            inputEl.addEventListener('focus', onInputFocus);
+            inputEl.addEventListener('blur', onInputBlur);
+        });
+
+        function onInputFocus(ev) {
+            classie.add(ev.target.parentNode, 'input--filled');
+        }
+
+        function onInputBlur(ev) {
+            if (ev.target.value.trim() === '') {
+                classie.remove(ev.target.parentNode, 'input--filled');
+            }
+        }
+    })();
 });
 

@@ -1,122 +1,200 @@
 <div class="container">
-  <h1 class="text-center"> {{ heading }} </h1>
-  <div class="form-group col-md-3">
-    <label for="username">Username</label>
-    <input id="username" type="text" class="form-control" placeholder="Password" ng-model="user.userName">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="password">Password</label>
-    <input id="password" type="password" class="form-control" placeholder="Password" ng-model="user.password">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="confirmPassword">Confirm Password</label>
-    <input id="confirmPassword" type="password" class="form-control" placeholder="Confirm Password">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="firstName">First Name</label>
-    <input id="firstName" type="text" class="form-control" placeholder="First Name" ng-model="user.firstName">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="lastName">Last Name</label>
-    <input id="lastName" type="text" class="form-control" placeholder="Last Name" ng-model="user.lastName">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="jobTitle">Job Title</label>
-    <input id="jobTitle" type="text" class="form-control" placeholder="Job Title" ng-model="user.jobTitle">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="email">Email</label>
-    <input id="email" type="email" class="form-control" placeholder="Email" ng-model="user.email">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="phoneNumber">Phone</label>
-    <input id="phoneNumber" type="text" class="form-control" placeholder="Phone" ng-model="user.phoneNumber">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="addressLine1">Address Line 1</label>
-    <input id="addressLine1" type="text" class="form-control" placeholder="Address Line 1" ng-model="user.addressLine1">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="addressLine2">Address Line 2</label>
-    <input id="addressLine2" type="text" class="form-control" placeholder="Address Line 2" ng-model="user.addressLine2">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="city">City</label>
-    <input id="city" type="text" class="form-control" placeholder="City" ng-model="user.city">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="state">State</label>
-    <input id="state" type="text" class="form-control" placeholder="State" ng-model="user.state">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="zip">Zip Code</label>
-    <input id="zip" type="number" class="form-control" placeholder="Zip Code" ng-model="user.zip">
-  </div>
-  <div class="form-group col-md-3">
-    <select name="text" title="Proficiency Level" ng-model="user.proficiencyLevel">
-      <option value="value1" selected>Beginner</option> 
-      <option value="value2">Intermediate</option>
-      <option value="value3">Advanced</option>
-    </select>
-  </div>
-  <div class="form-group col-md-3">
-    <label for="linkedIn">LinkedIn</label>
-    <input id="linkedIn" type="text" class="form-control" placeholder="LinkedIn" ng-model="user.linkedIn">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="gitHub">GitHub</label>
-    <input id="gitHub" type="text" class="form-control" placeholder="GitHub" ng-model="user.gitHubLink">
-  </div>
-  <div class="form-group">
-    <div id="image-preview">
-      <label for="image-upload" id="image-label">Choose File</label>
-      <input type="file" name="image" id="image-upload" ng-model="user.image"/>
+  <img ui-sref="home" class="logo reg-logo" src="./img/Logo.png">
+  <h1 class="text-center reg-heading"> {{ heading }} </h1>
+  <div class="row">
+    <div class="form-group image-sel">
+      <div id="image-preview">
+        <label for="image-upload" id="image-label">Choose File</label>
+        <input type="file" name="image" id="image-upload" ng-model="user.image"/>
+      </div>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="username" ng-model="user.userName">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="username">
+          <span class="input__label-content input__label-content--hoshi">Username</span>
+        </label>
+      </span>
     </div>
   </div>
-
-  <div id="skills" class="tab-pane cont">
-    <div class="panel-body form-horizontal">
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Technical Skills:</label>
-        <div class="col-sm-10">
-          <select multiple="" class="tags"> 
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>BootStrap</option>
-                    <option>JavaScript</option>
-                    <option>AngularJS</option>
-                    <option>C#</option>
-                    <option>ASP.NET Core</option>
-                    <option>Node.js</option>
-                    <option>MySQL</option>
-                    <option>React</option>
-                    <option>Ojective-C</option>
-                    <option>jQuery</option>
-                    <option>MongoDB</option>
-                    <option>C / C++</option>
-                    <option>Ruby</option>
-                    <option>SpringMVC</option>
-                    <option>Java</option>
-                    <option>PHP</option>
-                    <option>AWS</option>
-                    <option>Azure</option>
-                    <option>Entity Framework Core</option>
-                    <option>SQL Server</option>
-                    <option>Dapper</option>
-                    <option>NancyFX</option>
-                    <option>.Net Core 2.0</option>
-                    <option>C#</option>
-                    <option>Xcode</option>
-                    <option>Swift</option>
-                    <option>Django</option>
-                    <option>Ajax</option>
-                    <option>Python</option>
-                  </select>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="password" id="password" ng-model="user.password">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="password">
+          <span class="input__label-content input__label-content--hoshi">Password</span>
+        </label>
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="password" id="confirmPassword" ng-model="user.confirmPassword">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="confirmPassword">
+          <span class="input__label-content input__label-content--hoshi">Confirm Password</span>
+        </label>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="firstName" ng-model="user.firstName">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="firstName">
+          <span class="input__label-content input__label-content--hoshi">First Name</span>
+        </label>
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="lastName" ng-model="user.lastName">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="lastName">
+          <span class="input__label-content input__label-content--hoshi">Last Name</span>
+        </label>
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="jobTitle" ng-model="user.jobTitle">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="jobTitle">
+          <span class="input__label-content input__label-content--hoshi">Job Title</span>
+        </label>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="email" id="email" ng-model="user.email">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="email">
+          <span class="input__label-content input__label-content--hoshi">Email</span>
+        </label>
+      </span>
+    </div>
+    <div class="form-group col-md-6">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="phoneNum" ng-model="user.phoneNumber">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="phoneNum">
+          <span class="input__label-content input__label-content--hoshi">Phone</span>
+        </label>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="addressLine1" ng-model="user.addressLine1">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="addressLine1">
+          <span class="input__label-content input__label-content--hoshi">Address Line 1</span>
+        </label>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="addressLine2" ng-model="user.addressLine2">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="addressLine2">
+          <span class="input__label-content input__label-content--hoshi">Address Line 2</span>
+        </label>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="city" ng-model="user.city">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="city">
+          <span class="input__label-content input__label-content--hoshi">City</span>
+        </label>
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="state" ng-model="user.state">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="state">
+          <span class="input__label-content input__label-content--hoshi">State</span>
+        </label>
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="number" id="zip" ng-model="user.zip">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="zip">
+          <span class="input__label-content input__label-content--hoshi">Zip Code</span>
+        </label>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4 reg-sel">
+      <select class="reg-skill-level input--hoshi" name="text" title="Proficiency Level" ng-model="user.proficiencyLevel">
+        <option value="" disabled selected>Select proficiency level</option>
+        <option value="value1">Beginner</option> 
+        <option value="value2">Intermediate</option>
+        <option value="value3">Advanced</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="linkedIn" ng-model="user.linkedIn">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="linkedIn">
+          <span class="input__label-content input__label-content--hoshi">LinkedIn</span>
+        </label>
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="gitHub" ng-model="user.gitHubLink">
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="gitHub">
+          <span class="input__label-content input__label-content--hoshi">GitHub</span>
+        </label>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div id="skills" class="tab-pane cont">
+      <div class="panel-body form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-2 control-label reg-tech">Technical Skills</label>
+          <div class="col-sm-10">
+            <select multiple="" class="tags">
+                      <option>HTML</option>
+                      <option>CSS</option>
+                      <option>BootStrap</option>
+                      <option>JavaScript</option>
+                      <option>AngularJS</option>
+                      <option>C#</option>
+                      <option>ASP.NET Core</option>
+                      <option>Node.js</option>
+                      <option>MySQL</option>
+                      <option>React</option>
+                      <option>Ojective-C</option>
+                      <option>jQuery</option>
+                      <option>MongoDB</option>
+                      <option>C / C++</option>
+                      <option>Ruby</option>
+                      <option>SpringMVC</option>
+                      <option>Java</option>
+                      <option>PHP</option>
+                      <option>AWS</option>
+                      <option>Azure</option>
+                      <option>Entity Framework Core</option>
+                      <option>SQL Server</option>
+                      <option>Dapper</option>
+                      <option>NancyFX</option>
+                      <option>.Net Core 2.0</option>
+                      <option>C#</option>
+                      <option>Xcode</option>
+                      <option>Swift</option>
+                      <option>Django</option>
+                      <option>Ajax</option>
+                      <option>Python</option>
+                    </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <button class="btn btn-primary btn-lg pull-right" ng-show="submitButton" ng-click="addUser()">Submit</button>
-  <button class="btn btn-success btn-lg pull-right" ng-show="!submitButton" ng-click="updateUser()">Update</button>
+  <button class="light-btn pull-right" ng-show="submitButton" ng-click="addUser()">Submit</button>
+  <button class="light-btn pull-right" ng-show="!submitButton" ng-click="updateUser()">Update</button>
 </div>

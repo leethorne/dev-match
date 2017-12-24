@@ -1,7 +1,9 @@
 * {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: .05em;
 }
 body {
 	background-color: #F8F6F5;
@@ -9,6 +11,18 @@ body {
 /* buttons */
 .edit, .delete {
 	height: 20px;
+}
+.light-btn {
+	background: #FFF;
+	border-radius: 0;
+	color: #0844A4;
+	font-weight: bold;
+	border: 3px solid;
+	margin-bottom: 100px;
+	margin-top: 15px;
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 10px 20px;
 }
 /* home */
 .hero {
@@ -48,6 +62,17 @@ body {
 .login-btns {
 	float: right;
 }
+.login-submit {
+	background: #0844A4;
+	border-radius: 0;
+	color: #FFF;
+	font-weight: 500;
+	border: 2px solid;
+	margin-top: 15px;
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 5px 20px;
+}
 .users-create, .login {
 	display: inline;
 	margin: 0px 20px;
@@ -60,15 +85,19 @@ body {
 	padding: 10px 20px;
 }
 .home-username, .home-password {
-	margin-bottom: 20px;
-	margin-bottom: 20px;
+	width: 260px;
+	margin-bottom: 2px;
+	margin-top: 5px;
 	border-radius: 0px;
 	background: transparent;
 	border-left: none;
 	border-right: none;
 	border-top: none;
-	border-bottom: 2px solid white;
 	color: #FFF;
+	margin-left: 0px;
+}
+.home-password > .input__field--hoshi, .home-username > .input__field--hoshi, .home-password > .input__label--hoshi, .home-username > .input__label--hoshi {
+	color: #c5c8d1;
 }
 .home-username::-webkit-input-placeholder, .home-password::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
@@ -115,13 +144,26 @@ body {
 	text-transform: uppercase;
 }
 /* Register */
+.reg-heading {
+	margin: 40px 0px;
+	margin-top: -60px;
+}
+.reg-logo {
+	margin-left: 0px;
+	margin-top: 40px;
+}
+.image-sel {
+	position: relative;
+	float: right;
+}
 #image-preview {
-  width: 400px;
-  height: 400px;
-  position: relative;
+  width: 200px;
+  height: 200px;
+	position: absolute;
   overflow: hidden;
   background-color: #ffffff;
-  color: #ecf0f1;
+	color: #ecf0f1;
+	right: 0;
 }
 #image-preview input {
   line-height: 200px;
@@ -136,10 +178,10 @@ body {
   opacity: 0.8;
   cursor: pointer;
   background-color: #bdc3c7;
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  line-height: 50px;
+	width: 140px;
+	height: 40px;
+	font-size: 16px;
+	line-height: 40px;
   text-transform: uppercase;
   top: 0;
   left: 0;
@@ -147,6 +189,36 @@ body {
   bottom: 0;
   margin: auto;
   text-align: center;
+}
+.reg-skill-level {
+	background: transparent;
+	width: 100%;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	width: 100%;
+	background: transparent;
+	color: #595F6E;
+	font-size: 20px;
+	margin-top: 36px;
+	padding-bottom: 10px;
+}
+.reg-sel {
+	height: 75px;
+  display: block;
+}
+/* select 2 mods */
+span.select2-selection.select2-selection--multiple {
+	background: transparent;
+	border-radius: 0;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+.reg-tech {
+	color: #6a7989;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 /* Projects */
@@ -156,9 +228,14 @@ body {
 }
 .create-project {
 	display: none;
+	border: 1px solid #ccc;
+	padding: 20px 20px;
 }
 
 /* profile */
+.page-logo-black {
+	margin-top: 40px;
+}
 .user-profile-pic {
 	border-radius: 50%;
 	height: 150px;
@@ -166,18 +243,12 @@ body {
 	margin: 0px auto;
 }
 .user-contact-me {
-	background: #FFF;
-	font-size: 18px;
-	padding: 8px 20px;
-	border: 3px solid #0844A4;
-	text-transform: uppercase;
-	color: #0844A4;
 	margin: 0px auto;
 }
 .user-header {
-	background: url('../img/user-header.jpg') no-repeat;
+	background: url('../img/header.png') no-repeat;
 	background-size: cover;
-	height: 200px;
+	height: 240px;
 }
 .user-edit {
 	float: right;
@@ -200,6 +271,9 @@ body {
 .user-proj-tile {
 	border: 1px black;
 }
+.user-proj-list {
+	display: inline-block;
+}
 .user-proj-edit {
 
 }
@@ -214,4 +288,30 @@ body {
 	height: 80px;
 	width: 80px;
 	margin: 20px;
+}
+.create-project > .input--hoshi {
+	margin: 0px 0px;
+}
+.user-proj-blurb {
+	background: transparent;
+	margin: 20px 0px;
+	color: #595F6E;
+	font-size: 18px;
+	padding: 10px;
+}
+.user-proj-blurb::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font-size: 20px;
+	font-weight: bold;
+}
+.user-proj-blurb::-moz-placeholder { /* Firefox 19+ */
+	font-size: 20px;
+	font-weight: bold;
+}
+.user-proj-blurb:-ms-input-placeholder { /* IE 10+ */
+	font-size: 20px;
+	font-weight: bold;
+}
+.user-proj-blurb:-moz-placeholder { /* Firefox 18- */
+	font-size: 20px;
+	font-weight: bold;
 }
