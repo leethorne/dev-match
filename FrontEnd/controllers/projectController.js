@@ -1,16 +1,18 @@
 app.controller("projectController", function($scope, $state, $stateParams, projectService) {
 
-    $(".tags").select2({ tags: true, width: '100%' }); //jquery box
+    //jquery box
+    $(".tags").select2({ tags: true, width: '100%' });
 
-    console.log("tech: ", $scope.projectSeekingTechnology);
-//attempting to bind data
-$scope.ProjTech = [];
-    $scope.seekingTechnologies = function() {
-        if($scope.projectSeekingTechnology == technology.Name) {
-            console.log("tech fun: ", $scope.projectSeekingTechnology)
-            $scope.ProjTech.push(projectSeekingTechnology);
-        }
-    }
+//     console.log("tech: ", $scope.projectSeekingTechnology);
+// //attempting to bind data
+// $scope.ProjTech = [];
+//     $scope.seekingTechnologies = function() {
+//         if($scope.projectSeekingTechnology == technology.Name) {
+//             console.log("tech fun: ", $scope.projectSeekingTechnology)
+//             $scope.ProjTech.push(projectSeekingTechnology);
+//         }
+//     }
+
     // collapse Form
     $('.add-proj').click(function () {
         console.log("clicked");
@@ -26,7 +28,7 @@ $scope.ProjTech = [];
     projectService.getProjects()
         .then(function(response) {
             console.log(response);
-            //set $scope.projects to something here once we can get data
+            $scope.projects = response.data;
         }, function(error) {
             console.log(error);
             //handle error messages here to the user
@@ -49,9 +51,10 @@ $scope.ProjTech = [];
         .then(function(reponse) {
             $scope.project = response.data;
             console.log($scope.project)
-            //$state.go to porject wall?
+            //$state.go to project wall?
         }, function(error) {
             console.log(error)
+            //make error message for user if failed
         })
     }
 
@@ -59,10 +62,10 @@ $scope.ProjTech = [];
         projectService.updateProject($stateParams.id, $scope.project)
         .then (function(response) {
             console.log(response)
-            //set $scope.project to reponse data? 
-            //state.go to project page? 
+            //state.go to project wall page? 
         }, function(error) {
             console.log(error)
+            //error msg here to user 
         })
     }
 

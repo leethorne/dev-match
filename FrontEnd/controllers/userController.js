@@ -7,8 +7,7 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
     userService.getUsers()
         .then(function (response) {
             console.log(response.data);
-            // $scope.users = response.data;
-            //do something with route data to display. set equal to $scope.something to ng-repeat
+            $scope.users = response.data;
         }, function (error) {
             console.log(error);
             //do something else here to alert user of a fail
@@ -53,8 +52,8 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         userService.updateUser($stateParams.id, $scope.user)
             .then(function (response) {
                 console.log(response.data);
-                //once we get results set the $scope.user to response.data
-                //state.go to profile/"my account" page?
+                $scope.user = response.data;
+                $state.go("user", { id: user.id });
             }, function (error) {
                 console.log(error)
                 //insert error message here for users
@@ -75,6 +74,10 @@ app.controller("userController", function($scope, $state, $stateParams, userServ
         userService.login($scope.user, function(message) {
             $scope.errorMessage = message;
         })
+    }
+
+    $scope.logout = function() {
+        userService.logout($scope.currentUser);
     }
 
     // collapse create project form

@@ -23,7 +23,7 @@ app.service("userService", function ($http, $state) {
         }
     }
 
-    this.addUser = function (user) {
+    this.addUser = function (user) { //register new user 
         return $http.post(serverLink + "users/", user)
     }
 
@@ -54,5 +54,10 @@ app.service("userService", function ($http, $state) {
             }, function (error) {
                 console.log(error);
             })
+    }
+
+    this.logout = function() {
+        that.currentUser = null;
+        $state.go("home");
     }
 });
