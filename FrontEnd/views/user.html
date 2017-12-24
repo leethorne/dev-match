@@ -1,29 +1,39 @@
-<div class="container">
-  <div class="user-header">
-    <img ui-sref="projects" class="page-logo-black" src="./img/Logo.png">
+<div class="user-header">
+  <div class="container">
+    <img ui-sref="projects" class="page-logo-black" src="./img/logo-black.png">
   </div>
+</div>
+<div class="container">
   <div class="col-md-4 user-contact-block">
-    <img class="user-profile-pic img-responsive" src="{{user.image}}">
-    <div class="">
+    <img class="user-profile-pic img-responsive" src="{{currentUser.image}}">
+    <div>
       <h3 class="text-center user-contact-header">Contact</h3>
-      <h4><strong>Phone:</strong> {{currentUser.phoneNumber}}</h4>
-      <h4><strong>Email:</strong> {{currentUser.email}}</h4>
-      <h4><a href="{{currentUser.LinkedIn}}">View LinkedIn Profile</a></h4>
-      <h4><a href="{{currentUser.GitHubLink}}">View GitHub Profile</a></h4>
+      <h4>
+        <strong>Phone:</strong> {{currentUser.phoneNumber}}</h4>
+      <h4>
+        <strong>Email:</strong> {{currentUser.email}}</h4>
+      <h4>
+        <a href="{{currentUser.LinkedIn}}">View LinkedIn Profile</a>
+      </h4>
+      <h4>
+        <a href="{{currentUser.GitHubLink}}">View GitHub Profile</a>
+      </h4>
       <button class="user-contact-me">Contact Me</button>
     </div>
   </div>
   <div class="col-md-8 user-info-block">
-    <img class="edit user-edit" src="./img/edit.svg">
+    <img ui-sref="user-form" class="edit user-edit" src="./img/edit.svg">
     <h1 class="user-full-name">{{currentUser.firstName}} {{currentUser.lastName}}</h1>
     <h4>{{currentUser.userName}}</h4>
 
-    <h4><strong>Job Title:</strong> {{currentUser.jobTitle}}</h4>
-    <h4><strong>Proficiency Level:</strong> {{currentUser.proficiencyLevel}}</h4>
+    <h4>
+      <strong>Job Title:</strong> {{currentUser.jobTitle}}</h4>
+    <h4>
+      <strong>Proficiency Level:</strong> {{currentUser.proficiencyLevel}}</h4>
 
     <div>
       <h3>My Skills: </h3>
-      
+
     </div>
 
     <div>
@@ -31,23 +41,47 @@
       <div>
         <p class="add-proj user-add-proj">+</p>
         <div class="form-group col-md-12 create-project">
-          <input type="text" class="form-control" placeholder="Project Name">
-          <textarea placeholder="Blurb"></textarea>
-          <select name="text" title="Desired Team Size">
-            <option value="value1" selected>2</option>
-            <option value="value2">3</option>
-            <option value="value3">4</option>
-            <option value="value4">5</option>
-            <option value="value5">6</option>
-            <option value="value6">7</option>
-            <option value="value7">8</option>
-            <option value="value8">9</option>
-            <option value="value9">10</option>
-          </select>
-          <select name="text" title="Desired Team Size">
-            <option value="value1" selected>Not Started</option>
-            <option value="value2">In Progress</option>
-          </select>
+          <span class="input input--hoshi">
+            <input class="input__field input__field--hoshi" type="text" id="projName">
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="projName">
+              <span class="input__label-content input__label-content--hoshi">Project Name</span>
+            </label>
+          </span>
+
+          <span class="input input--hoshi col-md-12">
+            <textarea class="input__field input__field--hoshi" type="text" id="projBlurb"></textarea>
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="projBlurb">
+              <span class="input__label-content input__label-content--hoshi">Blurb</span>
+            </label>
+          </span>
+
+          <textarea class="col-md-12 user-proj-blurb" placeholder="Blurb"></textarea>
+
+          <div class="form-group col-md-6 reg-sel">
+            <label for="projTeamSize"></label>
+            <select class="reg-skill-level input--hoshi" id="projTeamSize" name="text" title="Proficiency Level" ng-model="user.proficiencyLevel">
+              <option value="" disabled selected>Select desired team size</option>
+              <option value="value1">2</option>
+              <option value="value2">3</option>
+              <option value="value3">4</option>
+              <option value="value4">5</option>
+              <option value="value5">6</option>
+              <option value="value6">7</option>
+              <option value="value7">8</option>
+              <option value="value8">9</option>
+              <option value="value9">10</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-6 reg-sel">
+            <label></label>
+            <select class="reg-skill-level input--hoshi" name="text" title="Proficiency Level" ng-model="user.proficiencyLevel">
+              <option value="" disabled selected>Select project status</option>
+              <option value="value1" selected>Not Started</option>
+              <option value="value2">In Progress</option>
+            </select>
+          </div>
+
           <p>Seeking developers with the following skills:</p>
           <input type="text" class="form-control" placeholder="Skills">
           <p>Technologies Using:</p>
@@ -55,6 +89,18 @@
         </div>
       </div>
       <div class="user-proj-list">
+
+        <div class="user-proj-tile">
+          <div class="user-proj-fn">
+            <img ui-sref="project-form" class="edit user-proj-edit" src="./img/edit.svg">
+            <img class="delete" src="./img/delete.png">
+          </div>
+          <img class="user-proj-img" src="{{currentUser.image}}">
+          <h4>{{project.ProjectName}}</h4>
+          <p>{{project.Description}}</p>
+          <p>{{project.Status}}</p>
+        </div>
+
         <div class="user-proj-tile">
           <div class="user-proj-fn">
             <img class="edit user-proj-edit" src="./img/edit.svg">
@@ -65,6 +111,7 @@
           <p>{{project.Description}}</p>
           <p>{{project.Status}}</p>
         </div>
+
       </div>
     </div>
   </div>
