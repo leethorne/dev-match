@@ -9,8 +9,8 @@ app.service("projectService", function($http, $state) {
             var project = {};
             cb(project)
         } else {
-            $http.get(serverLink + "projects" + id)
-            .then (function(repsonse) {
+            $http.get(serverLink + "projects/" + id)
+            .then (function(response) {
                 console.log(response)
                 cb(response.data)
             }, function(error) {
@@ -20,14 +20,14 @@ app.service("projectService", function($http, $state) {
     }
 
     this.addProject = function(project) {
-        return $http.post(serverLink + "projects" + project)
+        return $http.post(serverLink + "projects/" + project)
     }
 
     this.updateProject = function(id, project) {
-        return $http.put(serverLink + "projects" + id, project)
+        return $http.put(serverLink + "projects/" + id, project)
     }
 
     this.deleteProject = function(id) {
-        return $http.delete(serverLink + "projects" + id)
+        return $http.delete(serverLink + "projects/" + id)
     }
 });

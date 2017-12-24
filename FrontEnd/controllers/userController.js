@@ -6,8 +6,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     userService.getUsers()
         .then(function (response) {
             console.log(response.data);
-            // $scope.users = response.data;
-            //do something with route data to display. set equal to $scope.something to ng-repeat
+            $scope.users = response.data;
         }, function (error) {
             console.log(error);
             //do something else here to alert user of a fail
@@ -28,17 +27,20 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         $scope.heading = "Update Your DevMatch Profile!";
 
         userService.getUserById($stateParams.id, function (user) {
-            $scope.currentUser = user;
-            console.log($scope.currentUser);
+            $scope.user = user;
+            console.log($scope.user);
         })
     }
 
     $scope.addUser = function () {
+        console.log("user berfore function: ", $scope.user)
         userService.addUser($scope.user)
             .then(function (response) {
                 console.log(response.data);
-                $scope.currentUser = response.data
-                $state.go("user", { id: $scope.currentUser.id })
+                $scope.user = response.data;
+                console.log("userrrr: ", $scope.user)
+                $state.go("user", {id: $scope.user.id});
+
             }, function (error) {
                 console.log("you have an error: ", error)
                 //do something here to display error msg
@@ -49,8 +51,8 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         userService.updateUser($stateParams.id, $scope.user)
             .then(function (response) {
                 console.log(response.data);
-                //once we get results set the $scope.user to response.data
-                //state.go to profile/"my account" page?
+                $scope.user = response.data;
+                $state.go("user", { id: user.id });
             }, function (error) {
                 console.log(error)
                 //insert error message here for users
@@ -71,6 +73,10 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         userService.login($scope.user, function (message) {
             $scope.errorMessage = message;
         })
+    }
+
+    $scope.logout = function() {
+        userService.logout($scope.currentUser);
     }
 
     // collapse login form
