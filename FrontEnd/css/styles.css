@@ -24,6 +24,33 @@ body {
 	font-size: 18px;
 	padding: 10px 20px;
 }
+
+/* nav */
+
+.nav-bar {
+	padding-top: 40px;
+}
+
+.search-devs {
+	display: inline-block;
+	color: #FFF;
+	margin: 0px 0px 0px 40px;
+}
+
+.logout-btns {
+	float: right;
+	color: #FFF;
+}
+
+.my-account {
+	display: inline-block;
+	margin: 0px 20px 0px 20px;
+}
+
+.logout {
+	display: inline-block;
+}
+
 /* home */
 .hero {
 	background: url('../img/workspace.jpg') center no-repeat;
@@ -233,9 +260,7 @@ span.select2-selection.select2-selection--multiple {
 }
 
 /* profile */
-.page-logo-black {
-	margin-top: 40px;
-}
+
 .user-profile-pic {
 	border-radius: 50%;
 	height: 150px;
@@ -246,7 +271,7 @@ span.select2-selection.select2-selection--multiple {
 	margin: 0px auto;
 }
 .user-header {
-	background: url('../img/header.png') no-repeat;
+	background: url('../img/header.jpg') no-repeat;
 	background-size: cover;
 	height: 240px;
 }
