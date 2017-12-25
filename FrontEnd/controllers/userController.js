@@ -149,8 +149,8 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         }
     })
 
-    //API functionality -- get map from the address of the center
-    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCRORGffra5l_NkeCBln6FOOWWj1j0mLGY";
+    //API functionality -- get map from the address of the user
+    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDcr6WmaxN41WfX3hHJx_BAjD8A_7nyxHc";
 
     NgMap.getMap().then(function (map) {
         console.log(map.getCenter());
