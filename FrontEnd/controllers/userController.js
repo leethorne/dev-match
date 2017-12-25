@@ -1,4 +1,4 @@
-app.controller("userController", function ($scope, $state, $stateParams, userService) {
+app.controller("userController", function ($scope, $state, $stateParams, userService, NgMap) {
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
 
     $scope.errorMessage = false;
@@ -142,6 +142,14 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
                 classie.remove(ev.target.parentNode, 'input--filled');
             }
         }
-    })();
+    })
+
+    //API functionality -- get map from the address of the center
+    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCRORGffra5l_NkeCBln6FOOWWj1j0mLGY";
+
+    NgMap.getMap().then(function (map) {
+        console.log(map.getCenter());
+        console.log('markers', map.markers);
+    });
 });
 

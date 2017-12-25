@@ -315,3 +315,12 @@ span.select2-selection.select2-selection--multiple {
 	font-size: 20px;
 	font-weight: bold;
 }
+
+/*MAP*/
+
+#map {
+	background-color: grey;
+	border: 2px solid black;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
