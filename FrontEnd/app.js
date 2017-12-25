@@ -1,39 +1,45 @@
 var app = angular.module("DevMatchApp", ["ui.router",  "angularCSS", "ngMap"])
 
 app.config(function($stateProvider, $urlRouterProvider) {
+
   $urlRouterProvider.otherwise("/");
   
   $stateProvider
-    .state("home", {
+    .state("app", {
+      abstract: true,
+      url: '',
+      templateUrl: "./views/app-container.html",
+      controller: "homeController"
+    })
+    .state("app.home", {
       url: "/",
       templateUrl: "./views/home.html",
       controller: "userController"
     })
-
     // users
-    .state("users", { // users index
+    .state("app.users", { // users index
       url: "/users",
       templateUrl: "./views/users.html",
       controller: "userController"
     })
-      .state("usersCreate", { // create user
+      .state("app.usersCreate", { // create user
         url: "/users/new",
         templateUrl: "./views/user-form.html",
         controller: "userController"
       })
-      .state("user", { //show - user profile
+      .state("app.user", { //show - user profile
         url: "/users/:id",
         templateUrl: "./views/user.html",
         controller: "userController"
       })
-      .state("userUpdate", { // update user
+      .state("app.userUpdate", { // update user
         url: "/users/:id/edit",
         templateUrl: "./views/user-form.html",
         controller: "userController",
         css: "./css/update-user.css"
       })
     // projects
-    .state("projects", { // index 
+    .state("app.projects", { // index 
       url: "/projects",
       templateUrl: "./views/projects.html",
       controller: "projectController"
@@ -43,12 +49,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       //   templateUrl: "./views/project-form.html",
       //   controller: "projectController"
       // })
-      .state("project", { // show
+      .state("app.project", { // show
         url: "/projects/:id",
         templateUrl: "./views/project.html",
         controller: "projectController"
       })
-      .state("projectUpdate", { // update
+      .state("app.projectUpdate", { // update
         url: "/projects/:id/edit",
         templateUrl: "./views/project-form.html",
         controller: "projectController"
