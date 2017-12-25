@@ -1,4 +1,4 @@
-app.controller("userController", function ($scope, $state, $stateParams, userService) {
+app.controller("userController", function ($scope, $state, $stateParams, userService, NgMap) {
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
 
     $scope.errorMessage = false;
@@ -52,7 +52,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
             .then(function (response) {
                 console.log(response.data);
                 $scope.user = response.data;
-                $state.go("user", { id: user.id });
+                $state.go("user", { id: $scope.user.id });
             }, function (error) {
                 console.log(error)
                 //insert error message here for users
@@ -77,6 +77,11 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
 
     $scope.logout = function() {
         userService.logout($scope.currentUser);
+    }
+
+    // user page --> user form
+    $scope.editUser = function() {
+        userService.editUser($stateParams.id)
     }
 
     // collapse login form

@@ -60,4 +60,8 @@ app.service("userService", function ($http, $state) {
         that.currentUser = null;
         $state.go("home");
     }
+
+    this.editUser = function(id) {
+        $state.go("userUpdate", {id: id});
+    }
 });

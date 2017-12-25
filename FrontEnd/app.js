@@ -1,4 +1,4 @@
-var app = angular.module("DevMatchApp", ["ui.router"])
+var app = angular.module("DevMatchApp", ["ui.router",  "angularCSS", "ngMap"])
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
@@ -29,7 +29,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
       .state("userUpdate", { // update user
         url: "/users/:id/edit",
         templateUrl: "./views/user-form.html",
-        controller: "userController"
+        controller: "userController",
+        css: "./css/update-user.css"
       })
     // projects
     .state("projects", { // index 
