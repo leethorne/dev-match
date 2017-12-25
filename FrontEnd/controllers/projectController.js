@@ -3,15 +3,15 @@ app.controller("projectController", function($scope, $state, $stateParams, proje
     //jquery box
     $(".tags").select2({ tags: true, width: '100%' });
 
-//     console.log("tech: ", $scope.projectSeekingTechnology);
-// //attempting to bind data
-// $scope.ProjTech = [];
-//     $scope.seekingTechnologies = function() {
-//         if($scope.projectSeekingTechnology == technology.Name) {
-//             console.log("tech fun: ", $scope.projectSeekingTechnology)
-//             $scope.ProjTech.push(projectSeekingTechnology);
-//         }
-//     }
+    console.log("tech: ", $scope.projectSeekingTechnology);
+//attempting to bind data
+$scope.ProjTech = [];
+    $scope.seekingTechnologies = function() {
+        if($scope.projectSeekingTechnology == technology.Name) {
+            console.log("tech fun: ", $scope.projectSeekingTechnology)
+            $scope.ProjTech.push(projectSeekingTechnology);
+        }
+    }
 
     // collapse Form
     $('.add-proj').click(function () {
