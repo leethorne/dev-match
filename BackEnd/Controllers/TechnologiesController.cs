@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEnd.Controllers
 {
@@ -54,7 +55,7 @@ namespace BackEnd.Controllers
         [HttpGet]
         public List<Technology> Get()
         {
-            return _context.Technologies.ToList();
+            return _context.Technologies.Include("Projects.Project").ToList();
         }
 
         // GET api/values/5

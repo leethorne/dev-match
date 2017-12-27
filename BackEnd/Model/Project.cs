@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace BackEnd.Controllers
 {
@@ -10,5 +11,6 @@ namespace BackEnd.Controllers
         public string Status { get; set; }
         public int DesiredTeamSize { get; set; }
         public int CurrentTeamSize { get; set; }
+        public List<ProjectTechnology> ProjectTechnologies { get; set; } 
     }
 }

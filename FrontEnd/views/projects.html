@@ -127,7 +127,7 @@
     <img src="{{user.image}}">
     <h4 class="project-name" ui-sref="project ({id: project.id})"><strong>{{project.projectName}} </strong></h4>
     <h5>{{project.description}}</p>
-    <p><em>{{project.status}}</em></p>
+      <p><em>{{project.status}}</em></p>
   </div>
 
 
@@ -135,10 +135,12 @@
 </div>
 
 <div class="col-md-3">
-  <h2>News Feed</h2>
-  <div ng-repeat="post in news | limitTo: 5">
-    <p><strong> {{ post.title }} </strong></p>
-    <p> {{ post.description }} </p>
+  <h2 class="text-center techSideBar">Tech News</h2>
+  <div class="techNews">
+    <div ng-repeat="post in news" class="techPost">
+      <p><strong> {{ post.title }} </strong></p>
+      <p> {{ post.description }} </p>
+    </div>
   </div>
 
 </div>
