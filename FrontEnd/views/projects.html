@@ -1,139 +1,146 @@
-<div class="col-md-8">
-  <input type="text" class="form-control" placeholder="Search Projects">
-  <div>
-    <p class="add-proj">+</p>
-    <div class="form-group col-md-12 create-project">
-      <input type="text" class="form-control" placeholder="Project Name">
-      <textarea placeholder="Blurb"></textarea> Desired Team Size
-      <select name="text" title="Desired Team Size">
-        <option value="value1" selected>2</option>
-        <option value="value2">3</option>
-        <option value="value3">4</option>
-        <option value="value4">5</option>
-        <option value="value5">6</option>
-        <option value="value6">7</option>
-        <option value="value7">8</option>
-        <option value="value8">9</option>
-        <option value="value9">10</option>
-      </select>
-      <select name="text" title="Desired Team Size">
-        <option value="value1" selected>Not Started</option>
-        <option value="value2">In Progress</option>
-      </select>
-
-      <div id="skills" class="tab-pane cont">
-        <div class="panel-body form-horizontal">
-
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Seeking developers with the following skills:</label>
-            <div class="col-sm-10">
-              <select multiple="" class="tags" data-ng-model="profile.primarySkills">
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>BootStrap</option>
-                    <option>JavaScript</option>
-                    <option>AngularJS</option>
-                    <option>C#</option>
-                    <option>ASP.NET Core</option>
-                    <option>Node.js</option>
-                    <option>MySQL</option>
-                    <option>React</option>
-                    <option>Ojective-C</option>
-                    <option>jQuery</option>
-                    <option>MongoDB</option>
-                    <option>C / C++</option>
-                    <option>Ruby</option>
-                    <option>SpringMVC</option>
-                    <option>Java</option>
-                    <option>PHP</option>
-                    <option>AWS</option>
-                    <option>Azure</option>
-                    <option>Entity Framework Core</option>
-                    <option>SQL Server</option>
-                    <option>Dapper</option>
-                    <option>NancyFX</option>
-                    <option>.Net Core 2.0</option>
-                    <option>C#</option>
-                    <option>Xcode</option>
-                    <option>Swift</option>
-                    <option>Django</option>
-                    <option>Ajax</option>
-                    <option>Python</option>
-                  </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Technologies Using:</label>
-            <div class="col-sm-10">
-              <select multiple="" class="tags" data-ng-model="profile.secondarySkills">
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>BootStrap</option>
-                    <option>JavaScript</option>
-                    <option>AngularJS</option>
-                    <option>C#</option>
-                    <option>ASP.NET Core</option>
-                    <option>Node.js</option>
-                    <option>MySQL</option>
-                    <option>React</option>
-                    <option>Ojective-C</option>
-                    <option>jQuery</option>
-                    <option>MongoDB</option>
-                    <option>C / C++</option>
-                    <option>Ruby</option>
-                    <option>SpringMVC</option>
-                    <option>Java</option>
-                    <option>PHP</option>
-                    <option>AWS</option>
-                    <option>Azure</option>
-                    <option>Entity Framework Core</option>
-                    <option>SQL Server</option>
-                    <option>Dapper</option>
-                    <option>NancyFX</option>
-                    <option>.Net Core 2.0</option>
-                    <option>C#</option>
-                    <option>Xcode</option>
-                    <option>Swift</option>
-                    <option>Django</option>
-                    <option>Ajax</option>
-                    <option>Python</option>
-                  </select>
-            </div>
-          </div>
-        </div>
-      </div> <!--end of skills div-->
-      <button class="btn btn-info pull-right next-tab" data-tab="#projectsTab">Save & Continue</button>
-
+<div class="projects-header">
+  <div class="container nav-bar">
+    <img ui-sref="projects" class="small-logo-blue" src="./img/Logo.png">
+    <h3 ui-sref="projects" class="search-projects">Projects</h3>
+    <h3 ui-sref="users" class="search-projects">Devs</h3>
+    <div class="logout-btns">
+      <h3 ui-sref="user" class="projects-account">My Account</h3>
+      <h3 ng-click="logout()" class="projects-logout">Logout</h3>
     </div>
-    <div>
-      <img class="edit" src="./img/edit.svg">
-      <img class="delete" src="./img/delete.png">
-      <img src="{{user.image}}">
-      <h4>{{project.projectName}}</h4>
-      <p>{{project.description}}</p>
-      <p>{{project.status}}</p>
-    </div>
-
-    <div>
-      <img class="edit" src="./img/edit.svg">
-      <img class="delete" src="./img/delete.png">
-      <img src="{{user.image}}">
-      <h4>{{project.projectName}}</h4>
-      <p>{{project.description}}</p>
-      <p>{{project.status}}</p>
-    </div>
-
   </div>
 </div>
-<div class="col-md-4">
-  <h2>News Feed</h2>
-  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt
-    sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae
-    voluptatibus natus.</div>
-  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt
-    sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae
-    voluptatibus natus.</div>
-  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident repellendus accusantium explicabo placeat incidunt
-    sunt? Nesciunt placeat corporis laboriosam sunt voluptate ipsum adipisci alias, necessitatibus magnam, quod repudiandae
-    voluptatibus natus.</div>
+
+<div class="col-md-offset-1 col-md-7">
+  <input type="text" class="form-control" placeholder="Search Projects..." ng-model="userInput">
+
+  <div>
+    <p class="add-proj user-add-proj">+</p>
+    <div class="form-group col-md-12 create-project">
+      <span class="input input--hoshi">
+            <input class="input__field input__field--hoshi" type="text" id="projName">
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="projName">
+              <span class="input__label-content input__label-content--hoshi">Project Name</span>
+      </label>
+      </span>
+
+      <textarea class="col-md-12 user-proj-blurb" placeholder="Blurb"></textarea>
+
+      <div class="form-group col-md-6 reg-sel">
+        <label for="projTeamSize"></label>
+        <select class="reg-skill-level input--hoshi" id="projTeamSize" name="text" title="Proficiency Level" ng-model="user.proficiencyLevel">
+              <option value="" disabled selected>Select desired team size</option>
+              <option value="value1">2</option>
+              <option value="value2">3</option>
+              <option value="value3">4</option>
+              <option value="value4">5</option>
+              <option value="value5">6</option>
+              <option value="value6">7</option>
+              <option value="value7">8</option>
+              <option value="value8">9</option>
+              <option value="value9">10</option>
+            </select>
+      </div>
+
+      <div class="form-group col-md-6 reg-sel">
+        <label></label>
+        <select class="reg-skill-level input--hoshi" name="text" title="Proficiency Level" ng-model="user.proficiencyLevel">
+              <option value="" disabled selected>Select project status</option>
+              <option value="value1" selected>Not Started</option>
+              <option value="value2">In Progress</option>
+            </select>
+      </div>
+
+      <p>Seeking developers with the following skills:</p>
+      <select multiple="" class="tags">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>BootStrap</option>
+                    <option>JavaScript</option>
+                    <option>AngularJS</option>
+                    <option>C#</option>
+                    <option>ASP.NET Core</option>
+                    <option>Node.js</option>
+                    <option>MySQL</option>
+                    <option>React</option>
+                    <option>Ojective-C</option>
+                    <option>jQuery</option>
+                    <option>MongoDB</option>
+                    <option>C / C++</option>
+                    <option>Ruby</option>
+                    <option>SpringMVC</option>
+                    <option>Java</option>
+                    <option>PHP</option>
+                    <option>AWS</option>
+                    <option>Azure</option>
+                    <option>Entity Framework Core</option>
+                    <option>SQL Server</option>
+                    <option>Dapper</option>
+                    <option>NancyFX</option>
+                    <option>.Net Core 2.0</option>
+                    <option>C#</option>
+                    <option>Xcode</option>
+                    <option>Swift</option>
+                    <option>Django</option>
+                    <option>Ajax</option>
+                    <option>Python</option>
+                  </select>
+      <p>Technologies Using:</p>
+      <select multiple="" class="tags">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>BootStrap</option>
+                    <option>JavaScript</option>
+                    <option>AngularJS</option>
+                    <option>C#</option>
+                    <option>ASP.NET Core</option>
+                    <option>Node.js</option>
+                    <option>MySQL</option>
+                    <option>React</option>
+                    <option>Ojective-C</option>
+                    <option>jQuery</option>
+                    <option>MongoDB</option>
+                    <option>C / C++</option>
+                    <option>Ruby</option>
+                    <option>SpringMVC</option>
+                    <option>Java</option>
+                    <option>PHP</option>
+                    <option>AWS</option>
+                    <option>Azure</option>
+                    <option>Entity Framework Core</option>
+                    <option>SQL Server</option>
+                    <option>Dapper</option>
+                    <option>NancyFX</option>
+                    <option>.Net Core 2.0</option>
+                    <option>C#</option>
+                    <option>Xcode</option>
+                    <option>Swift</option>
+                    <option>Django</option>
+                    <option>Ajax</option>
+                    <option>Python</option>
+                  </select>
+    </div>
+  </div>
+
+  <div ng-repeat="project in projects | filter: userInput" class="projectTile">
+    <img class="edit pull-right" src="./img/edit.svg" ui-sref="projectUpdate ({id: project.id})">
+    <img class="delete pull-right" src="./img/delete.png" ng-click="deleteProject()">
+    <img src="{{user.image}}">
+    <h4 class="project-name" ui-sref="project ({id: project.id})"><strong>{{project.projectName}} </strong></h4>
+    <h5>{{project.description}}</p>
+      <p><em>{{project.status}}</em></p>
+  </div>
+
+
+
+</div>
+
+<div class="col-md-3">
+  <h2 class="text-center techSideBar">Tech News</h2>
+  <div class="techNews">
+    <div ng-repeat="post in news" class="techPost">
+      <p><strong> {{ post.title }} </strong></p>
+      <p> {{ post.description }} </p>
+    </div>
+  </div>
+
 </div>

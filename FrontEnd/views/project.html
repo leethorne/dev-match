@@ -1,33 +1,44 @@
-<div>
-  <img src="{{user.Image}}">
-  <div>
-    <h3>Contact</h3>
-    <h4>{{user.UserName}}</h4>
-    <h4><strong>Phone:</strong> {{user.PhoneNumber}}</h4>
-    <h4><strong>Email:</strong> {{user.Email}}</h4>
-    <h4><a href="{{user.LinkedIn}}">View LinkedIn Profile</a></h4>
-    <h4><a href="{{user.GitHubLink}}">View GitHub Profile</a></h4>
-    <button>I'm Interested</button>
+<div class="user-header">
+  <div class="container nav-bar">
+    <img ui-sref="projects" class="page-logo-black" src="./img/logo-white.png">
+    <h3 ui-sref="projects" class="search-devs">Projects</h3>
+    <h3 ui-sref="users" class="search-devs">Devs</h3>
+    <div class="logout-btns">
+      <h3 ui-sref="user" class="my-account">My Account</h3>
+      <h3 ng-click="logout()" class="logout">Logout</h3>
+    </div>
   </div>
 </div>
-<div>
-  <img class="edit" src="./img/edit.svg">
-  <img class="delete" src="./img/delete.png">
-  <h1>{{project.ProjectName}}</h1>
-  
-  <p>{{project.Description}}</p>
 
-  <p><strong>Project Status:</strong>{{project.Status}}</p> 
-  <p><strong>Desired Team Size:</strong> {{project.DesiredTeamSize}}</p>
-  <p><strong>Current Team Size:</strong> {{project.CurrentTeamSize}}</p>
+<div>
+<div>
+  <div class="col-md-offset-1 col-md-4 user-contact-block">
+    <img class="user-profile-pic img-responsive" src="{{user.image}}">
+    <div>
+      <h3 class="user-contact-header">Contact</h3>
+      <h4><strong>Phone:</strong> {{user.phoneNumber}}</h4>
+      <h4><strong>Email:</strong> {{user.email}}</h4>
+      <h4><a href="{{user.LinkedIn}}">View LinkedIn Profile</a></h4>
+      <h4><a href="{{user.GitHubLink}}">View GitHub Profile</a></h4>
+      <button class="user-contact-me">Contact Me</button>
+    </div>
+  </div>
+</div>
+
+<div class= "col-md-6 user-info-block">
+  <img ui-sref="projectUpdate ({id: project.id})" class="edit pull-right" src="./img/edit.svg">
+  <h1>{{project.projectName}}</h1>
+  <h4>{{project.description}}</p>
+
+  <p><strong>Project Status:</strong>{{project.status}}</p> 
+  <p><strong>Desired Team Size:</strong> {{project.desiredTeamSize}}</p>
+  <p><strong>Current Team Size:</strong> {{project.currentTeamSize}}</p>
 
   <div>
-    <h3><strong>Technologies Seeking:</strong> </h3>
-    
+    <h3><strong>Technologies Seeking:</strong></h3>
   </div>
 
   <div>
-    <h3><strong>Technologies Using:</strong> </h3>
-    
+    <h3><strong>Technologies Using:</strong></h3>
   </div>
 </div>
