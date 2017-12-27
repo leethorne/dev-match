@@ -1,7 +1,8 @@
 <div class="user-header">
   <div class="container nav-bar">
-    <img ui-sref="projects" class="page-logo-black" src="./img/logo-black.png">
-        <h3 ui-sref="users" class="search-devs">Search Devs</h3>
+    <img ui-sref="projects" class="page-logo-black" src="./img/logo-white.png">
+    <h3 ui-sref="projects" class="search-devs">Projects</h3>
+        <h3 ui-sref="users" class="search-devs">Devs</h3>
         <div class="logout-btns">
           <h3 ui-sref="user" class="my-account">My Account</h3>
           <h3 ng-click="logout()" class="logout">Logout</h3>
@@ -30,11 +31,12 @@
 
     <div>
       <h3>My Skills: </h3>
-
+        <!--bind technologies info to the user profile-->
     </div>
 
     <div>
       <h3>My Projects: </h3>
+      <!--list projects once bind data is possible (join table)-->
       <div>
         <p class="add-proj user-add-proj">+</p>
         <div class="form-group col-md-12 create-project">
@@ -42,13 +44,6 @@
             <input class="input__field input__field--hoshi" type="text" id="projName">
             <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="projName">
               <span class="input__label-content input__label-content--hoshi">Project Name</span>
-            </label>
-          </span>
-
-          <span class="input input--hoshi col-md-12">
-            <textarea class="input__field input__field--hoshi" type="text" id="projBlurb"></textarea>
-            <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="projBlurb">
-              <span class="input__label-content input__label-content--hoshi">Blurb</span>
             </label>
           </span>
 

@@ -1,4 +1,6 @@
 app.controller("userController", function ($scope, $state, $stateParams, userService, NgMap) {
+
+    //jQuery Box
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
 
     $scope.errorMessage = false;
@@ -33,14 +35,15 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     }
 
     $scope.addUser = function () {
-        console.log("user berfore function: ", $scope.user)
+        console.log("user before function: ", $scope.user)
+        console.log("image: ", $scope.user.userName)
         userService.addUser($scope.user)
             .then(function (response) {
                 console.log(response.data);
                 $scope.user = response.data;
                 console.log("userrrr: ", $scope.user)
+                console.log("image: ", $scope.user.image)
                 $state.go("user", {id: $scope.user.id});
-
             }, function (error) {
                 console.log("you have an error: ", error)
                 //do something here to display error msg
@@ -115,7 +118,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     });
 
     //API functionality -- get map from the address of the center
-    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCRORGffra5l_NkeCBln6FOOWWj1j0mLGY";
+    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD7RhAqkBYU5QS2Z75F-0jujx2e8bKJ-n4";
     
     NgMap.getMap().then(function (map) {
         console.log(map.getCenter());

@@ -233,6 +233,7 @@ body {
 .reg-sel {
 	height: 75px;
   display: block;
+  
 }
 /* select 2 mods */
 span.select2-selection.select2-selection--multiple {
@@ -251,12 +252,22 @@ span.select2-selection.select2-selection--multiple {
 /* Projects */
 .add-proj {
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 40px;
 }
 .create-project {
 	display: none;
 	border: 1px solid #ccc;
 	padding: 20px 20px;
+}
+
+.projectTile {
+	border: 1px solid black;
+	margin-top: 8px;
+	padding: 10px;
+}
+
+.project-name {
+	display: inline;
 }
 
 /* profile */
@@ -339,6 +350,30 @@ span.select2-selection.select2-selection--multiple {
 .user-proj-blurb:-moz-placeholder { /* Firefox 18- */
 	font-size: 20px;
 	font-weight: bold;
+}
+
+.projects-header {
+	height: 100px;
+	margin-bottom: 50px;
+}
+
+.small-logo-blue {
+	height: 76px;
+	width: 76px;
+}
+.projects-logout {
+	color: #0844A4;
+	display: inline-block;
+}
+.projects-account {
+	color: #0844A4;
+	display: inline-block;
+	margin: 0px 20px 0px 20px;
+}
+.search-projects {
+	display: inline-block;
+	color: #0844A4;
+	margin: 0px 0px 0px 40px;
 }
 
 /*MAP*/

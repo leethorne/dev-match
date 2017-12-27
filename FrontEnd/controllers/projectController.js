@@ -78,4 +78,15 @@ app.controller("projectController", function($scope, $state, $stateParams, proje
             //make an error message for the user 
         })
     }
+
+    projectService.getNews()
+        .then(function (response) {
+            console.log(response);
+            console.log(response.data.articles);
+            $scope.news = response.data.articles;
+        }, function (error) {
+            console.log(error);
+            //handle error messages here to the user
+        })
+
 }); 

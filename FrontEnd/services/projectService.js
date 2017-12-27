@@ -30,4 +30,8 @@ app.service("projectService", function($http, $state) {
     this.deleteProject = function(id) {
         return $http.delete(serverLink + "projects/" + id)
     }
+
+    this.getNews = function() {
+        return $http.get("https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=8b44e7a550f1436bbd9a0961cb9c838c")
+    }
 });

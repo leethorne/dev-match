@@ -3,6 +3,7 @@ app.service("userService", function ($http, $state) {
     var that = this;
     that.currentUser = null;
     
+    
     this.getUsers = function () {
         return $http.get(serverLink + "users");
     }
@@ -22,6 +23,15 @@ app.service("userService", function ($http, $state) {
                 })
         }
     }
+
+    this.postImage = function() {
+        return $http.post("http://uploads.im/api?upload=" + user.image + "&format=json")
+    }
+
+    this.getImageUrl = function () {
+        return $http.get("http://uploads.im/api?upload=" + user.image + "&format=json")
+    }
+
 
     this.addUser = function (user) { //register new user 
         return $http.post(serverLink + "users/", user)
