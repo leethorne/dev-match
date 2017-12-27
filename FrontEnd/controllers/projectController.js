@@ -51,7 +51,7 @@ app.controller("projectController", function($scope, $state, $stateParams, proje
         .then(function(reponse) {
             $scope.project = response.data;
             console.log($scope.project)
-            //$state.go to project wall?
+            $state.go("projects")
         }, function(error) {
             console.log(error)
             //make error message for user if failed
@@ -62,7 +62,7 @@ app.controller("projectController", function($scope, $state, $stateParams, proje
         projectService.updateProject($stateParams.id, $scope.project)
         .then (function(response) {
             console.log(response)
-            //state.go to project wall page? 
+            $state.go("project", { id: $scope.project.id })
         }, function(error) {
             console.log(error)
             //error msg here to user 
@@ -72,6 +72,7 @@ app.controller("projectController", function($scope, $state, $stateParams, proje
     $scope.deleteProject = function() {
         projectService.deleteProject($stateParams.id)
         .then(function(response) {
+            console.log("deleted: ", response)
             $state.go("projects")
         }, function(error) {
             console.log(error);

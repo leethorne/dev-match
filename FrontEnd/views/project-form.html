@@ -1,9 +1,12 @@
 <div class="container">
-  <h1>Edit Project</h1>
+  <h1 class="text-center project-form-title">Edit {{project.projectName}}</h1>
   <div class="form-group col-md-12">
-    <input type="text" class="form-control" placeholder="Project Name" ng-model="project.ProjectName">
-    <textarea placeholder="Blurb"></textarea> Desired Team Size
-    <select name="text" title="Desired Team Size" ng-model="project.DesiredTeamSize">
+    <input type="text" class="form-control" placeholder="Project Name" ng-model="project.projectName">
+   <div class="row">
+    <div class="text-area">
+    <textarea placeholder="Blurb" ng-model="project.description"></textarea> 
+    </div>Desired Team Size
+    <select name="text" title="Desired Team Size" ng-model="project.desiredTeamSize">
           <option value="value1" selected>2</option>
           <option value="value2">3</option>
           <option value="value3">4</option>
@@ -14,7 +17,7 @@
           <option value="value8">9</option>
           <option value="value9">10</option>
       </select> Current Team Size
-    <select name="text" title="Current Team Size" ng-model="project.CurrentTeamSize">
+    <select name="text" title="Current Team Size" ng-model="project.currentTeamSize">
         <option value="value1" selected>2</option>
         <option value="value2">3</option>
         <option value="value3">4</option>
@@ -31,12 +34,12 @@
         <option value="value3">Completed</option>
      </select>
   </div>
-
+</div> <!--end of row-->
   <div id="skills" class="tab-pane cont">
     <div class="panel-body form-horizontal">
       
       <div class="form-group">
-        <label class="col-sm-2 control-label">Seeking developers with the following skills:</label>
+        <label class="col-sm-2 control-label">Seeking skills:</label>
         <div class="col-sm-10">
           <select multiple="" class="tags" ng-model="projectSeekingTechnology">
                     <option>HTML</option>
@@ -76,7 +79,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Technologies Using:</label>
             <div class="col-sm-10">
-              <select multiple="" class="tags" ng-model="profile.secondarySkills">
+              <select multiple="" class="tags">
                     <option>HTML</option>
                     <option>CSS</option>
                     <option>BootStrap</option>
@@ -113,5 +116,5 @@
           </div>
         </div>
       </div>
-      <button>Update</button>
+      <button class="login-submit pull-right" ng-click="updateProject()">Update</button>
     </div>

@@ -121,11 +121,11 @@
     </div>
   </div>
 
-  <div ng-repeat="project in projects | filter: userInput" class="projectTile" ui-sref="project ({id: project.id})">
-    <img class="edit pull-right" src="./img/edit.svg">
-    <img class="delete pull-right" src="./img/delete.png">
+  <div ng-repeat="project in projects | filter: userInput" class="projectTile">
+    <img class="edit pull-right" src="./img/edit.svg" ui-sref="projectUpdate ({id: project.id})">
+    <img class="delete pull-right" src="./img/delete.png" ng-click="deleteProject()">
     <img src="{{user.image}}">
-    <h4 class="project-name"><strong>{{project.projectName}} </strong></h4>
+    <h4 class="project-name" ui-sref="project ({id: project.id})"><strong>{{project.projectName}} </strong></h4>
     <h5>{{project.description}}</p>
     <p><em>{{project.status}}</em></p>
   </div>
