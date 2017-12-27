@@ -1,3 +1,4 @@
+'use strict';
 app.service("projectService", function($http, $state) {
   
     this.getProjects = function() {
@@ -6,7 +7,14 @@ app.service("projectService", function($http, $state) {
 
     this.getProjectById = function(id, cb) {
         if (id == null || id == undefined || id == "") {
-            var project = {};
+            var project = {
+                usingSkills: [],
+                seekingSkills: [],
+                name: "",
+                description: "",
+                status: "",
+                desiredTeamSize: null
+            };
             cb(project)
         } else {
             $http.get(serverLink + "projects/" + id)
@@ -29,6 +37,10 @@ app.service("projectService", function($http, $state) {
 
     this.deleteProject = function(id) {
         return $http.delete(serverLink + "projects/" + id)
+    }
+
+    this.updateProjTech = function(id, techName, isSeeking) {
+        return $http.put(serverLink + "projects/" + id + "/addtechnology?techName=" + techName + "&isSeeking=" + isSeeking)
     }
 
     this.getNews = function() {

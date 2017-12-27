@@ -1,6 +1,6 @@
 app.service("technologyService", function ($http, $state) {
 
-    this.getTechnology = function () {
+    this.getTechnologies = function () {
         return $http.get(serverLink + "technologies")
     }
 

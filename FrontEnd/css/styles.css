@@ -255,7 +255,7 @@ span.select2-selection.select2-selection--multiple {
 	font-size: 40px;
 }
 .create-project {
-	display: none;
+	/* display: none; */
 	border: 1px solid #ccc;
 	padding: 20px 20px;
 }

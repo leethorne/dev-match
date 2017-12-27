@@ -38,7 +38,7 @@ namespace BackEnd.Controllers
         [HttpGet("{id}")]
         public Project Get(int id)
         {
-            foreach(Project p in _context.Projects)
+            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology"))
             {
                 if (p.Id == id)
                 {
@@ -98,18 +98,9 @@ namespace BackEnd.Controllers
         [HttpPut("{id}")]
         public Project Put(int id, [FromBody]Project proj)
         {
-            foreach (Project p in _context.Projects)
-            {
-                if (p.Id == id)
-                {
-                    _context.Projects.Remove(p);
-                    _context.SaveChanges();
-                    _context.Projects.Add(proj);
-                    _context.SaveChanges();
-                    return proj;
-                }
-            }
-            return null;
+            _context.Projects.Update(proj);
+            _context.SaveChanges();
+            return proj;      
         }
 
         // DELETE api/values/5

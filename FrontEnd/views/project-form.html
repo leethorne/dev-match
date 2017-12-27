@@ -2,11 +2,11 @@
   <h1 class="text-center project-form-title">Edit {{project.projectName}}</h1>
   <div class="form-group col-md-12">
     <input type="text" class="form-control" placeholder="Project Name" ng-model="project.projectName">
-   <div class="row">
-    <div class="text-area">
-    <textarea placeholder="Blurb" ng-model="project.description"></textarea> 
-    </div>Desired Team Size
-    <select name="text" title="Desired Team Size" ng-model="project.desiredTeamSize">
+    <div class="row">
+      <div class="text-area">
+        <textarea placeholder="Blurb" ng-model="project.description"></textarea>
+      </div>Desired Team Size
+      <select name="text" title="Desired Team Size" ng-model="project.desiredTeamSize">
           <option value="value1" selected>2</option>
           <option value="value2">3</option>
           <option value="value3">4</option>
@@ -17,7 +17,7 @@
           <option value="value8">9</option>
           <option value="value9">10</option>
       </select> Current Team Size
-    <select name="text" title="Current Team Size" ng-model="project.currentTeamSize">
+      <select name="text" title="Current Team Size" ng-model="project.currentTeamSize">
         <option value="value1" selected>2</option>
         <option value="value2">3</option>
         <option value="value3">4</option>
@@ -28,20 +28,58 @@
         <option value="value8">9</option>
         <option value="value9">10</option>
       </select> Project Status
-    <select name="text" title="Project Status" ng-model="project.status">
+      <select name="text" title="Project Status" ng-model="project.status">
         <option value="value1" selected>Not Started</option>
         <option value="value2">In Progress</option>
         <option value="value3">Completed</option>
      </select>
+    </div>
   </div>
-</div> <!--end of row-->
+  <!--end of row-->
   <div id="skills" class="tab-pane cont">
     <div class="panel-body form-horizontal">
-      
+
       <div class="form-group">
         <label class="col-sm-2 control-label">Seeking skills:</label>
         <div class="col-sm-10">
-          <select multiple="" class="tags" ng-model="projectSeekingTechnology">
+          <select multiple="" class="tags" ng-model="thisisatest">
+            <option>BootStrap</option>
+            <option>JavaScript</option>
+            <option>AngularJS</option>
+            <option>C#</option>
+            <option>ASP.NET Core</option>
+            <option>Node.js</option>
+            <option>CSS</option>
+            <option>MySQL</option>
+            <option>React</option>
+            <option>Ojective-C</option>
+            <option>jQuery</option>
+            <option>MongoDB</option>
+            <option>C / C++</option>
+            <option>Ruby</option>
+            <option>SpringMVC</option>
+            <option>Java</option>
+            <option>PHP</option>
+            <option>AWS</option>
+            <option>Azure</option>
+            <option>Entity Framework Core</option>
+            <option>SQL Server</option>
+            <option>Dapper</option>
+            <option>NancyFX</option>
+            <option>.Net Core 2.0</option>
+            <option>C#</option>
+            <option>Xcode</option>
+            <option>Swift</option>
+            <option>Django</option>
+            <option>Ajax</option>
+            <option>Python</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Technologies Using:</label>
+        <div class="col-sm-10">
+          <select multiple="" class="tags">
                     <option>HTML</option>
                     <option>CSS</option>
                     <option>BootStrap</option>
@@ -76,46 +114,8 @@
                   </select>
         </div>
       </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Technologies Using:</label>
-            <div class="col-sm-10">
-              <select multiple="" class="tags">
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>BootStrap</option>
-                    <option>JavaScript</option>
-                    <option>AngularJS</option>
-                    <option>C#</option>
-                    <option>ASP.NET Core</option>
-                    <option>Node.js</option>
-                    <option>MySQL</option>
-                    <option>React</option>
-                    <option>Ojective-C</option>
-                    <option>jQuery</option>
-                    <option>MongoDB</option>
-                    <option>C / C++</option>
-                    <option>Ruby</option>
-                    <option>SpringMVC</option>
-                    <option>Java</option>
-                    <option>PHP</option>
-                    <option>AWS</option>
-                    <option>Azure</option>
-                    <option>Entity Framework Core</option>
-                    <option>SQL Server</option>
-                    <option>Dapper</option>
-                    <option>NancyFX</option>
-                    <option>.Net Core 2.0</option>
-                    <option>C#</option>
-                    <option>Xcode</option>
-                    <option>Swift</option>
-                    <option>Django</option>
-                    <option>Ajax</option>
-                    <option>Python</option>
-                  </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="login-submit pull-right" ng-click="updateProject()">Update</button>
-      <button class="login-submit pull-right" ng-click="deleteProject()">Delete</button>
     </div>
+  </div>
+  <button class="login-submit pull-right" ng-click="updateProject(); updateProjTech()">Update</button>
+  <button class="login-submit pull-right" ng-click="deleteProject()">Delete</button>
+</div>
