@@ -94,7 +94,7 @@
 
 map below shows markers for all center locations. will filter markers by the user's search as well-->
 <div id="map" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
-    <ng-map center="38.457791, -99.641980" zoom="5" style="display:block; width:auto; height:auto;">
+    <ng-map center="38.457791, -99.641980" zoom="5" style="display:block; width:auto; height:auto;" scrollwheel="false">
         <marker ng-repeat="user in users | filter: citySearch" position="{{ user.addressLine1}} {{user.city}} {{user.state}}" title="{{user.firstName}} {{user.lastName}}"></marker>
     </ng-map>
 </div>

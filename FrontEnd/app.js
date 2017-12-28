@@ -1,4 +1,4 @@
-var app = angular.module("DevMatchApp", ["ui.router", "angularCSS", "ngMap", 'ui.select', 'ngSanitize'])
+var app = angular.module("DevMatchApp", ["ui.router", "angularCSS", "ngMap", "ui.select", "ngSanitize"])
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
