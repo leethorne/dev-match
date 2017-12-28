@@ -263,6 +263,7 @@ span.select2-selection.select2-selection--multiple {
 .row > .control-label {
 	color: #6a7989;
 	font-size: 18px;
+	margin-top: 20px;
 }
 .ui-select-match-item {
 	font-size: 18px;
@@ -312,7 +313,9 @@ span.select2-selection.select2-selection--multiple {
 .project-name {
 	display: inline;
 }
-
+.proj-description {
+	margin-top: 60px !important;
+}
 .user-contact-tile {
 	border-left: 1px solid block;
 	text-align: center;
@@ -397,6 +400,7 @@ textarea {
 }
 .user-edit {
 	float: right;
+	margin-top: 40px;
 }
 .user-contact-block {
 	margin-top: -75px;
@@ -404,9 +408,9 @@ textarea {
 .user-contact-header {
 	margin: 40px 0px;
 }
-.user-info-block {
+/* .user-info-block {
 	margin-top: 75px;
-}
+} */
 .user-full-name {
 	margin: 40px 0px;
 	margin-bottom: 0px;
@@ -417,6 +421,7 @@ textarea {
 }
 .user-info-block > h4 {
 	margin: 20px;
+	margin-left: 0px; 
 }
 .user-add-proj {
 	text-align: right;
@@ -441,7 +446,7 @@ textarea {
 }
 .user-proj-blurb {
 	background: transparent;
-	margin: 20px 0px;
+	/* margin: 20px 0px; */
 	color: #595F6E;
 	font-size: 18px;
 	padding: 10px;

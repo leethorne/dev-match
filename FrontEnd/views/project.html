@@ -31,28 +31,28 @@
     </div>
   </div>
 
-  <div class="col-md-6 user-info-block">
-    <img ui-sref="projectUpdate ({id: project.id})" class="edit pull-right" src="./img/edit.svg">
-    <h1>{{project.projectName}}</h1>
-    <h4>{{project.description}}</p>
+  <div class="col-md-8 user-info-block">
+    <img ui-sref="projectUpdate ({id: project.id})" class="edit user-edit pull-right" src="./img/edit.svg">
+    <h1 class="user-full-name">{{project.projectName}}</h1>
+    <h4 class="proj-description">{{project.description}}</h4>
 
-      <p>
-        <strong>Project Status:</strong>{{project.status}}</p>
-      <p>
-        <strong>Desired Team Size:</strong> {{project.desiredTeamSize}}</p>
-      <p>
-        <strong>Current Team Size:</strong> {{project.currentTeamSize}}</p>
+    <h4>
+      <strong>Project Status: </strong>{{project.status}}
+    </h4>
+    <h4>
+      <strong>Desired Team Size: </strong> {{project.desiredTeamSize}}
+    </h4>
+    <h4>
+      <strong>Current Team Size: </strong> {{project.currentTeamSize}}
+    </h4>
 
-      <div>
-        <h3>
-          <strong>Technologies Seeking:</strong>
-        </h3>
-        <div ng-repeat="technology in project.projectTechnologies"> {{technology.technology.name}}</div>
-      </div>
+    <div>
+      <h3>Technologies Seeking:</h3>
+      <div ng-repeat="technology in project.projectTechnologies"> {{technology.technology.name}}</div>
+    </div>
 
-      <div>
-        <h3>
-          <strong>Technologies Using:</strong>
-        </h3>
-      </div>
+    <div>
+      <h3>Technologies Using:</h3>
+      <div ng-repeat="technology in project.projectTechnologies"> {{technology.technology.name}}</div>
+    </div>
   </div>
