@@ -1,4 +1,4 @@
-app.controller("userController", function ($scope, $state, $stateParams, userService, projectService, NgMap) {
+app.controller("userController", function ($scope, $state, $stateParams, userService, projectService,  NgMap) {
 
     //jQuery Box
     // $(".tags").select2({ tags: true, width: '100%' });
@@ -36,13 +36,23 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
 
     $scope.addUser = function () {
         console.log("user before function: ", $scope.user)
-        console.log("image: ", $scope.user.userName)
+        console.log("image: ", $scope.user.image)
+
         userService.addUser($scope.user)
             .then(function (response) {
-                console.log(response.data);
-                $scope.user = response.data;
-                console.log("userrrr: ", $scope.user)
-                console.log("image: ", $scope.user.image)
+                // $scope.user = response.data;
+                console.log("userrrr: ", response.data)
+                console.log("image: ", response.data.image)
+                
+                //ADDING TECH SKILLS TO USER 
+                    userService.updateUserTech(response.data.id, $scope.techName)
+                        .then(function (response) {
+                            console.log(response)
+                        }, function (error) {
+                            console.log(error);
+                            //do something here to alert user of fail 
+                        })
+                
                 $state.go("user", {
                     id: $scope.user.id
                 });
@@ -80,7 +90,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         projectService.addProject($scope.project)
             .then(function (response) {
                 $scope.project = response.data;
-                console.log("adding: ", $scope.project)
+                console.log("adding proj: ", $scope.project)
                 userService.updateUserProj($stateParams.id, $scope.project.id)
                     .then(function (response) {
                         console.log(response)
@@ -96,6 +106,16 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
 
     $scope.updateUserProj = function () {
         userService.updateUserProj($stateParams.id, $scope.projId)
+            .then(function (response) {
+                console.log(response)
+            }, function (error) {
+                console.log(error);
+                //do something here to alert user of fail 
+            })
+    }
+
+    $scope.updateUserTech = function () {
+        userService.updateUserTech($stateParams.id, $scope.techName)
             .then(function (response) {
                 console.log(response)
             }, function (error) {

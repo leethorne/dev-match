@@ -13,13 +13,13 @@
 <div>
 <div>
   <div class="col-md-offset-1 col-md-4 user-contact-block">
-    <img class="user-profile-pic img-responsive" src="{{user.image}}">
-    <div class="user-contact-tile">
+    <img class="user-profile-pic img-responsive" src="{{project.user.image}}">
+    <div>
       <h3 class="user-contact-header">Contact</h3>
-      <h4><strong>Phone:</strong> {{user.phoneNumber}}</h4>
-      <h4><strong>Email:</strong> {{user.email}}</h4>
-      <h4><a href="{{user.LinkedIn}}">View LinkedIn Profile</a></h4>
-      <h4><a href="{{user.GitHubLink}}">View GitHub Profile</a></h4>
+      <h4><strong>Phone:</strong> {{project.user.phoneNumber}}</h4>
+      <h4><strong>Email:</strong> {{project.user.email}}</h4>
+      <h4><a href="{{project.user.LinkedIn}}">View LinkedIn Profile</a></h4>
+      <h4><a href="{{project.user.GitHubLink}}">View GitHub Profile</a></h4>
       <button class="user-contact-me light-btn"><a class="mailto" href="mailto:{{user.email}}">Contact Me</a></button>
     </div>
   </div>

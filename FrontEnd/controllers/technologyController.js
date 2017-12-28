@@ -1,4 +1,4 @@
-app.controller("technologyController", function ($scope, $state, $stateParams, userService) {
+app.controller("technologyController", function ($scope, $state, $stateParams, technologyService) {
 
     technologyService.getTechnologies()
         .then(function (response) {
@@ -45,7 +45,7 @@ app.controller("technologyController", function ($scope, $state, $stateParams, u
     }
 
     $scope.deleteTechnology = function () {
-        projectService.deleteProject($stateParams.id)
+        technologyService.deleteTechnology($stateParams.id)
             .then(function (response) {
                 //$state.go() to what page? 
             }, function (error) {

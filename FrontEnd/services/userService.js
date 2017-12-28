@@ -49,6 +49,10 @@ app.service("userService", function ($http, $state) {
         return $http.put(serverLink + "users/" + id + "/addproject?projId=" + projId);
     }
 
+    this.updateUserTech = function(id, techName) {
+        return $http.put(serverLink + "users/" + id + "/addtechnology?techName=" + techName)
+    }
+
     this.getCurrentUser = function () {
         return that.currentUser
     }

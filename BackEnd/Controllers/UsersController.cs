@@ -36,7 +36,6 @@ namespace BackEnd.Controllers
                 _context.Users.Add(new User() { Id = 14, FirstName = "Francis", LastName = "Marx", Email = "MF@gmail.com", PhoneNumber = "312-338-5533", AddressLine1 = "1282 Putnam Ave", AddressLine2 = "", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Francis.jpg", UserName = "frank", Password = "frank", JobTitle = "Software Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/francis", LinkedIn = "https://www.linkedin.com/in/francis/" });
                 _context.Users.Add(new User() { Id = 15, FirstName = "Derek", LastName = "Kozar", Email = "dk@gmail.com", PhoneNumber = "310-220-2250", AddressLine1 = "1132 Greene Ave", AddressLine2 = "Apt 13", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Derek.jpg", UserName = "dman", Password = "ddude", JobTitle = "Front End Developer, UX/UI Designer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/domenkozar", LinkedIn = "https://www.linkedin.com/in/derekkozar/" });
                 _context.Users.Add(new User() { Id = 16, FirstName = "Calvin", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "735 Chauncey St", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11207, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
-                _context.Users.Add(new User() { Id= 17, FirstName = "TEST", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "253 Schaefer St", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11207, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
                 _context.SaveChanges();
             }
         }
@@ -92,22 +91,13 @@ namespace BackEnd.Controllers
 
 
         [HttpPut("{id}/addproject")]
-        public void AddProject(int id, int projId )
+        public User AddProject(int id, int projId )
         {
             foreach (User u in _context.Users.Include("UserProjects"))
             {
                 if (u.Id == id)
                 {
                     UserProject up = new UserProject();
-
-                    if(_context.UserProjects.Count() == 0)
-                    {
-                        up.Id = 1;
-                    }
-                    else
-                    {
-                        up.Id = _context.UserProjects.OrderBy(uproj => uproj.Id).Last().Id + 1;  
-                    }
 
                     up.User = u;
                     up.Project = _context.Projects.FirstOrDefault(p => p.Id == projId);
@@ -120,27 +110,20 @@ namespace BackEnd.Controllers
                     u.UserProjects.Add(up);
                     _context.SaveChanges();
 
+                    return u;
                 }
             }
+            return null;
         }
 
         [HttpPut("{id}/addtechnology")]
-        public void AddTechnology(int id, string techName)
+        public User AddTechnology(int id, string techName)
         {
             foreach (User u in _context.Users.Include("UserTechnologies"))
             {
                 if (u.Id == id)
                 {
                     UserTechnology ut = new UserTechnology();
-
-                    if (_context.UserTechnologies.Count() == 0)
-                    {
-                        ut.Id = 1;
-                    }
-                    else
-                    {
-                        ut.Id = _context.UserTechnologies.OrderBy(utech => utech.Id).Last().Id + 1;
-                    }
 
                     ut.User = u;
                     ut.Technology = _context.Technologies.FirstOrDefault(t => t.Name == techName);
@@ -153,8 +136,10 @@ namespace BackEnd.Controllers
                     u.UserTechnologies.Add(ut);
                     _context.SaveChanges();
 
+                    return u;
                 }
             }
+            return null;
         }
 
         // PUT api/values/5
