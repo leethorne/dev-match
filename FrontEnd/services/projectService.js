@@ -1,6 +1,5 @@
-'use strict';
 app.service("projectService", function($http, $state) {
-  
+
     this.getProjects = function() {
         return $http.get(serverLink + "projects")
     }
@@ -8,8 +7,8 @@ app.service("projectService", function($http, $state) {
     this.getProjectById = function(id, cb) {
         if (id == null || id == undefined || id == "") {
             var project = {
-                usingSkills: [],
                 seekingSkills: [],
+                usingSkills: [],
                 name: "",
                 description: "",
                 status: "",
