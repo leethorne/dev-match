@@ -14,16 +14,6 @@ namespace BackEnd.Controllers
         public UserTechnologiesController(DevMatchContext context)
         {
             _context = context;
-
-            if (_context.UserTechnologies.Count() == 0)
-            {
-                _context.UserTechnologies.Add(new UserTechnology() { Id = 1, UserId = 1, TechnologyId = 1 });
-                _context.UserTechnologies.Add(new UserTechnology() { Id = 2, UserId = 2, TechnologyId = 2 });
-                _context.UserTechnologies.Add(new UserTechnology() { Id = 3, UserId = 3, TechnologyId = 3 });
-                _context.UserTechnologies.Add(new UserTechnology() { Id = 4, UserId = 4, TechnologyId = 4 });
-                _context.UserTechnologies.Add(new UserTechnology() { Id = 5, UserId = 5, TechnologyId = 5 });
-                _context.SaveChanges();
-            }
         }
 
         // GET api/values

@@ -14,16 +14,6 @@ namespace BackEnd.Controllers
         public UserProjectsController(DevMatchContext context)
         {
             _context = context;
-
-            //if (_context.UserProjects.Count() == 0)
-            //{
-            //    _context.UserProjects.Add(new UserProject() { Id = 1, UserId = 1, ProjectId = 1});
-            //    _context.UserProjects.Add(new UserProject() { Id = 2, UserId = 2, ProjectId = 2 });
-            //    _context.UserProjects.Add(new UserProject() { Id = 3, UserId = 3, ProjectId = 3 });
-            //    _context.UserProjects.Add(new UserProject() { Id = 4, UserId = 4, ProjectId = 4 });
-            //    _context.UserProjects.Add(new UserProject() { Id = 5, UserId = 5, ProjectId = 5 });
-            //    _context.SaveChanges();
-            //}
         }
 
         // GET api/values
