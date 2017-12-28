@@ -10,36 +10,49 @@
   </div>
 </div>
 
-<div>
-<div>
-  <div class="col-md-offset-1 col-md-4 user-contact-block">
+<div class="container">
+  <div class="col-md-4 user-contact-block">
     <img class="user-profile-pic img-responsive" src="{{project.user.image}}">
-    <div>
+    <div class="user-contact-tile">
       <h3 class="user-contact-header">Contact</h3>
-      <h4><strong>Phone:</strong> {{project.user.phoneNumber}}</h4>
-      <h4><strong>Email:</strong> {{project.user.email}}</h4>
-      <h4><a href="{{project.user.LinkedIn}}">View LinkedIn Profile</a></h4>
-      <h4><a href="{{project.user.GitHubLink}}">View GitHub Profile</a></h4>
-      <button class="user-contact-me">Contact Me</button>
+      <h4>
+        <strong>Phone:</strong> {{project.user.phoneNumber}}</h4>
+      <h4>
+        <strong>Email:</strong> {{project.user.email}}</h4>
+      <h4>
+        <a href="{{project.user.LinkedIn}}">View LinkedIn Profile</a>
+      </h4>
+      <h4>
+        <a href="{{project.user.GitHubLink}}">View GitHub Profile</a>
+      </h4>
+      <button class="user-contact-me light-btn">
+        <a class="mailto" href="mailto:{{user.email}}">Contact Me</a>
+      </button>
     </div>
   </div>
-</div>
 
-<div class= "col-md-6 user-info-block">
-  <img ui-sref="projectUpdate ({id: project.id})" class="edit pull-right" src="./img/edit.svg">
-  <h1>{{project.projectName}}</h1>
-  <h4>{{project.description}}</p>
+  <div class="col-md-6 user-info-block">
+    <img ui-sref="projectUpdate ({id: project.id})" class="edit pull-right" src="./img/edit.svg">
+    <h1>{{project.projectName}}</h1>
+    <h4>{{project.description}}</p>
 
-  <p><strong>Project Status:</strong>{{project.status}}</p> 
-  <p><strong>Desired Team Size:</strong> {{project.desiredTeamSize}}</p>
-  <p><strong>Current Team Size:</strong> {{project.currentTeamSize}}</p>
+      <p>
+        <strong>Project Status:</strong>{{project.status}}</p>
+      <p>
+        <strong>Desired Team Size:</strong> {{project.desiredTeamSize}}</p>
+      <p>
+        <strong>Current Team Size:</strong> {{project.currentTeamSize}}</p>
 
-  <div>
-    <h3><strong>Technologies Seeking:</strong></h3>
-    <div ng-repeat="technology in project.projectTechnologies"> {{technology.technology.name}}</div>
+      <div>
+        <h3>
+          <strong>Technologies Seeking:</strong>
+        </h3>
+        <div ng-repeat="technology in project.projectTechnologies"> {{technology.technology.name}}</div>
+      </div>
+
+      <div>
+        <h3>
+          <strong>Technologies Using:</strong>
+        </h3>
+      </div>
   </div>
-
-  <div>
-    <h3><strong>Technologies Using:</strong></h3>
-  </div>
-</div>
