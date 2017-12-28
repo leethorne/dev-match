@@ -8,5 +8,6 @@ namespace BackEnd.Controllers
         public int Id { get; set; }
         public string Name { get; set; }
         public List<ProjectTechnology> Projects { get; set;  }
+        public List<UserTechnology> Users { get; set; }
     }
 }

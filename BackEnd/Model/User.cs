@@ -23,5 +23,6 @@ namespace BackEnd.Controllers
         public string GitHubLink { get; set; }
         public string LinkedIn { get; set; }
         public List<UserProject> UserProjects { get; set; }
+        public List<UserTechnology> UserTechnologies { get; set; }
     }
 }

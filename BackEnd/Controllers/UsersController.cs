@@ -28,15 +28,15 @@ namespace BackEnd.Controllers
                 _context.Users.Add(new User() { Id = 6, FirstName = "Jake", LastName = "Bell", Email = "bell@gmail.com", PhoneNumber = "211-432-6433", AddressLine1 = "29 Geneva Walk", AddressLine2 = "Apt 8", City = "Long Beach", State = "CA", Zip = 90803, Image = "./Images/Jake.png", UserName = "Jake", Password = "Jake", JobTitle = "Front End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/JakeBell", LinkedIn = "https://www.linkedin.com/in/jakebell/" });
                 _context.Users.Add(new User() { Id = 7, FirstName = "Thomas", LastName = "Jefferson", Email = "TJ@gmail.com", PhoneNumber = "789-345-7654", AddressLine1 = "162 Savona Walk", AddressLine2 = "Apt 20", City = "Long Beach", State = "CA", Zip = 90803, Image = "./Images/Thomas.jpg", UserName = "Thom", Password = "Thom", JobTitle = "Software Engineer", ProficiencyLevel = "Advanced", GitHubLink = "https://github.com/1600", LinkedIn = "https://www.linkedin.com/in/thomasJ/" });
                 _context.Users.Add(new User() { Id = 8, FirstName = "Karen", LastName = "DeLuca", Email = "KD@gmail.com", PhoneNumber = "567-456-9876", AddressLine1 = "5649 E Sorrento Dr", AddressLine2 = "", City = "Long Beach", State = "CA", Zip = 90803, Image = "./Images/Karen.png", UserName = "Karen", Password = "karen", JobTitle = "Front End Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/karen", LinkedIn = "https://www.linkedin.com/in/karen/" });
-                _context.Users.Add(new User() { Id = 9, FirstName = "Mark", LastName = "Geller", Email = "mar@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "2615 Avenue O", AddressLine2 = "Apt 2H", City = "Brooklyn", State = "NY", Zip = 11210, Image = "./Images/Mark.jpg", UserName = "Mark", Password = "marker", JobTitle = "Software Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/mageller", LinkedIn = "https://www.linkedin.com/in/mgeller/" });
-                _context.Users.Add(new User() { Id = 10, FirstName = "Zach", LastName = "Lucas", Email = "zluc@gmail.com", PhoneNumber = "724-787-9345", AddressLine1 = "5409 Avenue L", AddressLine2 = "Apt 4", City = "Brooklyn", State = "NY", Zip = 11234, Image = "./Images/zach2.jpg", UserName = "zach", Password = "zluc", JobTitle = "Software Engineer", ProficiencyLevel = "Advanced", GitHubLink = "https://github.com/zachlucas", LinkedIn = "https://www.linkedin.com/in/zachthomaslucas/" });
-                _context.Users.Add(new User() { Id = 11, FirstName = "Jessica", LastName = "Depalma", Email = "jj@gmail.com", PhoneNumber = "212-362-8833", AddressLine1 = "1611 E 36th St", AddressLine2 = "Apt 11", City = "Brooklyn", State = "NY", Zip = 11234, Image = "./Images/Jessica.jpg", UserName = "jessi", Password = "ilovecode", JobTitle = "Front End Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/jessica", LinkedIn = "https://www.linkedin.com/in/jessica/" });
-                _context.Users.Add(new User() { Id = 12, FirstName = "Angela", LastName = "Evans", Email = "AEIOU@gmail.com", PhoneNumber = "978-456-7667", AddressLine1 = "3178 Nostrand Ave", AddressLine2 = "Apt 7", City = "Brooklyn", State = "NY", Zip = 11229, Image = "./Images/Angela.jpg", UserName = "angie", Password = "crossfitrules", JobTitle = "Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/angelaevans", LinkedIn = "https://www.linkedin.com/in/angelaevans/" });
-                _context.Users.Add(new User() { Id = 13, FirstName = "Lexi", LastName = "Johnson", Email = "alexa@gmail.com", PhoneNumber = "433-223-0009", AddressLine1 = "2214 E 29th St", AddressLine2 = "Apt 18", City = "Brooklyn", State = "NY", Zip = 11229, Image = "./Images/lexi.jpg", UserName = "Lexi", Password = "LBJ", JobTitle = "Software Engineer", ProficiencyLevel = "Advanced", GitHubLink = "https://github.com/lexie", LinkedIn = "https://www.linkedin.com/in/alexa/" });
-                _context.Users.Add(new User() { Id = 14, FirstName = "Francis", LastName = "Marx", Email = "MF@gmail.com", PhoneNumber = "312-338-5533", AddressLine1 = "68 Bevy Ct", AddressLine2 = "", City = "Brooklyn", State = "NY", Zip = 11229, Image = "./Images/Francis.jpg", UserName = "frank", Password = "frank", JobTitle = "Software Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/francis", LinkedIn = "https://www.linkedin.com/in/francis/" });
-                _context.Users.Add(new User() { Id = 15, FirstName = "Derek", LastName = "Kozar", Email = "dk@gmail.com", PhoneNumber = "310-220-2250", AddressLine1 = "2443 Ocean Ave", AddressLine2 = "Apt 13", City = "Brooklyn", State = "NY", Zip = 11229, Image = "./Images/Derek.jpg", UserName = "dman", Password = "ddude", JobTitle = "Front End Developer, UX/UI Designer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/domenkozar", LinkedIn = "https://www.linkedin.com/in/derekkozar/" });
-                _context.Users.Add(new User() { Id = 16, FirstName = "Calvin", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "2220 National Dr", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11234, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
-                _context.Users.Add(new User() { Id= 17, FirstName = "TEST", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "2220 National Dr", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11234, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
+                _context.Users.Add(new User() { Id = 9, FirstName = "Mark", LastName = "Geller", Email = "mar@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "1250 Jefferson Ave", AddressLine2 = "Apt 2H", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Mark.jpg", UserName = "Mark", Password = "marker", JobTitle = "Software Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/mageller", LinkedIn = "https://www.linkedin.com/in/mgeller/" });
+                _context.Users.Add(new User() { Id = 10, FirstName = "Zach", LastName = "Lucas", Email = "zluc@gmail.com", PhoneNumber = "724-787-9345", AddressLine1 = "151 Weirfield St", AddressLine2 = "Apt 4", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/zach2.jpg", UserName = "zach", Password = "zluc", JobTitle = "Software Engineer", ProficiencyLevel = "Advanced", GitHubLink = "https://github.com/zachlucas", LinkedIn = "https://www.linkedin.com/in/zachthomaslucas/" });
+                _context.Users.Add(new User() { Id = 11, FirstName = "Jessica", LastName = "Depalma", Email = "jj@gmail.com", PhoneNumber = "212-362-8833", AddressLine1 = "71 Cornelia St", AddressLine2 = "Apt 11", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Jessica.jpg", UserName = "jessi", Password = "ilovecode", JobTitle = "Front End Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/jessica", LinkedIn = "https://www.linkedin.com/in/jessica/" });
+                _context.Users.Add(new User() { Id = 12, FirstName = "Angela", LastName = "Evans", Email = "AEIOU@gmail.com", PhoneNumber = "978-456-7667", AddressLine1 = "1255 Bushwick Ave", AddressLine2 = "Apt 7", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Angela.jpg", UserName = "angie", Password = "crossfitrules", JobTitle = "Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/angelaevans", LinkedIn = "https://www.linkedin.com/in/angelaevans/" });
+                _context.Users.Add(new User() { Id = 13, FirstName = "Lexi", LastName = "Johnson", Email = "alexa@gmail.com", PhoneNumber = "433-223-0009", AddressLine1 = "37 Weirfield St", AddressLine2 = "Apt 18", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/lexi.jpg", UserName = "Lexi", Password = "LBJ", JobTitle = "Software Engineer", ProficiencyLevel = "Advanced", GitHubLink = "https://github.com/lexie", LinkedIn = "https://www.linkedin.com/in/alexa/" });
+                _context.Users.Add(new User() { Id = 14, FirstName = "Francis", LastName = "Marx", Email = "MF@gmail.com", PhoneNumber = "312-338-5533", AddressLine1 = "1282 Putnam Ave", AddressLine2 = "", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Francis.jpg", UserName = "frank", Password = "frank", JobTitle = "Software Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/francis", LinkedIn = "https://www.linkedin.com/in/francis/" });
+                _context.Users.Add(new User() { Id = 15, FirstName = "Derek", LastName = "Kozar", Email = "dk@gmail.com", PhoneNumber = "310-220-2250", AddressLine1 = "1132 Greene Ave", AddressLine2 = "Apt 13", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Derek.jpg", UserName = "dman", Password = "ddude", JobTitle = "Front End Developer, UX/UI Designer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/domenkozar", LinkedIn = "https://www.linkedin.com/in/derekkozar/" });
+                _context.Users.Add(new User() { Id = 16, FirstName = "Calvin", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "735 Chauncey St", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11207, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
+                _context.Users.Add(new User() { Id= 17, FirstName = "TEST", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "253 Schaefer St", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11207, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
                 _context.SaveChanges();
             }
         }
@@ -50,7 +50,7 @@ namespace BackEnd.Controllers
 
             if(username == null || password == null)
             {
-                return _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").ToList();
+                return _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies.Technology").ToList();
             }
 
             foreach (User u in _context.Users)
@@ -70,7 +70,7 @@ namespace BackEnd.Controllers
         [HttpGet("{id}")]
         public User Get(int id)
         {
-            foreach(User u in _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology"))
+            foreach(User u in _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies.Technology"))
             {
                 if(u.Id == id)
                 {
@@ -118,6 +118,39 @@ namespace BackEnd.Controllers
                     }
 
                     u.UserProjects.Add(up);
+                    _context.SaveChanges();
+
+                }
+            }
+        }
+
+        [HttpPut("{id}/addtechnology")]
+        public void AddTechnology(int id, string techName)
+        {
+            foreach (User u in _context.Users.Include("UserTechnologies"))
+            {
+                if (u.Id == id)
+                {
+                    UserTechnology ut = new UserTechnology();
+
+                    if (_context.UserTechnologies.Count() == 0)
+                    {
+                        ut.Id = 1;
+                    }
+                    else
+                    {
+                        ut.Id = _context.UserTechnologies.OrderBy(utech => utech.Id).Last().Id + 1;
+                    }
+
+                    ut.User = u;
+                    ut.Technology = _context.Technologies.FirstOrDefault(t => t.Name == techName);
+
+                    if (u.UserTechnologies == null)
+                    {
+                        u.UserTechnologies = new List<UserTechnology>();
+                    }
+
+                    u.UserTechnologies.Add(ut);
                     _context.SaveChanges();
 
                 }

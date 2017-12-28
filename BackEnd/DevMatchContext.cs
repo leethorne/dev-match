@@ -8,7 +8,9 @@ namespace BackEnd
     {
         public DevMatchContext(DbContextOptions<DevMatchContext> options) : base(options)
         {
+            
         }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Message> Messages { get; set; }
