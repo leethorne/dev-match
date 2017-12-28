@@ -18,13 +18,13 @@
       <h4><strong>Email:</strong> {{user.email}}</h4>
       <h4><a href="{{user.LinkedIn}}">View LinkedIn Profile</a></h4>
       <h4><a href="{{user.GitHubLink}}">View GitHub Profile</a></h4>
-      <button class="user-contact-me">Contact Me</button>
+      <button class="user-contact-me light-btn">Contact Me</button>
     </div>
   </div>
   <div class="col-md-8 user-info-block">
     <img ng-click="editUser()" class="edit user-edit" src="./img/edit.svg">
     <h1 class="user-full-name">{{user.firstName}} {{user.lastName}}</h1>
-    <h4>{{user.userName}}</h4>
+    <h4 class="user-username">{{user.userName}}</h4>
 
     <h4><strong>Job Title:</strong> {{user.jobTitle}}</h4>
     <h4><strong>Proficiency Level:</strong> {{user.proficiencyLevel}}</h4>
@@ -38,81 +38,46 @@
       <h3>My Projects: </h3>
       <!--list projects once bind data is possible (join table)-->
       <div class="row">
-        <p class="add-proj user-add-proj">+</p>
-        <div class="form-group col-md-12 create-project">
-          <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.projectName" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-1">
-              <span class="input__label-content input__label-content--hoshi">Project Name</span>
-          </label>
-          </span>
-
+        <p class="user-add-proj"><span class="add-proj">+</span></p>
+        <div class="col-md-12 create-project">
+  
+          <div class="form-group create-name">
+            <span class="input input--hoshi">
+              <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.projectName" />
+              <label class="input__label input__label--hoshi input__label--hoshi-color-1">
+                  <span class="input__label-content input__label-content--hoshi">Project Name</span>
+              </label>
+            </span>
+          </div>
+  
           <textarea class="col-md-12 user-proj-blurb" placeholder="Blurb" ng-model="project.description"></textarea>
-
+  
           <div class="form-group col-md-6 reg-sel">
-            <select class="reg-skill-level input--hoshi" id="projTeamSize" name="text" title="Team Size" ng-model="project.desiredTeamSize">
-                <option value="">Select desired team size</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-          </select>
+            <select class="reg-skill-level input--hoshi" ng-model="project.desiredTeamSize">
+                  <option value="">Select desired team size</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+            </select>
           </div>
-
+  
           <div class="form-group col-md-6 reg-sel">
-            <select class="reg-skill-level input--hoshi" name="text" title="Project Status" ng-model="project.status">
-              <option value="">Select project status</option>
-              <option>Not Started</option>
-              <option>In Progress</option>
-          </select>
+            <select class="reg-skill-level input--hoshi" ng-model="project.status">
+                <option value="">Select project status</option>
+                <option>Not Started</option>
+                <option>In Progress</option>
+            </select>
           </div>
-
-          <div class="form-group">
-            <label>Seeking developers with the following skills:</label>
-            <!--  ng-options="tech.id as tech.name for tech in availableTechnologies" -->
-            <select multiple="" class="tags" ng-model="project.seekingSkills" ng-change="printTech()">
-              <option>HTML</option>
-              <option>CSS</option>
-              <option>BootStrap</option>
-              <option>JavaScript</option>
-              <option>AngularJS</option>
-              <option>C#</option>
-              <option>ASP.NET Core</option>
-              <option>Node.js</option>
-              <option>MySQL</option>
-              <option>React</option>
-              <option>Ojective-C</option>
-              <option>jQuery</option>
-              <option>MongoDB</option>
-              <option>C / C++</option>
-              <option>Ruby</option>
-              <option>SpringMVC</option>
-              <option>Java</option>
-              <option>PHP</option>
-              <option>AWS</option>
-              <option>Azure</option>
-              <option>Entity Framework Core</option>
-              <option>SQL Server</option>
-              <option>Dapper</option>
-              <option>NancyFX</option>
-              <option>.Net Core 2.0</option>
-              <option>C#</option>
-              <option>Xcode</option>
-              <option>Swift</option>
-              <option>Django</option>
-              <option>Ajax</option>
-              <option>Python</option>
-          </select>
-          </div>
-
-          <div class="form-group">
-            <label>Technologies Using:</label>
-            <select multiple="" class="tags" ng-model="project.usingSkills" ng-change="printTech()">
+  
+          <!-- <div class="form-group">
+              <label class="control-label">Seeking developers with the following skills:</label>
+              <select multiple="" class="tags" ng-model="project.skills1">
                 <option>HTML</option>
                 <option>CSS</option>
                 <option>BootStrap</option>
@@ -144,13 +109,74 @@
                 <option>Django</option>
                 <option>Ajax</option>
                 <option>Python</option>
-          </select>
+            </select>
           </div>
-
+  
+          <div class="form-group">
+            <label class="control-label">Technologies Using:</label>
+            <select multiple="" class="tags" ng-model="project.skills2">
+                  <option>HTML</option>
+                  <option>CSS</option>
+                  <option>BootStrap</option>
+                  <option>JavaScript</option>
+                  <option>AngularJS</option>
+                  <option>C#</option>
+                  <option>ASP.NET Core</option>
+                  <option>Node.js</option>
+                  <option>MySQL</option>
+                  <option>React</option>
+                  <option>Ojective-C</option>
+                  <option>jQuery</option>
+                  <option>MongoDB</option>
+                  <option>C / C++</option>
+                  <option>Ruby</option>
+                  <option>SpringMVC</option>
+                  <option>Java</option>
+                  <option>PHP</option>
+                  <option>AWS</option>
+                  <option>Azure</option>
+                  <option>Entity Framework Core</option>
+                  <option>SQL Server</option>
+                  <option>Dapper</option>
+                  <option>NancyFX</option>
+                  <option>.Net Core 2.0</option>
+                  <option>C#</option>
+                  <option>Xcode</option>
+                  <option>Swift</option>
+                  <option>Django</option>
+                  <option>Ajax</option>
+                  <option>Python</option>
+            </select>
+          </div> -->
+  
+          <div class="form-group row">
+            <label class="col-sm-5 control-label">Seeking developers with the following skills:</label>
+            <div class="col-sm-7">
+              <ui-select ng-model="project.seekingSkills" multiple theme="selectize">
+                <ui-select-match placeholder="Seeking the following technologies.">{{ $item.name }}</ui-select-match>
+                <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
+                  <div ng-bind-html="item.name | highlight: $select.search"></div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <label class="col-sm-5 control-label">Technologies Using:</label>
+            <div class="col-sm-7">
+              <ui-select ng-model="project.usingSkills" multiple theme="selectize">
+                <ui-select-match placeholder="Using the following technologies.">{{ $item.name }}</ui-select-match>
+                <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
+                  <div ng-bind-html="item.name | highlight: $select.search"></div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+          </div>
+  
           <div class="row">
-            <button class="btn btn-primary pull-right" ng-click="addProject()">Add Project</button>
+            <button class="light-btn add-proj-btn pull-right" ng-click="addProject()">Add Project</button>
           </div>
-
+  
         </div>
       </div>
 

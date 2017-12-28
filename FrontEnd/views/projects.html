@@ -13,11 +13,11 @@
 <div class="container">
   <div class="col-md-8">
     <div class="row">
-      <input type="text" class="form-control" placeholder="Search Projects..." ng-model="userInput" />
-      <p class="add-proj user-add-proj">+</p>
+      <input type="text" class="form-control search-projs" placeholder="Search Projects..." ng-model="userInput" />
+      <p class="user-add-proj"><span class="add-proj">+</span></p>
       <div class="col-md-12 create-project">
 
-        <div class="form-group">
+        <div class="form-group create-name">
           <span class="input input--hoshi">
             <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.projectName" />
             <label class="input__label input__label--hoshi input__label--hoshi-color-1">
@@ -150,7 +150,7 @@
         </div>
 
         <div class="row">
-          <button class="btn btn-primary pull-right" ng-click="addProject()">Add Project</button>
+          <button class="light-btn add-proj-btn pull-right" ng-click="addProject()">Add Project</button>
         </div>
 
       </div>
@@ -158,8 +158,8 @@
 
     <div class="row">
       <div ng-repeat="project in projects | filter: userInput" class="projectTile">
-        <img class="edit pull-right" src="./img/edit.svg" ui-sref="projectUpdate ({id: project.id})" />
-        <img class="delete pull-right" src="./img/delete.png" ng-click="deleteProject()" />
+        <img class="edit pull-right" src="./img/edit.svg" ui-sref="projectUpdate({id: project.id})" />
+        <!-- <img class="delete pull-right" src="./img/delete.png" ng-click="deleteProject();" /> -->
         <h4 class="project-name" ui-sref="project ({id: project.id})">
           <strong>{{project.projectName}} </strong>
         </h4>

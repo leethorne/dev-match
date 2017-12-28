@@ -181,7 +181,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
                 classie.remove(ev.target.parentNode, 'input--filled');
             }
         };
-    }());
+    })();
 
 
      //API functionality -- get map from the address of the users
