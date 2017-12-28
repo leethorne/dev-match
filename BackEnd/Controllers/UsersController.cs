@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace BackEnd.Controllers
@@ -49,7 +50,7 @@ namespace BackEnd.Controllers
 
             if(username == null || password == null)
             {
-                return _context.Users.ToList();
+                return _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").ToList();
             }
 
             foreach (User u in _context.Users)
@@ -69,7 +70,7 @@ namespace BackEnd.Controllers
         [HttpGet("{id}")]
         public User Get(int id)
         {
-            foreach(User u in _context.Users)
+            foreach(User u in _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology"))
             {
                 if(u.Id == id)
                 {
@@ -89,22 +90,47 @@ namespace BackEnd.Controllers
             return u;
         }
 
+
+        [HttpPut("{id}/addproject")]
+        public void AddProject(int id, int projId )
+        {
+            foreach (User u in _context.Users.Include("UserProjects"))
+            {
+                if (u.Id == id)
+                {
+                    UserProject up = new UserProject();
+
+                    if(_context.UserProjects.Count() == 0)
+                    {
+                        up.Id = 1;
+                    }
+                    else
+                    {
+                        up.Id = _context.UserProjects.OrderBy(uproj => uproj.Id).Last().Id + 1;  
+                    }
+
+                    up.User = u;
+                    up.Project = _context.Projects.FirstOrDefault(p => p.Id == projId);
+
+                    if (u.UserProjects == null)
+                    {
+                        u.UserProjects = new List<UserProject>();
+                    }
+
+                    u.UserProjects.Add(up);
+                    _context.SaveChanges();
+
+                }
+            }
+        }
+
         // PUT api/values/5
         [HttpPut("{id}")]
         public User Put(int id, [FromBody]User user)
         {
-            foreach (User u in _context.Users)
-            {
-                if (u.Id == id)
-                {
-                    _context.Users.Remove(u);
-                    _context.SaveChanges();
-                    _context.Users.Add(user);
-                    _context.SaveChanges();
-                    return user;
-                }
-            }
-            return null;
+            _context.Users.Update(user);
+            _context.SaveChanges();
+            return user;
         }
 
         // DELETE api/values/5

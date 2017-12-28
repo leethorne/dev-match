@@ -1,4 +1,4 @@
-app.controller("projectController", function ($scope, $state, $stateParams, projectService) {
+app.controller("projectController", function ($scope, $state, $stateParams, projectService, userService) {
     $(".tags").select2({ tags: true, width: '100%' });
 
     $(".create-project").hide();
@@ -81,15 +81,33 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
 
     $scope.addProject = function () {
         projectService.addProject($scope.project)
-            .then(function (reponse) {
+            .then(function (response) {
                 $scope.project = response.data;
-                console.log($scope.project)
-                $state.go("projects")
+                console.log("adding: ", $scope.project)
+                userService.updateUserProj($stateParams.id, $scope.project.id)
+                    .then(function (response) {
+                        console.log(response)
+                    }, function (error) {
+                        console.log(error);
+                        //do something here to alert user of fail 
+                    })
             }, function (error) {
                 console.log(error)
                 //make error message for user if failed
             })
     }
+
+    // $scope.addProject = function () {
+    //     projectService.addProject($scope.project)
+    //         .then(function (reponse) {
+    //             $scope.project = response.data;
+    //             console.log("adding: ", $scope.project)
+    //             $state.go("projects")
+    //         }, function (error) {
+    //             console.log(error)
+    //             //make error message for user if failed
+    //         })
+    // }
 
     $scope.updateProject = function () {
         projectService.updateProject($stateParams.id, $scope.project)
@@ -133,6 +151,40 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
         }, function (error) {
             console.log(error);
             //handle error messages here to the user
-        })
+        });
 
+    // input fields 
+    (function () {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+            (function () {
+                // Make sure we trim BOM and NBSP
+                var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                String.prototype.trim = function () {
+                    return this.replace(rtrim, '');
+                };
+            })();
+        }
+
+        [].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+            // in case the input is already filled..
+            if (inputEl.value.trim() !== '') {
+                classie.add(inputEl.parentNode, 'input--filled');
+            }
+
+            // events:
+            inputEl.addEventListener('focus', onInputFocus);
+            inputEl.addEventListener('blur', onInputBlur);
+        });
+
+        function onInputFocus(ev) {
+            classie.add(ev.target.parentNode, 'input--filled');
+        }
+
+        function onInputBlur(ev) {
+            if (ev.target.value.trim() === '') {
+                classie.remove(ev.target.parentNode, 'input--filled');
+            }
+        }
+    })();
 });

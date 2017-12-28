@@ -14,7 +14,6 @@ namespace BackEnd.Controllers
         public ProjectTechnologiesController(DevMatchContext context)
         {
             _context = context;
-
     
         }
 

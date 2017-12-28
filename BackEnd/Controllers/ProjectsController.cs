@@ -52,6 +52,7 @@ namespace BackEnd.Controllers
         [HttpPost]
         public Project Post([FromBody]Project p)
         {
+            p.Id = _context.Projects.Count() + 1;
             _context.Projects.Add(p);
             _context.SaveChanges();
             return p;

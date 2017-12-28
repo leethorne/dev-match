@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace BackEnd.Controllers
 {
@@ -21,5 +22,6 @@ namespace BackEnd.Controllers
         public string ProficiencyLevel { get; set; }
         public string GitHubLink { get; set; }
         public string LinkedIn { get; set; }
+        public List<UserProject> UserProjects { get; set; }
     }
 }

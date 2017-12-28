@@ -2,7 +2,7 @@ app.service("userService", function ($http, $state) {
 
     var that = this;
     that.currentUser = null;
-    
+
     
     this.getUsers = function () {
         return $http.get(serverLink + "users");
@@ -43,6 +43,10 @@ app.service("userService", function ($http, $state) {
 
     this.deleteUser = function (id) {
         return $http.delete(serverLink + "users/" + id);
+    }
+
+    this.updateUserProj = function(id, projId) {
+        return $http.put(serverLink + "users/" + id + "/addproject?projId=" + projId);
     }
 
     this.getCurrentUser = function () {

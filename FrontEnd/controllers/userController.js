@@ -1,4 +1,4 @@
-app.controller("userController", function ($scope, $state, $stateParams, userService, NgMap) {
+app.controller("userController", function ($scope, $state, $stateParams, userService, projectService, NgMap) {
 
     //jQuery Box
     $(".tags").select2({ tags: true, width: '100%' }); //jquery box
@@ -70,6 +70,34 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
                 console.log(error)
                 //set error message here for users to see
             })
+    }
+
+    $scope.addProject = function () {
+        projectService.addProject($scope.project)
+            .then(function (response) {
+                $scope.project = response.data;
+                console.log("adding: ", $scope.project)
+                    userService.updateUserProj($stateParams.id, $scope.project.id)
+                        .then(function (response) {
+                            console.log(response)
+                        }, function (error) {
+                            console.log(error);
+                            //do something here to alert user of fail 
+                        })
+            }, function (error) {
+                console.log(error)
+                //make error message for user if failed
+            })
+    }
+
+    $scope.updateUserProj = function() {
+        userService.updateUserProj($stateParams.id, $scope.projId)
+        .then (function(response) {
+            console.log(response)
+        }, function(error) {
+            console.log(error);
+            //do something here to alert user of fail 
+        })
     }
 
     $scope.login = function () {

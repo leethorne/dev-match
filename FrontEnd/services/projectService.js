@@ -28,7 +28,7 @@ app.service("projectService", function($http, $state) {
     }
 
     this.addProject = function(project) {
-        return $http.post(serverLink + "projects/" + project)
+        return $http.post(serverLink + "projects/", project)
     }
 
     this.updateProject = function(id, project) {
