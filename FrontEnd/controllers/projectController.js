@@ -44,7 +44,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
                     added = true;
                 }
             }
-            
+
             if(!added) {
                 $scope.project.usingSkills[i].isUsing = true;
                 skillsArray.push($scope.project.usingSkills[i])
@@ -79,6 +79,8 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
                         })
                 });
                 
+
+                $state.go('projects', {}, { reload: 'projects'}) 
             }, function (error) {
               console.log("error to add: ", error)
               //make error message for user if failed to add 

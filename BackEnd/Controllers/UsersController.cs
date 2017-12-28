@@ -99,15 +99,6 @@ namespace BackEnd.Controllers
                 {
                     UserProject up = new UserProject();
 
-                    if(_context.UserProjects.Count() == 0)
-                    {
-                        up.Id = 1;
-                    }
-                    else
-                    {
-                        up.Id = _context.UserProjects.OrderBy(uproj => uproj.Id).Last().Id + 1;  
-                    }
-
                     up.User = u;
                     up.Project = _context.Projects.FirstOrDefault(p => p.Id == projId);
 
@@ -126,22 +117,13 @@ namespace BackEnd.Controllers
         }
 
         [HttpPut("{id}/addtechnology")]
-        public void AddTechnology(int id, string techName)
+        public User AddTechnology(int id, string techName)
         {
             foreach (User u in _context.Users.Include("UserTechnologies"))
             {
                 if (u.Id == id)
                 {
                     UserTechnology ut = new UserTechnology();
-
-                    if (_context.UserTechnologies.Count() == 0)
-                    {
-                        ut.Id = 1;
-                    }
-                    else
-                    {
-                        ut.Id = _context.UserTechnologies.OrderBy(utech => utech.Id).Last().Id + 1;
-                    }
 
                     ut.User = u;
                     ut.Technology = _context.Technologies.FirstOrDefault(t => t.Name == techName);
@@ -154,8 +136,10 @@ namespace BackEnd.Controllers
                     u.UserTechnologies.Add(ut);
                     _context.SaveChanges();
 
+                    return u;
                 }
             }
+            return null;
         }
 
         // PUT api/values/5
