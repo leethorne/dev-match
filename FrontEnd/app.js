@@ -51,7 +51,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
       .state("projectUpdate", { // update
         url: "/projects/:id/edit",
         templateUrl: "./views/project-form.html",
-        controller: "projectController"
+        controller: "projectController",
+        css: "./css/update-user.css"
       })
 
 

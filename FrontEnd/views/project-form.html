@@ -1,121 +1,82 @@
 <div class="container">
   <h1 class="text-center project-form-title">Edit {{project.projectName}}</h1>
   <div class="form-group col-md-12">
-    <input type="text" class="form-control" placeholder="Project Name" ng-model="project.projectName">
-    <div class="row">
-      <div class="text-area">
-        <textarea placeholder="Blurb" ng-model="project.description"></textarea>
-      </div>Desired Team Size
-      <select name="text" title="Desired Team Size" ng-model="project.desiredTeamSize">
-          <option value="value1" selected>2</option>
-          <option value="value2">3</option>
-          <option value="value3">4</option>
-          <option value="value4">5</option>
-          <option value="value5">6</option>
-          <option value="value6">7</option>
-          <option value="value7">8</option>
-          <option value="value8">9</option>
-          <option value="value9">10</option>
-      </select> Current Team Size
-      <select name="text" title="Current Team Size" ng-model="project.currentTeamSize">
-        <option value="value1" selected>2</option>
-        <option value="value2">3</option>
-        <option value="value3">4</option>
-        <option value="value4">5</option>
-        <option value="value5">6</option>
-        <option value="value6">7</option>
-        <option value="value7">8</option>
-        <option value="value8">9</option>
-        <option value="value9">10</option>
-      </select> Project Status
-      <select name="text" title="Project Status" ng-model="project.status">
-        <option value="value1" selected>Not Started</option>
-        <option value="value2">In Progress</option>
-        <option value="value3">Completed</option>
-     </select>
+    <div class="form-group create-name">
+      <span class="input input--hoshi">
+        <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.projectName" />
+        <label class="input__label input__label--hoshi input__label--hoshi-color-1">
+            <span class="input__label-content input__label-content--hoshi">Project Name</span>
+        </label>
+      </span>
     </div>
-  </div>
-  <!--end of row-->
-  <div id="skills" class="tab-pane cont">
-    <div class="panel-body form-horizontal">
 
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Seeking skills:</label>
-        <div class="col-sm-10">
-          <select multiple="" class="tags" ng-model="thisisatest">
-            <option>BootStrap</option>
-            <option>JavaScript</option>
-            <option>AngularJS</option>
-            <option>C#</option>
-            <option>ASP.NET Core</option>
-            <option>Node.js</option>
-            <option>CSS</option>
-            <option>MySQL</option>
-            <option>React</option>
-            <option>Ojective-C</option>
-            <option>jQuery</option>
-            <option>MongoDB</option>
-            <option>C / C++</option>
-            <option>Ruby</option>
-            <option>SpringMVC</option>
-            <option>Java</option>
-            <option>PHP</option>
-            <option>AWS</option>
-            <option>Azure</option>
-            <option>Entity Framework Core</option>
-            <option>SQL Server</option>
-            <option>Dapper</option>
-            <option>NancyFX</option>
-            <option>.Net Core 2.0</option>
-            <option>C#</option>
-            <option>Xcode</option>
-            <option>Swift</option>
-            <option>Django</option>
-            <option>Ajax</option>
-            <option>Python</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Technologies Using:</label>
-        <div class="col-sm-10">
-          <select multiple="" class="tags">
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>BootStrap</option>
-                    <option>JavaScript</option>
-                    <option>AngularJS</option>
-                    <option>C#</option>
-                    <option>ASP.NET Core</option>
-                    <option>Node.js</option>
-                    <option>MySQL</option>
-                    <option>React</option>
-                    <option>Ojective-C</option>
-                    <option>jQuery</option>
-                    <option>MongoDB</option>
-                    <option>C / C++</option>
-                    <option>Ruby</option>
-                    <option>SpringMVC</option>
-                    <option>Java</option>
-                    <option>PHP</option>
-                    <option>AWS</option>
-                    <option>Azure</option>
-                    <option>Entity Framework Core</option>
-                    <option>SQL Server</option>
-                    <option>Dapper</option>
-                    <option>NancyFX</option>
-                    <option>.Net Core 2.0</option>
-                    <option>C#</option>
-                    <option>Xcode</option>
-                    <option>Swift</option>
-                    <option>Django</option>
-                    <option>Ajax</option>
-                    <option>Python</option>
-                  </select>
-        </div>
+    <textarea class="col-md-12 user-proj-blurb" placeholder="Blurb" ng-model="project.description"></textarea>
+
+    <div class="form-group col-md-4 reg-sel">
+      <select class="reg-skill-level input--hoshi" ng-model="project.desiredTeamSize">
+            <option value="">Select desired team size</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-4 reg-sel">
+      <select class="reg-skill-level input--hoshi" ng-model="project.currentTeamSize">
+            <option value="">Select current team size</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-4 reg-sel">
+      <select class="reg-skill-level input--hoshi" ng-model="project.status">
+          <option value="">Select project status</option>
+          <option>Not Started</option>
+          <option>In Progress</option>
+      </select>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 control-label">Seeking developers with the following skills:</label>
+      <div class="col-md-12">
+        <ui-select ng-model="project.seekingSkills" multiple theme="selectize">
+          <ui-select-match placeholder="Seeking the following technologies.">{{ $item.name }}</ui-select-match>
+          <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
+            <div ng-bind-html="item.name | highlight: $select.search"></div>
+          </ui-select-choices>
+        </ui-select>
       </div>
     </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 control-label">Technologies Using:</label>
+      <div class="col-md-12">
+        <ui-select ng-model="project.usingSkills" multiple theme="selectize">
+          <ui-select-match placeholder="Using the following technologies.">{{ $item.name }}</ui-select-match>
+          <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
+            <div ng-bind-html="item.name | highlight: $select.search"></div>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="light-btn update-btn pull-right" ng-click="updateProject(); updateProjTech(); updateUserProj()">Update</button>
+      <button class="light-btn pull-right" ng-click="deleteProject()">Delete</button>
+    </div>
   </div>
-  <button class="light-btn pull-right" ng-click="updateProject(); updateProjTech(); updateUserProj()">Update</button>
-  <button class="light-btn pull-right" ng-click="deleteProject()">Delete</button>
 </div>

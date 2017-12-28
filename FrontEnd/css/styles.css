@@ -169,6 +169,7 @@ body {
 	display: block;
 	text-transform: uppercase;
 }
+
 /* Register */
 .reg-heading {
 	margin: 40px 0px;
@@ -226,7 +227,7 @@ body {
 	background: transparent;
 	color: #595F6E;
 	font-size: 20px;
-	margin-top: 36px;
+	margin-top: 46px;
 	padding-bottom: 10px;
 }
 .reg-sel {
@@ -247,7 +248,44 @@ span.select2-selection.select2-selection--multiple {
 	font-weight: bold;
 	font-size: 18px;
 }
-
+.selectize-input {
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	box-shadow: none;
+	background: transparent;
+	border-radius: 0;
+	/* height: 50px; */
+}
+.selectize-input > input {
+	font-size: 18px;
+}
+.row > .control-label {
+	color: #6a7989;
+	font-size: 18px;
+}
+.ui-select-match-item {
+	font-size: 18px;
+}
+.ui-select-match-item > span {
+	color: #0844A4;
+	font-weight: bold;
+}
+.ui-select-match.ng-scope {
+	padding: 5px !important;
+	background: #FFF !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+.selectize-control.plugin-remove_button [data-value] .remove {
+	padding: 4px 0 0 0;
+	border-left: 1px solid #0844A4;
+	color: #0844A4;
+}
+.selectize-control.multi .selectize-input > div {
+	border: 1px solid #0844A4;
+}
 /* Projects */
 .add-proj {
 	cursor: pointer;
@@ -277,6 +315,7 @@ span.select2-selection.select2-selection--multiple {
 
 .user-contact-tile {
 	border-left: 1px solid block;
+	text-align: center;
 }
 
 .text-area {
@@ -325,7 +364,18 @@ textarea {
 	margin-right: 20px;
 	margin-bottom: 0px;
 }
-
+.mailto {
+	text-decoration: none;
+	color: #0844A4;
+}
+.mailto:hover {
+	color: #0844A4;
+	text-decoration: none;
+}
+/* proj form */
+.update-btn {
+	margin-left: 20px;
+}
 /* profile */
 .user-profile-pic {
 	border-radius: 50%;
@@ -362,7 +412,8 @@ textarea {
 	margin-bottom: 0px;
 }
 .user-username {
-	margin-bottom: 60px;
+	margin: 0px !important;
+	margin-bottom: 60px !important;
 }
 .user-info-block > h4 {
 	margin: 20px;
@@ -375,12 +426,6 @@ textarea {
 }
 .user-proj-list {
 	display: inline-block;
-}
-.user-proj-edit {
-
-}
-.user-proj-delete {
-
 }
 .user-proj-fn {
 	float: right;
