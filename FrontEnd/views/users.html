@@ -74,8 +74,8 @@
 
 map below shows markers for all user locations. will filter markers by the user's search as well-->
 <div id="map" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
-    <ng-map center="{{ MapCenter }}" zoom="{{ MapZoom }}" style="display:block; width:auto; height:auto;">
-        <marker ng-repeat="user in users | filter: selectedCity" position="{{ user.addressLine1}} {{user.city}} {{user.state}}" title="{{user.firstName}} {{user.lastName}}" ui-sref="user({id: user.id})"></marker>
+    <ng-map center="{{ MapCenter }}" zoom="{{ MapZoom }}" style="display:block; width:auto; height:auto;" scrollwheel="false">
+        <marker ng-repeat="user in users | filter: selectedCity" position="{{ user.addressLine1}} {{user.city}} {{user.state}}"></marker>
     </ng-map>
 </div>
 

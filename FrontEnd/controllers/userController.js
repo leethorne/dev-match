@@ -159,39 +159,8 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         });
     });
 
-    //API functionality -- get map from the address of the users
-    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD7RhAqkBYU5QS2Z75F-0jujx2e8bKJ-n4";
-
-    NgMap.getMap().then(function (map) {
-        console.log(map.getCenter());
-        console.log('markers', map.markers);
-    });
-
-    //default zoom and center for usa on page load
-    $scope.MapCenter = "38.457791, -99.641980"
-    $scope.MapZoom = 5;
-
-    //enact click events to trigger zoom over city 
-    $scope.zoomCitySearch = function () {
-        cityKey = $scope.selectedCity;
-
-        switch (cityKey) {
-            case 'Long Beach':
-                $scope.MapCenter = "33.757120, -118.126273";
-                $scope.MapZoom = "15";
-                break;
-            case 'Brooklyn':
-                $scope.MapCenter = "40.691358, -73.914062"
-                $scope.MapZoom = "15";
-                break;
-            default:
-                $scope.MapCenter = "38.457791, -99.641980"
-                $scope.MapZoom = "5";
-        }
-    }
-
-    //input fields 
-    (function () {
+    // input fields 
+    (function() {
         // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
         if (!String.prototype.trim) {
             (function () {
@@ -216,13 +185,45 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
 
         function onInputFocus(ev) {
             classie.add(ev.target.parentNode, 'input--filled');
-        }
+        };
 
         function onInputBlur(ev) {
             if (ev.target.value.trim() === '') {
                 classie.remove(ev.target.parentNode, 'input--filled');
             }
-        }
-    }());
+        };
+    })();
 
+
+     //API functionality -- get map from the address of the users
+     $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD7RhAqkBYU5QS2Z75F-0jujx2e8bKJ-n4";
+     
+         NgMap.getMap().then(function (map) {
+             console.log(map.getCenter());
+             console.log('markers', map.markers);
+         });
+     
+         //default zoom and center for usa on page load
+         $scope.MapCenter = "38.457791, -99.641980"
+         $scope.MapZoom = 5;
+     
+         //enact click events to trigger zoom over city 
+         $scope.zoomCitySearch = function () {
+             cityKey = $scope.selectedCity;
+     
+             switch (cityKey) {
+                 case 'Long Beach':
+                     $scope.MapCenter = "33.757120, -118.126273";
+                     $scope.MapZoom = 15;
+                     break;
+                 case 'Brooklyn':
+                     $scope.MapCenter = "40.691358, -73.914062"
+                     $scope.MapZoom = 15;
+                     break;
+                 default:
+                     $scope.MapCenter = "38.457791, -99.641980"
+                     $scope.MapZoom = 5;
+             }
+         }
+     
 });
