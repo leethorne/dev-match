@@ -1,5 +1,7 @@
 app.controller("projectController", function ($scope, $state, $stateParams, projectService, userService) {
 
+    // $(".tags").select2({ tags: true, width: '100%' }); //jQuery box
+
     if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
       projectService.getProjectById($stateParams.id, function (project) {
         $scope.project = project;
@@ -21,24 +23,6 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
             console.log(error);
             //handle error messages here to the user
         })
-
-    if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
-        projectService.getProjectById($stateParams.id, function (project) {
-            $scope.project = project;
-            //jquery box
-
-            console.log($scope.project);
-        })
-    } 
-    else {
-        projectService.getProjectById($stateParams.id, function (project) {
-            $scope.project = project;
-            //jquery box
-            $
-
-            console.log($scope.project);
-        })
-    }
 
     $scope.addProject = function () {
         projectService.addProject($scope.project)

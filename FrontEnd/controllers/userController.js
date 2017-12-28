@@ -1,7 +1,7 @@
 app.controller("userController", function ($scope, $state, $stateParams, userService, projectService, NgMap) {
 
     //jQuery Box
-    $(".tags").select2({ tags: true, width: '100%' }); //jquery box
+    // $(".tags").select2({ tags: true, width: '100%' });
 
     $scope.errorMessage = false;
 
