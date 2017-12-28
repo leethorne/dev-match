@@ -1,4 +1,4 @@
-app.controller("userController", function ($scope, $state, $stateParams, userService, projectService, NgMap) {
+app.controller("userController", function ($scope, $state, $stateParams, userService, projectService,  NgMap) {
 
     //jQuery Box
     // $(".tags").select2({ tags: true, width: '100%' });
@@ -80,7 +80,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         projectService.addProject($scope.project)
             .then(function (response) {
                 $scope.project = response.data;
-                console.log("adding: ", $scope.project)
+                console.log("adding proj: ", $scope.project)
                 userService.updateUserProj($stateParams.id, $scope.project.id)
                     .then(function (response) {
                         console.log(response)
@@ -94,8 +94,19 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
             })
     }
 
+
     $scope.updateUserProj = function () {
         userService.updateUserProj($stateParams.id, $scope.projId)
+            .then(function (response) {
+                console.log(response)
+            }, function (error) {
+                console.log(error);
+                //do something here to alert user of fail 
+            })
+    }
+
+    $scope.updateUserTech = function () {
+        userService.updateUserTech($stateParams.id, $scope.techName)
             .then(function (response) {
                 console.log(response)
             }, function (error) {
@@ -179,39 +190,39 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         }
     }
 
-    // input fields 
-    // (function () {
-    //     // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-    //     if (!String.prototype.trim) {
-    //         (function () {
-    //             // Make sure we trim BOM and NBSP
-    //             var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-    //             String.prototype.trim = function () {
-    //                 return this.replace(rtrim, '');
-    //             };
-    //         })();
-    //     }
+    //input fields 
+    (function () {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+            (function () {
+                // Make sure we trim BOM and NBSP
+                var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                String.prototype.trim = function () {
+                    return this.replace(rtrim, '');
+                };
+            })();
+        }
 
-    //     [].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
-    //         // in case the input is already filled..
-    //         if (inputEl.value.trim() !== '') {
-    //             classie.add(inputEl.parentNode, 'input--filled');
-    //         }
+        [].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+            // in case the input is already filled..
+            if (inputEl.value.trim() !== '') {
+                classie.add(inputEl.parentNode, 'input--filled');
+            }
 
-    //         // events:
-    //         inputEl.addEventListener('focus', onInputFocus);
-    //         inputEl.addEventListener('blur', onInputBlur);
-    //     });
+            // events:
+            inputEl.addEventListener('focus', onInputFocus);
+            inputEl.addEventListener('blur', onInputBlur);
+        });
 
-    //     function onInputFocus(ev) {
-    //         classie.add(ev.target.parentNode, 'input--filled');
-    //     }
+        function onInputFocus(ev) {
+            classie.add(ev.target.parentNode, 'input--filled');
+        }
 
-    //     function onInputBlur(ev) {
-    //         if (ev.target.value.trim() === '') {
-    //             classie.remove(ev.target.parentNode, 'input--filled');
-    //         }
-    //     }
-    // })();
+        function onInputBlur(ev) {
+            if (ev.target.value.trim() === '') {
+                classie.remove(ev.target.parentNode, 'input--filled');
+            }
+        }
+    }());
 
 });

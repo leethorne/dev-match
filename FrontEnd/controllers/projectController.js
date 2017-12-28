@@ -1,6 +1,6 @@
 app.controller("projectController", function ($scope, $state, $stateParams, projectService, userService) {
 
-    // $(".tags").select2({ tags: true, width: '100%' }); //jQuery box
+    var currentUser = userService.getCurrentUser();
 
     if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
       projectService.getProjectById($stateParams.id, function (project) {
@@ -25,20 +25,63 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
         })
 
     $scope.addProject = function () {
+        var skillsArray = []
+
+        // Looping through Seeking Skills array and setting isSeeking = True
+        for(var i = 0; i< $scope.project.seekingSkills.length; i++) {
+            $scope.project.seekingSkills[i].isSeeking = true;
+            skillsArray.push($scope.project.seekingSkills[i])
+        }
+
+        var added = null;
+
+        // Looping through Using Skills array and setting isUsing = True
+        for (var i = 0; i < $scope.project.usingSkills.length; i++) {
+            added = false
+            for(var j = 0; j < skillsArray.length; j++) {
+                if($scope.project.usingSkills[i].name == skillsArray[j].name) {
+                    skillsArray[j].isUsing = true;
+                    added = true;
+                }
+            }
+            
+            if(!added) {
+                $scope.project.usingSkills[i].isUsing = true;
+                skillsArray.push($scope.project.usingSkills[i])
+            }
+        }
+
+        console.log($scope.project)
+        console.log(skillsArray);
+
         projectService.addProject($scope.project)
             .then(function (response) {
-                $scope.project = response.data;
-                console.log("adding: ", $scope.project)
-                userService.updateUserProj($stateParams.id, $scope.project.id)
+                console.log("ADD PROJECT SUCCESSFUL: ", response)
+
+                //ADDING USER TO PROJECT(user service)
+                userService.updateUserProj(currentUser.id, response.data.id)
                     .then(function (response) {
-                        console.log(response)
+                        console.log("ADD USER SUCCESSFUL: ", response)
+
                     }, function (error) {
-                        console.log(error);
+                        console.log("error updating proj: ", error);
                         //do something here to alert user of fail 
-                    })
+                    });
+
+                //ADDING TECH TO PROJECT
+                skillsArray.forEach(function(element) {
+                    projectService.updateProjTech(currentUser.id, element.name, element.isSeeking, element.isUsing)
+                        .then(function (response) {
+                            console.log("ADD TECH TO PROJ - SUCCESSFUL: ", response)
+                        }, function (error) {
+                            console.log("error updating seeking tech: ", error)
+                            //alert here 
+                        })
+                });
+                
             }, function (error) {
-              console.log(error)
-              //make error message for user if failed
+              console.log("error to add: ", error)
+              //make error message for user if failed to add 
             })
         }
 
@@ -82,37 +125,37 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
     }
 
     $scope.availableTechnologies = [
-        {id: 0, name: "BootStrap"},
-        {id: 1, name: "JavaScript"},
-        {id: 2, name: "AngularJS"},
-        {id: 3, name: "C#"},
-        {id: 4, name: "ASP.NET Core"},
-        {id: 5, name: "Node.js"},
-        {id: 6, name: "CSS"},
-        {id: 7, name: "MySQL"},
-        {id: 8, name: "React"},
-        {id: 9, name: "Ojective-C"},
-        {id: 10, name: "jQuery"},
-        {id: 11, name: "MongoDB"},
-        {id: 12, name: "C / C++"},
-        {id: 13, name: "Ruby"},
-        {id: 14, name: "SpringMVC"},
-        {id: 15, name: "Java"},
-        {id: 16, name: "PHP"},
-        {id: 17, name: "AWS"},
-        {id: 18, name: "Azure"},
-        {id: 19, name: "Entity Framework Core"},
-        {id: 20, name: "SQL Server"},
-        {id: 21, name: "Dapper"},
-        {id: 22, name: "NancyFX"},
-        {id: 23, name: ".Net Core 2.0"},
-        {id: 24, name: "C#"},
-        {id: 25, name: "Xcode"},
-        {id: 26, name: "Swift"},
-        {id: 27, name: "Django"},
-        {id: 28, name: "Ajax"},
-        {id: 29, name: "Python" },
-        {id: 30, name: "HTML"}
+        {name: "BootStrap", isSeeking: false, isUsing: false},
+        {name: "JavaScript", isSeeking: false, isUsing: false},
+        {name: "AngularJS", isSeeking: false, isUsing: false},
+        {name: "C#", isSeeking: false, isUsing: false},
+        {name: "ASP.NET Core", isSeeking: false, isUsing: false},
+        {name: "Node.js", isSeeking: false, isUsing: false},
+        {name: "CSS", isSeeking: false, isUsing: false},
+        {name: "MySQL", isSeeking: false, isUsing: false},
+        {name: "React", isSeeking: false, isUsing: false},
+        {name: "Ojective-C", isSeeking: false, isUsing: false},
+        {name: "jQuery", isSeeking: false, isUsing: false},
+        {name: "MongoDB", isSeeking: false, isUsing: false},
+        {name: "C / C++", isSeeking: false, isUsing: false},
+        {name: "Ruby", isSeeking: false, isUsing: false},
+        {name: "SpringMVC", isSeeking: false, isUsing: false},
+        {name: "Java", isSeeking: false, isUsing: false},
+        {name: "PHP", isSeeking: false, isUsing: false},
+        {name: "AWS", isSeeking: false, isUsing: false},
+        {name: "Azure", isSeeking: false, isUsing: false},
+        {name: "Entity Framework Core", isSeeking: false, isUsing: false},
+        {name: "SQL Server", isSeeking: false, isUsing: false},
+        {name: "Dapper", isSeeking: false, isUsing: false},
+        {name: "NancyFX", isSeeking: false, isUsing: false},
+        {name: ".Net Core 2.0", isSeeking: false, isUsing: false},
+        {name: "C#", isSeeking: false, isUsing: false},
+        {name: "Xcode", isSeeking: false, isUsing: false},
+        {name: "Swift", isSeeking: false, isUsing: false},
+        {name: "Django", isSeeking: false, isUsing: false},
+        {name: "Ajax", isSeeking: false, isUsing: false},
+        {name: "Python" , isSeeking: false, isUsing: false},
+        {name: "HTML", isSeeking: false, isUsing: false}
     ]
 
 

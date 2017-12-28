@@ -18,20 +18,19 @@ namespace BackEnd.Controllers
 
             if(_context.Projects.Count() == 0)
             {
-                _context.Projects.Add(new Project() { Id = 1, ProjectName = "Blackjack Game", Description = "Looking to develop a Blackjack game in C# and would love to work with a Front End Dev to make it come alive on the screen!", Status= "Not Started", DesiredTeamSize = 2, CurrentTeamSize = 1, ProjectTechnologies = new List<ProjectTechnology>(){new ProjectTechnology() { Id = 1, Technology = new Technology(){ Id = 51, Name = "CSS"}, IsSeeking = true}}});
-                _context.Projects.Add(new Project() { Id = 2, ProjectName = "Pizza Delivery Tracker", Description = "I'd like to create a pizza delivery app with Javascript. Looking for some help from a fellow dev!", Status = "Not Started", DesiredTeamSize = 2, CurrentTeamSize = 1 });
-                _context.Projects.Add(new Project() { Id = 3, ProjectName = "Restauraunt Website", Description = "Novice coder - would like to practice my React skills to make a clone of Afters Ice Cream website. Seeking Node devs to make a complete site!", Status = "In Progress", DesiredTeamSize = 3, CurrentTeamSize = 1 });
-                _context.Projects.Add(new Project() { Id = 4, ProjectName = "Coffee Cart", Description = "Want to beef up my portfolio with a web & mobile app for a coffee cart that tracks it's location in real time and sends notifications to users in that area", Status = "Not Started", DesiredTeamSize = 5, CurrentTeamSize = 2 });
-                _context.Projects.Add(new Project() { Id = 5, ProjectName = "Animal Adoption Site", Description = "Looking to build an adoption site in AngularJS so I can improve - want to end up with a full stack app. BE C# devs preferred!", Status = "Not Started", DesiredTeamSize = 3, CurrentTeamSize = 1 });
+                _context.Projects.Add(new Project() { Id = 1, ProjectName = "Blackjack Game", Description = "Looking to develop a Blackjack game in C# and would love to work with a Front End Dev to make it come alive on the screen!", Status = "Not Started", DesiredTeamSize = 2, CurrentTeamSize = 1, });
+                _context.Projects.Add(new Project() { Id = 2, ProjectName = "Restauraunt Website", Description = "Novice coder - would like to practice my React skills to make a clone of Afters Ice Cream website. Seeking Node devs to make a complete site!", Status = "In Progress", DesiredTeamSize = 3, CurrentTeamSize = 1 });
+                _context.Projects.Add(new Project() { Id = 3, ProjectName = "Coffee Cart", Description = "Want to beef up my portfolio with a web & mobile app for a coffee cart that tracks it's location in real time and sends notifications to users in that area", Status = "Not Started", DesiredTeamSize = 5, CurrentTeamSize = 2 });
+                _context.Projects.Add(new Project() { Id = 4, ProjectName = "Animal Adoption Site", Description = "Looking to build an adoption site in AngularJS so I can improve - want to end up with a full stack app. BE C# devs preferred!", Status = "Not Started", DesiredTeamSize = 3, CurrentTeamSize = 1 });
                 _context.SaveChanges();
             }
         }
 
         // GET api/values
         [HttpGet]
-        public List<Project> Get()
+        public IQueryable<Project> Get()
         {
-            return _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology").ToList();
+            return _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology");
         }
 
         // GET api/values/5
@@ -59,7 +58,7 @@ namespace BackEnd.Controllers
         }
 
         [HttpPut("{id}/addtechnology")]
-        public void AddTechnology(int id, int techId, bool isSeeking)
+        public void AddTechnology(int id, string techName, bool isSeeking, bool isUsing)
         {
             foreach (Project p in _context.Projects.Include("ProjectTechnologies"))
             {
@@ -78,8 +77,10 @@ namespace BackEnd.Controllers
                     }
 
                     pt.Project = p;
-                    pt.Technology = _context.Technologies.FirstOrDefault(t => t.Id == techId);
+                    pt.Technology = _context.Technologies.FirstOrDefault(t => t.Name == techName);
                     pt.IsSeeking = isSeeking;
+                    pt.IsUsing = isUsing;
+
 
                     if (p.ProjectTechnologies == null) 
                     {

@@ -23,26 +23,6 @@
 </div>
 </div>
 
-<!-- <div class="form-group col-md-offset-4 col-md-4">
-    user can search by city to filter data-->
-   <!-- <input type="text" class="form-control" placeholder="Search for developers in your city..." ng-model="city">
-</div>
-
-<div class="container">
-<table class="table table-hover table-bordered table-responsive">
-    <thead>
-        <th>City</th>
-        <th>State</th>
-    </thead>  -->
-    <!--ng-repeat will filter by the user's search of city. click on a particular center directs you to center show page-->
-    <!-- <tbody ng-repeat="user in users | filter:  { city: search }">
-        <td> {{ user.city }} </td>
-        <td> {{ user.state }} </td>
-    </tbody>
-</table>
-</div> --> 
-
-
 <!-- <h4>Seeking developer with the following skills:</h4>
 <div class="row">
     <div id="skills" class="tab-pane cont">
@@ -97,4 +77,20 @@ map below shows markers for all user locations. will filter markers by the user'
     <ng-map center="{{ MapCenter }}" zoom="{{ MapZoom }}" style="display:block; width:auto; height:auto;">
         <marker ng-repeat="user in users | filter: selectedCity" position="{{ user.addressLine1}} {{user.city}} {{user.state}}" title="{{user.firstName}} {{user.lastName}}" ui-sref="user({id: user.id})"></marker>
     </ng-map>
+</div>
+
+<div class="container">
+    <table class="table table-hover table-bordered table-responsive">
+        <thead id="table-head">
+            <th>User</th>
+            <th>Tech Skills</th>
+            <th>City</th>
+        </thead>
+        <!--ng-repeat will filter by the user's search of state. click on a particular center directs you to center show page-->
+        <tbody ng-repeat="user in users | filter: selectedCity" ui-sref="user({id: user.id})">
+            <td>{{ user.userName }}</td>
+            <td><span ng-repeat="technology in user.userTechnologies">{{ technology.name }}</span></td>
+            <td>{{ user.city }}</td>
+        </tbody>
+    </table>
 </div>

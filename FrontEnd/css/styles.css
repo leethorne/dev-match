@@ -377,6 +377,11 @@ textarea {
 	font-weight: bold;
 }
 
+.table-head th{
+	background-color: #595F6E;
+	color: #bdc3c7;
+}
+
 .projects-header {
 	height: 100px;
 	margin-bottom: 50px;

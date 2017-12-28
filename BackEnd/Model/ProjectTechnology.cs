@@ -11,5 +11,7 @@ namespace BackEnd.Controllers
         public Project Project { get; set; }
         public Technology Technology { get; set; }
         public bool IsSeeking { get; set; }
+        public bool IsUsing { get; set; }
+
     }
 }

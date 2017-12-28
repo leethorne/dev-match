@@ -9,7 +9,7 @@ app.service("projectService", function($http, $state) {
             var project = {
                 seekingSkills: [],
                 usingSkills: [],
-                name: "",
+                projectName: "",
                 description: "",
                 status: "",
                 desiredTeamSize: null
