@@ -15,18 +15,21 @@
     <div class="row">
       <input type="text" class="form-control" placeholder="Search Projects..." ng-model="userInput" />
       <p class="add-proj user-add-proj">+</p>
-      <div class="form-group col-md-12 create-project">
-        <span class="input input--hoshi">
-          <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.name" />
-          <label class="input__label input__label--hoshi input__label--hoshi-color-1">
-              <span class="input__label-content input__label-content--hoshi">Project Name</span>
-          </label>
-        </span>
+      <div class="col-md-12 create-project">
+
+        <div class="form-group">
+          <span class="input input--hoshi">
+            <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.name" />
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1">
+                <span class="input__label-content input__label-content--hoshi">Project Name</span>
+            </label>
+          </span>
+        </div>
 
         <textarea class="col-md-12 user-proj-blurb" placeholder="Blurb" ng-model="project.description"></textarea>
 
         <div class="form-group col-md-6 reg-sel">
-          <select class="reg-skill-level input--hoshi" id="projTeamSize" name="text" title="Proficiency Level" ng-model="project.desiredTeamSize">
+          <select class="reg-skill-level input--hoshi" ng-model="project.desiredTeamSize">
                 <option value="">Select desired team size</option>
                 <option>2</option>
                 <option>3</option>
@@ -41,17 +44,16 @@
         </div>
 
         <div class="form-group col-md-6 reg-sel">
-          <select class="reg-skill-level input--hoshi" name="text" title="Proficiency Level" ng-model="project.status">
+          <select class="reg-skill-level input--hoshi" ng-model="project.status">
               <option value="">Select project status</option>
               <option>Not Started</option>
               <option>In Progress</option>
           </select>
         </div>
 
-        <div class="form-group">
-            <label>Seeking developers with the following skills:</label>
-            <!--  ng-options="tech.id as tech.name for tech in availableTechnologies" -->
-            <select multiple="" class="tags" ng-model="project.seekingSkills" ng-change="printTech()">
+        <!-- <div class="form-group">
+            <label class="control-label">Seeking developers with the following skills:</label>
+            <select multiple="" class="tags" ng-model="project.skills1">
               <option>HTML</option>
               <option>CSS</option>
               <option>BootStrap</option>
@@ -87,8 +89,8 @@
         </div>
 
         <div class="form-group">
-          <label>Technologies Using:</label>
-          <select multiple="" class="tags" ng-model="project.usingSkills" ng-change="printTech()">
+          <label class="control-label">Technologies Using:</label>
+          <select multiple="" class="tags" ng-model="project.skills2">
                 <option>HTML</option>
                 <option>CSS</option>
                 <option>BootStrap</option>
@@ -121,10 +123,36 @@
                 <option>Ajax</option>
                 <option>Python</option>
           </select>
+        </div> -->
+
+        <div class="form-group row">
+          <label class="col-sm-5 control-label">Seeking developers with the following skills:</label>
+          <div class="col-sm-7">
+            <ui-select ng-model="project.seekingSkills" multiple theme="selectize">
+              <ui-select-match placeholder="Seeking the following technologies.">{{ $item.name }}</ui-select-match>
+              <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
+                <div ng-bind-html="item.name | highlight: $select.search"></div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-5 control-label">Technologies Using:</label>
+          <div class="col-sm-7">
+            <ui-select ng-model="project.usingSkills" multiple theme="selectize">
+              <ui-select-match placeholder="Using the following technologies.">{{ $item.name }}</ui-select-match>
+              <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
+                <div ng-bind-html="item.name | highlight: $select.search"></div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
         </div>
 
         <div class="row">
-          <button class="btn btn-primary" ng-click="checkOutProj()">View Proj</button>
+          <div class="col-md-12">
+            <button class="btn btn-primary" ng-click="checkOutProj()">View Proj</button>
+          </div>
         </div>
 
       </div>
