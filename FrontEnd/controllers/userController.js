@@ -46,7 +46,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
           userService.updateUserTech(response.data.id, $scope.techName)
             .then(function (response) {
                 // $scope.user = response.data;
-                console.log("userrrr: ", response.data)
+                console.log("user tech added to registered user: ", response)
 
             }, function (error) {
                 console.log("you have an error: ", error)
