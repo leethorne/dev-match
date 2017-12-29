@@ -3,16 +3,16 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     $scope.errorMessage = false;
     $scope.currentUser = userService.getCurrentUser();
 
+
     userService.getUsers()
         .then(function (response) {
             console.log(response.data);
             $scope.users = response.data;
         }, function (error) {
             console.log(error);
-            //do something else here to alert user of a fail
+            alert("Error: Something went wrong. User information is unavailable.")
         })
 
-    $scope.currentUser = userService.getCurrentUser();
 
     if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
         $scope.submitButton = true;
@@ -32,47 +32,73 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         })
     }
 
-    $scope.register = function () {
-      console.log("user before function: ", $scope.user)
-      console.log("image: ", $scope.user.image)
-
-      userService.register($scope.user)
-        .then(function (response) {
-          // $scope.user = response.data;
-          console.log("userrrr: ", response.data)
-          console.log("image: ", response.data.image)
-
-          //ADDING TECH SKILLS TO USER
-          userService.updateUserTech(response.data.id, $scope.techName)
+///////REGISTER A NEW USER FUNCTION//////////
+    $scope.registerUser = function () {
+        
+        console.log("user before function: ", $scope.user)
+        //create a new user to get id
+        userService.registerUser ($scope.user)
             .then(function (response) {
-                // $scope.user = response.data;
-                console.log("user tech added to registered user: ", response)
+            // $scope.user = response.data;
+            console.log("user registered - SUCCESS: ", response)
+          
+          //adding tech skills to new user in reg function
+            $scope.user.userTechnologies.forEach(function(element) {
+              userService.updateUserTech(response.data.id, element.name)
+                  .then(function (response) {
+                      $scope.user = response.data;
+                      console.log("user tech added to registered user --- SUCCESS: ", response)
 
-            }, function (error) {
-                console.log("you have an error: ", error)
-                //do something here to display error msg
+                  }, function (error) {
+                      console.log("you have an error: ", error)
+                      alert("Error: Something went wrong. User technology cannot be updated.")
+                  })
             })
+          
+            // $timeout(function () {
+            //     $state.go("user", { id: $scope.user.id });
+            // }, 3000);
 
-          $timeout(function () {
-              $state.go("user", { id: $scope.user.id });
-          }, 3000);
-            // $state.go("user", { id: $scope.user.id });
+            $state.go("user", { id: $scope.user.id });
+
         }, function (error) {
             console.log("you have an error: ", error)
+            alert("Error: Something went wrong. User was not added")
         })
     }
 
+////////UPDATE EXISTING USER FUNCTION ///////
     $scope.updateUser = function () {
+
+        //update tech list for existing
+        user.userTechnologies.forEach(function (element) {
+            userService.updateUserTech($stateParams.id, element.name)
+                .then(function (response) {
+                    // $scope.user = response.data;
+                    console.log("user tech added to registered user --- SUCCESS: ", response)
+
+                }, function (error) {
+                    console.log("you have an error: ", error)
+                    alert("Error: Something went wrong. User technology cannot be updated.")
+                })
+        })
+
       userService.updateUser($stateParams.id, $scope.user)
         .then(function (response) {
             console.log(response.data);
             $scope.user = response.data;
-            $state.go("user", { id: $scope.user.id });
+
+            $timeout(function () {
+                $state.go("user", { id: $scope.user.id });
+            }, 3000);
+
+            // $state.go("user", { id: $scope.user.id });
         }, function (error) {
             console.log(error)
         })
     }
 
+/////DELETE user function///////
     $scope.deleteUser = function () {
       userService.deleteUser($stateParams.id)
         .then(function (response) {

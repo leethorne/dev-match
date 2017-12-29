@@ -46,7 +46,7 @@
         <!--ng-repeat will filter by the user's search of state. click on a particular center directs you to center show page-->
         <tbody ng-repeat="user in users | filter: selectedCity" ui-sref="user({id: user.id})">
             <td>{{ user.userName }}</td>
-            <td><span ng-repeat="technology in user.userTechnologies">{{ technology.name }}</span></td>
+            <td><span ng-repeat="technology in user.userTechnologies">{{ technology.technology.name }}</span></td>
             <td>{{ user.city }}</td>
         </tbody>
     </table>

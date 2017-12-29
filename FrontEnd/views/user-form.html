@@ -165,10 +165,10 @@
   
   <!--list to set TECH to USER-->
   <div class="row form-group">
-    <label class="col-md-2 control-label">Technical Skillset:</label>
-    <div class="col-md-10">
-      <ui-select ng-model="user.technology.name" multiple theme="selectize">
-        <ui-select-match placeholder="My technical skillset">{{ $item.name }}</ui-select-match>
+    <label class="col-md-12 control-label">Technical Skillset:</label>
+    <div class="col-md-12">
+      <ui-select ng-model="user.userTechnologies" multiple theme="selectize">
+        <ui-select-match placeholder="Please select languages">{{ $item.name }}</ui-select-match>
         <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
           <div ng-bind-html="item.name | highlight: $select.search"></div>
         </ui-select-choices>
@@ -176,7 +176,7 @@
     </div>
   </div>
 
-  <button class="light-btn pull-right btn-4" ng-show="submitButton" ng-click="register()"><span>Submit</span></button>
+  <button class="light-btn pull-right btn-4" ng-show="submitButton" ng-click="registerUser()"><span>Submit</span></button>
   <button class="light-btn update-btn pull-right btn-4" ng-show="!submitButton" ng-click="updateUser()"><span>Update</span></button>
   <button class="light-btn pull-right btn-4" ng-show="!submitButton" ng-click="deleteUser()"><span>Delete</span></button> 
 </div>

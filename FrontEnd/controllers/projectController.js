@@ -83,7 +83,9 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
               $timeout(function () {
                   $state.go("projects", { id: $scope.project.id });
               }, 3000);
-            //   $state.go('projects', {}, { reload: 'projects'})
+
+            //   $state.go('projects', {}, { reload: 'projects'}) ---- causing issues for id moving between states?
+
           }, function (error) {
             console.log("error to add proj: ", error)
             alert("Error: Something went wrong. Project was not added")
@@ -134,11 +136,17 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
       projectService.updateProject($stateParams.id, $scope.project)
           .then(function (response) {
             console.log(response)
+
+            $timeout(function () {
+                $state.go("projects", { id: $scope.project.id });
+            }, 3000);
+
           //   $state.go("project", { id: $scope.project.id })
+
           },
           function (error) {
             console.log(error)
-            //error msg here to user
+            alert("Error: Something went wrong. Project cannot be updated.")
           })
       }
 
@@ -149,7 +157,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
                   $state.go("projects")
               }, function (error) {
                   console.log(error);
-                  //make an error message for the user
+                  alert("Error: Something went wrong. Project cannot be deleted.")
               })
       }
 
@@ -160,14 +168,14 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
               $scope.news = response.data.articles;
           }, function (error) {
               console.log(error);
-              //handle error messages here to the user
+              alert("Error: Something went wrong. Tech News not currently available.")
           })
 
   $(".create-project").hide();
 
-  $scope.checkOutProj = function() {
-      console.log($scope.project)
-  }
+//   $scope.checkOutProj = function() {
+//       console.log($scope.project)
+//   }
 
   $scope.availableTechnologies = [
       {name: "BootStrap", isSeeking: false, isUsing: false},
@@ -212,24 +220,6 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
           $(".add-proj").text("+")
       }
   });
-
-  // $scope.updateProjTech = function() {
-  //     projectService.updateProjTech($stateParams.id, $scope.techName, $scope.isSeeking)
-  //     .then(function(response) {
-  //         console.log("updating: ", response)
-  //     }, function(error) {
-  //         console.log(error)
-  //     })
-
-  projectService.getNews()
-      .then(function (response) {
-          console.log(response);
-          console.log(response.data.articles);
-          $scope.news = response.data.articles;
-      }, function (error) {
-          console.log(error);
-          //handle error messages here to the user
-      });
 
   // input fields
   (function () {
