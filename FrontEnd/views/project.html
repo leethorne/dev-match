@@ -20,10 +20,10 @@
       <h4>
         <strong>Email:</strong> {{project.user.email}}</h4>
       <h4>
-        <a href="{{project.user.LinkedIn}}">View LinkedIn Profile</a>
+        <a target="_blank" href="{{project.user.linkedIn}}">View LinkedIn Profile</a>
       </h4>
       <h4>
-        <a href="{{project.user.GitHubLink}}">View GitHub Profile</a>
+        <a target="_blank" href="{{project.user.gitHubLink}}">View GitHub Profile</a>
       </h4>
       <button class="user-contact-me light-btn">
         <a class="mailto" href="mailto:{{user.email}}">Contact Me</a>
@@ -31,17 +31,20 @@
     </div>
   </div>
 
-  <div class="col-md-6 user-info-block">
-    <img ui-sref="projectUpdate ({id: project.id})" class="edit pull-right" src="./img/edit.svg">
-    <h1>{{project.projectName}}</h1>
-    <h4>{{project.description}}</p>
+  <div class="col-md-8 user-info-block">
+    <img ui-sref="projectUpdate ({id: project.id})" class="edit user-edit pull-right" src="./img/edit.svg">
+    <h1 class="user-full-name">{{project.projectName}}</h1>
+    <h4 class="proj-description">{{project.description}}</h4>
 
-      <p>
-        <strong>Project Status:</strong>{{project.status}}</p>
-      <p>
-        <strong>Desired Team Size:</strong> {{project.desiredTeamSize}}</p>
-      <p>
-        <strong>Current Team Size:</strong> {{project.currentTeamSize}}</p>
+    <h4>
+      <strong>Project Status: </strong>{{project.status}}
+    </h4>
+    <h4>
+      <strong>Desired Team Size: </strong> {{project.desiredTeamSize}}
+    </h4>
+    <h4>
+      <strong>Current Team Size: </strong> {{project.currentTeamSize}}
+    </h4>
 
       <div>
         <h3>
@@ -54,7 +57,7 @@
         <h3>
           <strong>Technologies Using:</strong>
         </h3>
-        <div ng-repeat="useProjTechnology in project.projectTechnologies"> {{useProjTechnology.technology.name}}</div>
+        <div ng-repeat="useProjTechnology in project.projectTechnologies" ng-show="seekProjTechnology.isUsing == true"> {{useProjTechnology.technology.name}}</div>
         </div>
       </div>
   </div>

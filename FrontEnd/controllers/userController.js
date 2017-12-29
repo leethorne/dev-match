@@ -310,6 +310,18 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
                      $scope.MapCenter = "38.457791, -99.641980"
                      $scope.MapZoom = 5;
              }
-         }
-     
+        }
+       
+    // $scope.postImage = function() {
+    //     $scope.image = $scope.scope.uploadme.substr(22);
+    //     // console.log($scope.image);
+
+    //     userService.postImage($scope.image)
+    //         .then(function(response) {
+    //             console.log(response);
+    //         }, function(error) {
+    //             console.log(error);
+    //         })
+    // }
+    
 });

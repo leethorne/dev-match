@@ -24,14 +24,10 @@ app.service("userService", function ($http, $state) {
         }
     }
 
-    this.postImage = function() {
-        return $http.post("http://uploads.im/api?upload=" + user.image + "&format=json")
-    }
-
-    this.getImageUrl = function () {
-        return $http.get("http://uploads.im/api?upload=" + user.image + "&format=json")
-    }
-
+    // this.postImage = function(image) {
+    //     // return $http.post("http://uploads.im/api?upload=" + image + "&format=json")
+    //     return $http.post("http://uploads.im/api", image)
+    // }
 
     this.addUser = function (user) { //register new user 
         return $http.post(serverLink + "users/", user)

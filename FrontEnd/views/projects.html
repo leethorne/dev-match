@@ -14,14 +14,16 @@
   <div class="col-md-8">
     <div class="row">
       <input type="text" class="form-control search-projs" placeholder="Search Projects..." ng-model="userInput" />
-      <p class="user-add-proj"><span class="add-proj">+</span></p>
+      <p class="user-add-proj">
+        <span class="add-proj">+</span>
+      </p>
       <div class="col-md-12 create-project">
 
         <div class="form-group create-name">
           <span class="input input--hoshi">
             <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.projectName" />
             <label class="input__label input__label--hoshi input__label--hoshi-color-1">
-                <span class="input__label-content input__label-content--hoshi">Project Name</span>
+              <span class="input__label-content input__label-content--hoshi">Project Name</span>
             </label>
           </span>
         </div>
@@ -30,24 +32,24 @@
 
         <div class="form-group col-md-6 reg-sel">
           <select class="reg-skill-level input--hoshi" ng-model="project.desiredTeamSize">
-                <option value="">Select desired team size</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
+            <option value="">Select desired team size</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
           </select>
         </div>
 
         <div class="form-group col-md-6 reg-sel">
           <select class="reg-skill-level input--hoshi" ng-model="project.status">
-              <option value="">Select project status</option>
-              <option>Not Started</option>
-              <option>In Progress</option>
+            <option value="">Select project status</option>
+            <option>Not Started</option>
+            <option>In Progress</option>
           </select>
         </div>
 
@@ -84,12 +86,15 @@
 
     <div class="row">
       <div ng-repeat="project in projects | filter: userInput" class="projectTile">
+        <!-- add ng-if -->
         <img class="edit pull-right" src="./img/edit.svg" ui-sref="projectUpdate({id: project.id})" />
         <h4 class="project-name" ui-sref="project ({id: project.id})">
           <strong>{{project.projectName}} </strong>
         </h4>
         <h5>{{project.description}}</h5>
-        <p><em>{{project.status}}</em></p>
+        <p>
+          <em>{{project.status}}</em>
+        </p>
       </div>
     </div>
 
@@ -99,7 +104,9 @@
     <h2 class="text-center techSideBar">Tech News</h2>
     <div class="techNews">
       <div ng-repeat="post in news" class="techPost">
-        <p><strong> {{ post.title }} </strong></p>
+        <p>
+          <strong> {{ post.title }} </strong>
+        </p>
         <p> {{ post.description }} </p>
       </div>
     </div>

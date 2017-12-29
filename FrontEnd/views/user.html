@@ -16,8 +16,8 @@
       <h3 class="user-contact-header">Contact</h3>
       <h4><strong>Phone:</strong> {{user.phoneNumber}}</h4>
       <h4><strong>Email:</strong> {{user.email}}</h4>
-      <h4><a href="{{user.LinkedIn}}">View LinkedIn Profile</a></h4>
-      <h4><a href="{{user.GitHubLink}}">View GitHub Profile</a></h4>
+      <h4><a target="_blank" href="{{user.linkedIn}}">View LinkedIn Profile</a></h4>
+      <h4><a target="_blank" href="{{user.gitHubLink}}">View GitHub Profile</a></h4>
       <button class="user-contact-me light-btn"><a class="mailto" href="mailto:{{user.email}}">Contact Me</a></button>
     </div>
   </div>
@@ -120,8 +120,8 @@
           <img class="delete pull-right" src="./img/delete.png" ng-click="deleteProject()">
           <img src="{{user.image}}">
           <h4 class="project-name" ui-sref="project ({id: project.id})"><strong>{{project.projectName}} </strong></h4>
-          <h5>{{project.description}}</p>
-            <p><em>{{project.status}}</em></p>
+          <h5>{{project.description}}</h5>
+          <p><em>{{project.status}}</em></p>
         </div>
 
       </div>
