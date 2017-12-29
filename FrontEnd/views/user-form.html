@@ -2,13 +2,13 @@
   <img ui-sref="home" class="logo reg-logo" src="./img/Logo.png">
   <h1 class="text-center reg-heading"> {{ heading }} </h1>
   <div class="row">
-    <div class="form-group image-sel">
+    <!-- <div class="form-group image-sel">
       <div id="image-preview">
         <label for="image-upload" id="image-label">Choose File</label>
         <input type="file" name="image" id="image-upload" fileread="scope.uploadme"/>
-      </div>
+      </div> -->
       <!-- <button ng-click="postImage()" style="position: absolute; margin-top: 215px; width: 120px; left: 0; right: 0; margin-left: -155px;">save image</button> -->
-    </div>
+    <!-- </div> -->
     <div class="form-group col-md-4">
       <span class="input input--hoshi">
         <input class="input__field input__field--hoshi" type="text" id="username" ng-model="user.userName">
@@ -168,9 +168,9 @@
     <label class="col-md-12 control-label">Technical Skillset:</label>
     <div class="col-md-12">
       <ui-select ng-model="user.userTechnologies" multiple theme="selectize">
-        <ui-select-match placeholder="Please select languages">{{ $item.name }}</ui-select-match>
+        <ui-select-match placeholder="Please select languages">{{ $item.technology.name }}</ui-select-match>
         <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
-          <div ng-bind-html="item.name | highlight: $select.search"></div>
+          <div ng-bind-html="item.technology.name | highlight: $select.search"></div>
         </ui-select-choices>
       </ui-select>
     </div>

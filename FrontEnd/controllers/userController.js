@@ -34,32 +34,30 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
 
 ///////REGISTER A NEW USER FUNCTION//////////
     $scope.registerUser = function () {
-        
+
         console.log("user before function: ", $scope.user)
         //create a new user to get id
         userService.registerUser ($scope.user)
             .then(function (response) {
             // $scope.user = response.data;
             console.log("user registered - SUCCESS: ", response)
-          
+            $scope.user = response.data
           //adding tech skills to new user in reg function
             $scope.user.userTechnologies.forEach(function(element) {
-              userService.updateUserTech(response.data.id, element.name)
+              userService.updateUserTech($scope.user.id, element.name)
                   .then(function (response) {
-                      $scope.user = response.data;
                       console.log("user tech added to registered user --- SUCCESS: ", response)
-
                   }, function (error) {
                       console.log("you have an error: ", error)
                       alert("Error: Something went wrong. User technology cannot be updated.")
                   })
             })
-          
-            // $timeout(function () {
-            //     $state.go("user", { id: $scope.user.id });
-            // }, 3000);
 
-            $state.go("user", { id: $scope.user.id });
+            $state.go("home").then(function () {
+                alert("Congrats! You've successfully registered.\nYou may now log into your page!"); // navigate to login on homepage. first receive window alert. 
+            })
+
+            // $state.go("user", { id: $scope.user.id });
 
         }, function (error) {
             console.log("you have an error: ", error)
@@ -71,7 +69,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     $scope.updateUser = function () {
 
         //update tech list for existing
-        user.userTechnologies.forEach(function (element) {
+        $scope.user.userTechnologies.forEach(function (element) {
             userService.updateUserTech($stateParams.id, element.name)
                 .then(function (response) {
                     // $scope.user = response.data;
@@ -83,18 +81,21 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
                 })
         })
 
-      userService.updateUser($stateParams.id, $scope.user)
-        .then(function (response) {
-            console.log(response.data);
-            $scope.user = response.data;
+        userService.updateUser($stateParams.id, $scope.currentUser)
+            .then(function (response) {
+                console.log(response.data);
 
-            $timeout(function () {
-                $state.go("user", { id: $scope.user.id });
-            }, 3000);
+                $scope.currentUser = response.data;
 
-            // $state.go("user", { id: $scope.user.id });
+                // $timeout(function () {
+                //     $state.go("user", { id: $scope.user.id });
+                // }, 3000);
+
+                $state.go("user", { id: $scope.currentUser.id });
+
         }, function (error) {
-            console.log(error)
+            console.log("error add user:", error)
+            alert("Error: Something went wrong. User cannot be updated.")
         })
     }
 

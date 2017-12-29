@@ -9,8 +9,8 @@ namespace BackEnd.Controllers
         public string ProjectName { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public int DesiredTeamSize { get; set; }
-        public int CurrentTeamSize { get; set; }
+        public string DesiredTeamSize { get; set; }
+        public string CurrentTeamSize { get; set; }
         public List<ProjectTechnology> ProjectTechnologies { get; set; }
         public List<UserProject> Users { get; set; }
     }

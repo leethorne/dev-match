@@ -18,11 +18,11 @@ namespace BackEnd.Controllers
 
             if (_context.Projects.Count() == 0)
             {
-                _context.Projects.Add(new Project() { Id = 1, ProjectName = "Blackjack Game", Description = "Looking to develop a Blackjack game in C# and would love to work with a Front End Dev to make it come alive on the screen!", Status = "Not Started", DesiredTeamSize = 2, CurrentTeamSize = 1 });
-                _context.Projects.Add(new Project() { Id = 2, ProjectName = "Pizza Delivery Tracker", Description = "I'd like to create a pizza delivery app with Javascript. Looking for some help from a fellow dev!", Status = "Not Started", DesiredTeamSize = 2, CurrentTeamSize = 1 });
-                _context.Projects.Add(new Project() { Id = 3, ProjectName = "Restauraunt Website", Description = "Novice coder - would like to practice my React skills to make a clone of Afters Ice Cream website. Seeking Node devs to make a complete site!", Status = "In Progress", DesiredTeamSize = 3, CurrentTeamSize = 1 });
-                _context.Projects.Add(new Project() { Id = 4, ProjectName = "Coffee Cart", Description = "Want to beef up my portfolio with a web & mobile app for a coffee cart that tracks it's location in real time and sends notifications to users in that area", Status = "Not Started", DesiredTeamSize = 5, CurrentTeamSize = 2 });
-                _context.Projects.Add(new Project() { Id = 5, ProjectName = "Animal Adoption Site", Description = "Looking to build an adoption site in AngularJS so I can improve - want to end up with a full stack app. Backend C# devs preferred, becuase I need a refresher in .Net Core!", Status = "Not Started", DesiredTeamSize = 3, CurrentTeamSize = 1 });
+                _context.Projects.Add(new Project() { Id = 1, ProjectName = "Blackjack Game", Description = "Looking to develop a Blackjack game in C# and would love to work with a Front End Dev to make it come alive on the screen!", Status = "Not Started", DesiredTeamSize = "2", CurrentTeamSize = "1" });
+                _context.Projects.Add(new Project() { Id = 2, ProjectName = "Pizza Delivery Tracker", Description = "I'd like to create a pizza delivery app with Javascript. Looking for some help from a fellow dev!", Status = "Not Started", DesiredTeamSize = "3", CurrentTeamSize = "1" });
+                _context.Projects.Add(new Project() { Id = 3, ProjectName = "Restauraunt Website", Description = "Novice coder - would like to practice my React skills to make a clone of Afters Ice Cream website. Seeking Node devs to make a complete site!", Status = "In Progress", DesiredTeamSize = "3", CurrentTeamSize = "2" });
+                _context.Projects.Add(new Project() { Id = 4, ProjectName = "Coffee Cart", Description = "Want to beef up my portfolio with a web & mobile app for a coffee cart that tracks it's location in real time and sends notifications to users in that area", Status = "Not Started", DesiredTeamSize = "5", CurrentTeamSize = "2" });
+                _context.Projects.Add(new Project() { Id = 5, ProjectName = "Animal Adoption Site", Description = "Looking to build an adoption site in AngularJS so I can improve - want to end up with a full stack app. Backend C# devs preferred, becuase I need a refresher in .Net Core!", Status = "Not Started", DesiredTeamSize = "3", CurrentTeamSize = "1" });
                 _context.SaveChanges();
             }
 
@@ -59,13 +59,16 @@ namespace BackEnd.Controllers
                 _context.Technologies.Add(new Technology() { Id = 29, Name = "HTML" });
                 _context.Technologies.Add(new Technology() { Id = 30, Name = "CSS" });
                 _context.SaveChanges();
+            }
+
+            if (_context.ProjectTechnologies.Count() == 0)
+            {
 
                 ProjectTechnology pt = new ProjectTechnology();
 
                 pt.Project = _context.Projects.FirstOrDefault(p => p.Id == 1);
                 pt.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 12);
-                pt.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 29);
-                pt.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 26);
+
 
                 _context.ProjectTechnologies.Add(pt);
                 _context.SaveChanges();
@@ -74,8 +77,6 @@ namespace BackEnd.Controllers
 
                 pt2.Project = _context.Projects.FirstOrDefault(p => p.Id == 2);
                 pt2.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 26);
-                pt2.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 30);
-                pt2.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 27);
 
                 _context.ProjectTechnologies.Add(pt2);
                 _context.SaveChanges();
@@ -84,8 +85,7 @@ namespace BackEnd.Controllers
 
                 pt3.Project = _context.Projects.FirstOrDefault(p => p.Id == 3);
                 pt3.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 8);
-                pt3.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 9);
-                pt3.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 26);
+
 
                 _context.ProjectTechnologies.Add(pt3);
                 _context.SaveChanges();
@@ -94,8 +94,7 @@ namespace BackEnd.Controllers
 
                 pt4.Project = _context.Projects.FirstOrDefault(p => p.Id == 4);
                 pt4.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 10);
-                pt4.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 21);
-                pt4.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 20);
+
 
                 _context.ProjectTechnologies.Add(pt4);
                 _context.SaveChanges();
@@ -104,8 +103,7 @@ namespace BackEnd.Controllers
 
                 pt5.Project = _context.Projects.FirstOrDefault(p => p.Id == 5);
                 pt5.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 7);
-                pt5.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 12);
-                pt5.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 18);
+      
 
                 _context.ProjectTechnologies.Add(pt5);
                 _context.SaveChanges();
@@ -124,7 +122,7 @@ namespace BackEnd.Controllers
         [HttpGet("{id}")]
         public Project Get(int id)
         {
-            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology"))
+            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology").Include("Users").Include("Users.User"))
             {
                 if (p.Id == id)
                 {

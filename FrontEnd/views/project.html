@@ -4,7 +4,7 @@
     <h3 ui-sref="projects" class="search-devs">Projects</h3>
     <h3 ui-sref="users" class="search-devs">Devs</h3>
     <div class="logout-btns">
-      <h3 ui-sref="user ({id: user.id})" class="my-account">My Account</h3>
+      <h3 ui-sref="user ({id: currentUser.id})" class="my-account">My Account</h3>
       <h3 ng-click="logout()" class="logout">Logout</h3>
     </div>
   </div>
@@ -12,22 +12,25 @@
 
 <div class="container">
   <div class="col-md-4 user-contact-block">
-    <img class="user-profile-pic img-responsive" src="{{project.user.image}}">
+    <img class="user-profile-pic img-responsive" ng-src="{{project.users[0].user.image}}">
     <div class="user-contact-tile">
       <h3 class="user-contact-header">Contact</h3>
       <h4>
-        <strong>Phone:</strong> {{project.user.phoneNumber}}</h4>
+        <strong>Name:</strong> {{project.users[0].user.firstName}} {{project.users[0].user.lastName}}</h4>
       <h4>
-        <strong>Email:</strong> {{project.user.email}}</h4>
       <h4>
-        <a target="_blank" href="{{project.user.linkedIn}}">View LinkedIn Profile</a>
+        <strong>Phone:</strong> {{project.users[0].user.phoneNumber}}</h4>
+      <h4>
+        <strong>Email:</strong> {{project.users[0].user.email}}</h4>
+      <h4>
+        <a target="_blank" href="{{project.users[0].user.linkedIn}}">View LinkedIn Profile</a>
       </h4>
       <h4>
-        <a target="_blank" href="{{project.user.gitHubLink}}">View GitHub Profile</a>
+        <a target="_blank" href="{{project.users[0].user.gitHubLink}}">View GitHub Profile</a>
       </h4>
       <button class="user-contact-me light-btn btn-4">
         <span>
-          <a class="mailto" href="mailto:{{user.email}}">Contact Me</a>
+          <a class="mailto" href="mailto:{{project.users[0].user.email}}">Contact Me</a>
         </span>
       </button>
     </div>
@@ -55,7 +58,7 @@
 
     <div>
       <h3>Technologies Using:</h3>
-      <div ng-repeat="useProjTechnology in project.projectTechnologies" ng-show="seekProjTechnology.isUsing == true"> {{useProjTechnology.technology.name}}</div>
+      <div ng-repeat="useProjTechnology in project.projectTechnologies" ng-show="useProjTechnology.isUsing == true"> {{useProjTechnology.technology.name}}</div>
     </div>
   </div>
 </div>

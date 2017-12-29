@@ -24,8 +24,10 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
     })
   }
 
+//////////ADD NEW PROJECT\\\\\\\\\\\\\
   $scope.addProject = function () {
-      var skillsArray = []
+      var skillsArray = [];
+      $scope.project.users = [];
 
       // Looping through Seeking Skills array and setting isSeeking = True
       for(var i = 0; i< $scope.project.seekingSkills.length; i++) {
@@ -62,6 +64,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
               userService.updateUserProj(currentUser.id, response.data.id)
                   .then(function (response) {
                       console.log("ADD USER SUCCESSFUL: ", response)
+                      $scope.project.users.push(currentUser);
 
                   }, function (error) {
                       console.log("error updating user on proj: ", error);
@@ -80,11 +83,11 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
                       })
               });
 
-              $timeout(function () {
-                  $state.go("projects", { id: $scope.project.id });
-              }, 3000);
+            //   $timeout(function () {
+            //       $state.go("projects", { id: $scope.project.id });
+            //   }, 3000);
 
-            //   $state.go('projects', {}, { reload: 'projects'}) ---- causing issues for id moving between states?
+              $state.go('projects', {}, { id: $scope.project.id })
 
           }, function (error) {
             console.log("error to add proj: ", error)
@@ -92,6 +95,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
           })
       }
 
+/////////UPDATE PROJECT\\\\\\\\\\\
   $scope.updateProject = function () {
       var skillsArray = []
 
@@ -137,11 +141,11 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
           .then(function (response) {
             console.log(response)
 
-            $timeout(function () {
-                $state.go("projects", { id: $scope.project.id });
-            }, 3000);
+            // $timeout(function () {
+            //     $state.go("projects", { id: $scope.project.id });
+            // }, 3000);
 
-          //   $state.go("project", { id: $scope.project.id })
+            $state.go("projects", { id: $scope.project.id })
 
           },
           function (error) {
