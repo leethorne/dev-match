@@ -47,11 +47,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
             .then(function (response) {
                 // $scope.user = response.data;
                 console.log("userrrr: ", response.data)
-                console.log("image: ", response.data.image)
-                
-                $state.go("user", {
-                    id: $scope.user.id
-                });
+
             }, function (error) {
                 console.log("you have an error: ", error)
                 //do something here to display error msg
@@ -217,7 +213,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         { name: "Python", isSeeking: false, isUsing: false },
         { name: "HTML", isSeeking: false, isUsing: false }
     ]
-    
+
     // collapse login form
     $('.login').click(function () {
         console.log("clicked");
