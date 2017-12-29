@@ -53,10 +53,6 @@ app.service("userService", function ($http, $state) {
         return that.currentUser
     }
 
-    this.editUser = function (id) {
-        $state.go("userUpdate", { id: id });
-    }
-
     this.login = function (user, cb) {
         console.log(user)
         $http.get(serverLink + "users/?username=" + user.username + "&password=" + user.password)

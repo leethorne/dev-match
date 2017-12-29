@@ -155,16 +155,6 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
                 })
         }
 
-        projectService.getNews()
-            .then(function (response) {
-                console.log(response);
-                console.log(response.data.articles);
-                $scope.news = response.data.articles;
-            }, function (error) {
-                console.log(error);
-                //handle error messages here to the user
-            })
-
     $(".create-project").hide();
 
     $scope.checkOutProj = function() {
@@ -215,14 +205,6 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
             $(".add-proj").text("+")
         }
     });
-
-    // $scope.updateProjTech = function() {
-    //     projectService.updateProjTech($stateParams.id, $scope.techName, $scope.isSeeking)
-    //     .then(function(response) {
-    //         console.log("updating: ", response)
-    //     }, function(error) {
-    //         console.log(error)
-    //     })
 
     projectService.getNews()
         .then(function (response) {

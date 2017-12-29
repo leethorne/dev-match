@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="col-md-8 user-info-block">
-    <img ng-click="editUser()" class="edit user-edit" src="./img/edit.svg">
+    <img ui-sref="userUpdate({id: user.id})" class="edit user-edit" src="./img/edit.svg">
     <h1 class="user-full-name">{{user.firstName}} {{user.lastName}}</h1>
     <h4 class="user-username">{{user.userName}}</h4>
 

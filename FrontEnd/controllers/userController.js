@@ -3,40 +3,6 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     $scope.errorMessage = false;
     $scope.currentUser = userService.getCurrentUser();
 
-    $scope.availableTechnologies = [
-        { name: "BootStrap", isSeeking: false, isUsing: false },
-        { name: "JavaScript", isSeeking: false, isUsing: false },
-        { name: "AngularJS", isSeeking: false, isUsing: false },
-        { name: "C#", isSeeking: false, isUsing: false },
-        { name: "ASP.NET Core", isSeeking: false, isUsing: false },
-        { name: "Node.js", isSeeking: false, isUsing: false },
-        { name: "CSS", isSeeking: false, isUsing: false },
-        { name: "MySQL", isSeeking: false, isUsing: false },
-        { name: "React", isSeeking: false, isUsing: false },
-        { name: "Ojective-C", isSeeking: false, isUsing: false },
-        { name: "jQuery", isSeeking: false, isUsing: false },
-        { name: "MongoDB", isSeeking: false, isUsing: false },
-        { name: "C / C++", isSeeking: false, isUsing: false },
-        { name: "Ruby", isSeeking: false, isUsing: false },
-        { name: "SpringMVC", isSeeking: false, isUsing: false },
-        { name: "Java", isSeeking: false, isUsing: false },
-        { name: "PHP", isSeeking: false, isUsing: false },
-        { name: "AWS", isSeeking: false, isUsing: false },
-        { name: "Azure", isSeeking: false, isUsing: false },
-        { name: "Entity Framework Core", isSeeking: false, isUsing: false },
-        { name: "SQL Server", isSeeking: false, isUsing: false },
-        { name: "Dapper", isSeeking: false, isUsing: false },
-        { name: "NancyFX", isSeeking: false, isUsing: false },
-        { name: ".Net Core 2.0", isSeeking: false, isUsing: false },
-        { name: "C#", isSeeking: false, isUsing: false },
-        { name: "Xcode", isSeeking: false, isUsing: false },
-        { name: "Swift", isSeeking: false, isUsing: false },
-        { name: "Django", isSeeking: false, isUsing: false },
-        { name: "Ajax", isSeeking: false, isUsing: false },
-        { name: "Python", isSeeking: false, isUsing: false },
-        { name: "HTML", isSeeking: false, isUsing: false }
-    ]
-
     userService.getUsers()
         .then(function (response) {
             console.log(response.data);
@@ -211,10 +177,39 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         $state.go("home");
     }
 
-    // user page --> user form
-    $scope.editUser = function () {
-        userService.editUser($stateParams.id)
-    }
+    $scope.availableTechnologies = [
+        { name: "BootStrap", isSeeking: false, isUsing: false },
+        { name: "JavaScript", isSeeking: false, isUsing: false },
+        { name: "AngularJS", isSeeking: false, isUsing: false },
+        { name: "C#", isSeeking: false, isUsing: false },
+        { name: "ASP.NET Core", isSeeking: false, isUsing: false },
+        { name: "Node.js", isSeeking: false, isUsing: false },
+        { name: "CSS", isSeeking: false, isUsing: false },
+        { name: "MySQL", isSeeking: false, isUsing: false },
+        { name: "React", isSeeking: false, isUsing: false },
+        { name: "Ojective-C", isSeeking: false, isUsing: false },
+        { name: "jQuery", isSeeking: false, isUsing: false },
+        { name: "MongoDB", isSeeking: false, isUsing: false },
+        { name: "C / C++", isSeeking: false, isUsing: false },
+        { name: "Ruby", isSeeking: false, isUsing: false },
+        { name: "SpringMVC", isSeeking: false, isUsing: false },
+        { name: "Java", isSeeking: false, isUsing: false },
+        { name: "PHP", isSeeking: false, isUsing: false },
+        { name: "AWS", isSeeking: false, isUsing: false },
+        { name: "Azure", isSeeking: false, isUsing: false },
+        { name: "Entity Framework Core", isSeeking: false, isUsing: false },
+        { name: "SQL Server", isSeeking: false, isUsing: false },
+        { name: "Dapper", isSeeking: false, isUsing: false },
+        { name: "NancyFX", isSeeking: false, isUsing: false },
+        { name: ".Net Core 2.0", isSeeking: false, isUsing: false },
+        { name: "C#", isSeeking: false, isUsing: false },
+        { name: "Xcode", isSeeking: false, isUsing: false },
+        { name: "Swift", isSeeking: false, isUsing: false },
+        { name: "Django", isSeeking: false, isUsing: false },
+        { name: "Ajax", isSeeking: false, isUsing: false },
+        { name: "Python", isSeeking: false, isUsing: false },
+        { name: "HTML", isSeeking: false, isUsing: false }
+    ]
 
     // collapse login form
     $('.login').click(function () {
