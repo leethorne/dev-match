@@ -25,8 +25,10 @@
       <h4>
         <a target="_blank" href="{{project.user.gitHubLink}}">View GitHub Profile</a>
       </h4>
-      <button class="user-contact-me light-btn">
-        <a class="mailto" href="mailto:{{user.email}}">Contact Me</a>
+      <button class="user-contact-me light-btn btn-4">
+        <span>
+          <a class="mailto" href="mailto:{{user.email}}">Contact Me</a>
+        </span>
       </button>
     </div>
   </div>
@@ -46,18 +48,14 @@
       <strong>Current Team Size: </strong> {{project.currentTeamSize}}
     </h4>
 
-      <div>
-        <h3>
-          <strong>Technologies Seeking:</strong>
-        </h3>
-        <div ng-repeat="seekProjTechnology in project.projectTechnologies" ng-show="seekProjTechnology.isSeeking == true">  {{seekProjTechnology.technology.name}}</div>
-      </div>
+    <div>
+      <h3>Technologies Seeking:</h3>
+      <div ng-repeat="seekProjTechnology in project.projectTechnologies" ng-show="seekProjTechnology.isSeeking == true"> {{seekProjTechnology.technology.name}}</div>
+    </div>
 
-      <div>
-        <h3>
-          <strong>Technologies Using:</strong>
-        </h3>
-        <div ng-repeat="useProjTechnology in project.projectTechnologies" ng-show="seekProjTechnology.isUsing == true"> {{useProjTechnology.technology.name}}</div>
-        </div>
-      </div>
+    <div>
+      <h3>Technologies Using:</h3>
+      <div ng-repeat="useProjTechnology in project.projectTechnologies" ng-show="seekProjTechnology.isUsing == true"> {{useProjTechnology.technology.name}}</div>
+    </div>
   </div>
+</div>
