@@ -80,7 +80,12 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
                       })
               });
 
-              $state.go('projects', {}, { reload: 'projects'})
+
+              $timeout(function () {
+                  $state.go("projects", { id: $scope.project.id });
+              }, 3000);
+
+            //   $state.go('projects', {}, { reload: 'projects'})
           }, function (error) {
             console.log("error to add proj: ", error)
             //make error message for user if failed to add
