@@ -24,7 +24,7 @@ button{
 }
 span{
   display: block;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
 }
 button::before, button::after{
   content:"";
@@ -243,6 +243,7 @@ body {
 }
 .btn-4 > span {
 	color: #fbfbfb;
+	padding: 10px 20px;
 }
 
 /* Register */
