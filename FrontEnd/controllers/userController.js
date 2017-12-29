@@ -45,32 +45,10 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
           //ADDING TECH SKILLS TO USER
           userService.updateUserTech(response.data.id, $scope.techName)
             .then(function (response) {
-<<<<<<< HEAD
-                // $scope.user = response.data;
-                console.log("userrrr: ", response.data)
-                console.log("image: ", response.data.image)
-                
-                //ADDING TECH SKILLS TO USER 
-                    userService.updateUserTech(response.data.id, $scope.techName)
-                        .then(function (response) {
-                            console.log("tech added to user - SUCCESS: ", response)
-                        }, function (error) {
-                            console.log("error adding tech: ", error);
-                            //do something here to alert user of fail 
-                        })
-                
-                $state.go("user", {
-                    id: $scope.user.id
-                });
-            }, function (error) {
-                console.log("you have an error: ", error)
-                //do something here to display error msg
-=======
               console.log(response)
             },
             function (error) {
               console.log(error);
->>>>>>> 878371b7cc52308927e97028c51001686b82c27d
             })
 
             $state.go("user", { id: $scope.user.id });

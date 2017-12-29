@@ -6,6 +6,71 @@
 	letter-spacing: .05em;
 	color: #6a7989;
 }
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button{
+  display: inline-block;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fbfbfb;
+  font-size: 18px;
+  cursor: pointer;
+  background: #252B39;
+}
+span{
+  display: block;
+  padding: 10px 20px;
+}
+button::before, button::after{
+  content:"";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #fbfbfb;
+}
+
+span::before, span::after{
+  content:"";
+  width:2px;
+  height:0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #fbfbfb;
+}
+button:hover::before, button:hover::after{
+  width: 100%;
+}
+button:hover span::before, button:hover span::after{
+  height: 100%;
+}
+/*----- button 4 -----*/
+.btn-4::after{
+  right:0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.btn-4 span::after{
+  right:0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.btn-4::before{
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+.btn-4 span::before{
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
 body {
 	background-color: #F8F6F5;
 }
@@ -14,11 +79,11 @@ body {
 	height: 20px;
 }
 .light-btn {
-	background: #fbfbfb;
+	/* background: #fbfbfb;
 	border-radius: 0;
-	color: #0844A4;
+	color: #0844A4; */
 	font-weight: bold;
-	border: 3px solid;
+	/* border: 3px solid; */
 	margin-bottom: 100px;
 	margin-top: 15px;
 	text-transform: uppercase;
@@ -92,11 +157,11 @@ body {
 	float: right;
 }
 .login-submit {
-	background: #0844A4;
+	/* background: #0844A4; */
 	border-radius: 0;
-	color: #FFF;
+	/* color: #FFF; */
 	font-weight: 500;
-	border: 2px solid;
+	/* border: 2px solid; */
 	margin-top: 15px;
 	text-transform: uppercase;
 	font-size: 18px;
@@ -167,14 +232,17 @@ body {
 	color: #FFF;
 }
 .register-btn {
-	background: #0844A4;
+	/* background: #0844A4; */
 	font-size: 24px;
 	padding: 10px 40px;
-	border: 4px solid #FFF;
+	/* border: 4px solid #FFF; */
 	margin: 0px auto;
 	display: block;
 	text-transform: uppercase;
-	color: #FFF;
+	color: #fbfbfb;
+}
+.btn-4 > span {
+	color: #fbfbfb;
 }
 
 /* Register */
@@ -384,10 +452,10 @@ textarea {
 }
 .mailto {
 	text-decoration: none;
-	color: #0844A4;
+	color: #fbfbfb;
 }
 .mailto:hover {
-	color: #0844A4;
+	color: #fbfbfb;
 	text-decoration: none;
 }
 /* proj form */
