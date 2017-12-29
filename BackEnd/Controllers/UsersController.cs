@@ -46,9 +46,7 @@ namespace BackEnd.Controllers
                 _context.Users.Add(new User() { Id = 14, FirstName = "Francis", LastName = "Marx", Email = "MF@gmail.com", PhoneNumber = "312-338-5533", AddressLine1 = "1282 Putnam Ave", AddressLine2 = "", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Francis.jpg", UserName = "frank", Password = "frank", JobTitle = "Software Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/francis", LinkedIn = "https://www.linkedin.com/in/francis/" });
                 _context.Users.Add(new User() { Id = 15, FirstName = "Derek", LastName = "Kozar", Email = "dk@gmail.com", PhoneNumber = "310-220-2250", AddressLine1 = "1132 Greene Ave", AddressLine2 = "Apt 13", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Derek.jpg", UserName = "dman", Password = "ddude", JobTitle = "Front End Developer, UX/UI Designer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/domenkozar", LinkedIn = "https://www.linkedin.com/in/derekkozar/" });
                 _context.Users.Add(new User() { Id = 16, FirstName = "Calvin", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "735 Chauncey St", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11207, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
-               
-
-
+              
                 _context.SaveChanges();
 
                 UserProject up = new UserProject();
@@ -57,6 +55,48 @@ namespace BackEnd.Controllers
                 up.Project = _context.Projects.FirstOrDefault(p => p.Id == 1);
 
                 _context.UserProjects.Add(up);
+                _context.SaveChanges();
+
+                UserProject up2 = new UserProject();
+
+                up2.User = _context.Users.FirstOrDefault(u => u.Id == 1);
+                up2.Project = _context.Projects.FirstOrDefault(p => p.Id == 2);
+
+                _context.UserProjects.Add(up2);
+                _context.SaveChanges();
+
+                UserProject up3 = new UserProject();
+
+                up3.User = _context.Users.FirstOrDefault(u => u.Id == 10);
+                up3.Project = _context.Projects.FirstOrDefault(p => p.Id == 3);
+
+                _context.UserProjects.Add(up3);
+                _context.SaveChanges();
+
+                UserProject up4 = new UserProject();
+
+                up4.User = _context.Users.FirstOrDefault(u => u.Id == 10);
+                up4.Project = _context.Projects.FirstOrDefault(p => p.Id == 4);
+
+                _context.UserProjects.Add(up4);
+                _context.SaveChanges();
+
+                UserProject up5 = new UserProject();
+
+                up5.User = _context.Users.FirstOrDefault(u => u.Id == 10);
+                up5.Project = _context.Projects.FirstOrDefault(p => p.Id == 5);
+
+                _context.UserProjects.Add(up5);
+                _context.SaveChanges();
+
+                UserTechnology ut = new UserTechnology();
+
+                ut.User = _context.Users.FirstOrDefault(u => u.Id == 1);
+                ut.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 12);
+                ut.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 30);
+                ut.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 13);
+
+                _context.UserTechnologies.Add(ut);
                 _context.SaveChanges();
             }
 
@@ -106,7 +146,7 @@ namespace BackEnd.Controllers
 
             if(username == null || password == null)
             {
-                return _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies.Technology").ToList();
+                return _context.Users.Include("UserProjects").Include("UserProjects.User").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies.Technology").ToList();
             }
 
             foreach (User u in _context.Users)
@@ -150,7 +190,7 @@ namespace BackEnd.Controllers
         [HttpPut("{id}/addproject")]
         public User AddProject(int id, int projId )
         {
-            foreach (User u in _context.Users.Include("UserProjects"))
+            foreach (User u in _context.Users.Include("UserProjects").Include("Users"))
             {
                 if (u.Id == id)
                 {
@@ -176,7 +216,7 @@ namespace BackEnd.Controllers
         [HttpPut("{id}/addtechnology")]
         public User AddTechnology(int id, string techName)
         {
-            foreach (User u in _context.Users.Include("UserTechnologies"))
+            foreach (User u in _context.Users.Include("UserTechnologies").Include("UserTechnologies.Technology"))
             {
                 if (u.Id == id)
                 {

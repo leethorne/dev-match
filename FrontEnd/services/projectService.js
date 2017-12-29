@@ -24,6 +24,7 @@ app.service("projectService", function($http, $state) {
             },
             function(error) {
               console.log(error)
+              alert("Error. Project information is not available. Please try again.")
             })
         }
     }
