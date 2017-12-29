@@ -109,6 +109,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         })
     }
 
+///ADD PROJECT FROM USER PAGE 
     $scope.addProject = function () {
         var skillsArray = []
 
@@ -144,7 +145,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
             console.log("ADD proj SUCCESS: ", response)
 
             //adding user to project
-            userService.updateUserProj($stateParams.id, response.data.id)
+            userService.updateUserProj($scope.currentUser.id, response.data.id)
               .then(function (response) {
                 console.log("USER ADDED: ", response)
               }, function (error) {
@@ -163,7 +164,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
                 })
             });
 
-            $state.go('user', {}, { reload: 'user'})
+            $state.go('projects')
           },
           function (error) {
             console.log("error adding proj: ", error)

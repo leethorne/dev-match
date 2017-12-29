@@ -168,9 +168,9 @@
     <label class="col-md-12 control-label">Technical Skillset:</label>
     <div class="col-md-12">
       <ui-select ng-model="user.userTechnologies" multiple theme="selectize">
-        <ui-select-match placeholder="Please select languages">{{ $item.technology.name }}</ui-select-match>
+        <ui-select-match placeholder="Please select languages">{{ $item.name }}</ui-select-match>
         <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
-          <div ng-bind-html="item.technology.name | highlight: $select.search"></div>
+          <div ng-bind-html="item.name | highlight: $select.search"></div>
         </ui-select-choices>
       </ui-select>
     </div>
