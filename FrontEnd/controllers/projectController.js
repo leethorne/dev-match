@@ -2,6 +2,15 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
 
   $scope.currentUser = userService.getCurrentUser();
 
+  projectService.getProjects()
+      .then(function (response) {
+          console.log(response);
+          $scope.projects = response.data;
+      }, function (error) {
+          console.log(error);
+          alert("Error: Something went wrong. No Project Info Available")
+      })
+
   if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
     projectService.getProjectById($stateParams.id, function (project) {
       $scope.project = project;
@@ -14,15 +23,6 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
       console.log($scope.project);
     })
   }
-
-  projectService.getProjects()
-      .then(function (response) {
-          console.log(response);
-          $scope.projects = response.data;
-      }, function (error) {
-          console.log(error);
-          //handle error messages here to the user
-      })
 
   $scope.addProject = function () {
       var skillsArray = []
@@ -65,7 +65,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
 
                   }, function (error) {
                       console.log("error updating user on proj: ", error);
-                      //do something here to alert user of fail
+                      alert("Error: Something went wrong. Project user cannot be added.")
                   });
 
               //ADDING TECH TO PROJECT
@@ -76,14 +76,17 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
 
                       }, function (error) {
                           console.log("error updating seeking tech: ", error)
-                          //alert here
+                          alert("Error: Something went wrong. Project technology cannot be added.")
                       })
               });
 
-              $state.go('projects', {}, { reload: 'projects'})
+              $timeout(function () {
+                  $state.go("projects", { id: $scope.project.id });
+              }, 3000);
+            //   $state.go('projects', {}, { reload: 'projects'})
           }, function (error) {
             console.log("error to add proj: ", error)
-            //make error message for user if failed to add
+            alert("Error: Something went wrong. Project was not added")
           })
       }
 
@@ -124,7 +127,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
                       console.log("ADD TECH TO PROJ - SUCCESSFUL: ", response)
                   }, function (error) {
                       console.log("error updating seeking tech: ", error)
-                      //alert here
+                      alert("Error: Something went wrong. Project technology cannot be updated.")
                   })
           });
 

@@ -32,11 +32,11 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
         })
     }
 
-    $scope.addUser = function () {
+    $scope.register = function () {
       console.log("user before function: ", $scope.user)
       console.log("image: ", $scope.user.image)
 
-      userService.addUser($scope.user)
+      userService.register($scope.user)
         .then(function (response) {
           // $scope.user = response.data;
           console.log("userrrr: ", response.data)
@@ -45,13 +45,18 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
           //ADDING TECH SKILLS TO USER
           userService.updateUserTech(response.data.id, $scope.techName)
             .then(function (response) {
-              console.log(response)
-            },
-            function (error) {
-              console.log(error);
+                // $scope.user = response.data;
+                console.log("user tech added to registered user: ", response)
+
+            }, function (error) {
+                console.log("you have an error: ", error)
+                //do something here to display error msg
             })
 
-            $state.go("user", { id: $scope.user.id });
+          $timeout(function () {
+              $state.go("user", { id: $scope.user.id });
+          }, 3000);
+            // $state.go("user", { id: $scope.user.id });
         }, function (error) {
             console.log("you have an error: ", error)
         })
@@ -170,9 +175,44 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     }
 
     // user page --> user form
-    $scope.editUser = function () {
-      userService.editUser($stateParams.id)
-    }
+    // $scope.editUser = function () {
+    //   userService.editUser($stateParams.id)
+    // }
+
+
+    $scope.availableTechnologies = [
+        { name: "BootStrap", isSeeking: false, isUsing: false },
+        { name: "JavaScript", isSeeking: false, isUsing: false },
+        { name: "AngularJS", isSeeking: false, isUsing: false },
+        { name: "C#", isSeeking: false, isUsing: false },
+        { name: "ASP.NET Core", isSeeking: false, isUsing: false },
+        { name: "Node.js", isSeeking: false, isUsing: false },
+        { name: "CSS", isSeeking: false, isUsing: false },
+        { name: "MySQL", isSeeking: false, isUsing: false },
+        { name: "React", isSeeking: false, isUsing: false },
+        { name: "Ojective-C", isSeeking: false, isUsing: false },
+        { name: "jQuery", isSeeking: false, isUsing: false },
+        { name: "MongoDB", isSeeking: false, isUsing: false },
+        { name: "C / C++", isSeeking: false, isUsing: false },
+        { name: "Ruby", isSeeking: false, isUsing: false },
+        { name: "SpringMVC", isSeeking: false, isUsing: false },
+        { name: "Java", isSeeking: false, isUsing: false },
+        { name: "PHP", isSeeking: false, isUsing: false },
+        { name: "AWS", isSeeking: false, isUsing: false },
+        { name: "Azure", isSeeking: false, isUsing: false },
+        { name: "Entity Framework Core", isSeeking: false, isUsing: false },
+        { name: "SQL Server", isSeeking: false, isUsing: false },
+        { name: "Dapper", isSeeking: false, isUsing: false },
+        { name: "NancyFX", isSeeking: false, isUsing: false },
+        { name: ".Net Core 2.0", isSeeking: false, isUsing: false },
+        { name: "C#", isSeeking: false, isUsing: false },
+        { name: "Xcode", isSeeking: false, isUsing: false },
+        { name: "Swift", isSeeking: false, isUsing: false },
+        { name: "Django", isSeeking: false, isUsing: false },
+        { name: "Ajax", isSeeking: false, isUsing: false },
+        { name: "Python", isSeeking: false, isUsing: false },
+        { name: "HTML", isSeeking: false, isUsing: false }
+    ]
 
     // collapse login form
     $('.login').click(function () {

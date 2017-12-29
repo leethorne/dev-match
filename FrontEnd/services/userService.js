@@ -28,7 +28,7 @@ app.service("userService", function ($http, $state) {
     //     return $http.post("http://uploads.im/api", image)
     // }
 
-    this.addUser = function (user) { //register new user
+    this.register = function (user) { //register new user
       return $http.post(serverLink + "users/", user)
     }
 
@@ -52,9 +52,9 @@ app.service("userService", function ($http, $state) {
       return that.currentUser
     }
 
-    this.editUser = function (id) {
-      $state.go("userUpdate", { id: id });
-    }
+    // this.editUser = function (id) {
+    //   $state.go("userUpdate", { id: id });
+    // }
 
     this.login = function (user, cb) {
       console.log(user)
