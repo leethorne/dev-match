@@ -136,7 +136,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
         projectService.updateProject($stateParams.id, $scope.project)
             .then(function (response) {
               console.log(response)
-            //   $state.go("project", { id: $scope.project.id })
+              $state.go("project", { id: $scope.project.id })
             },
             function (error) {
               console.log(error)

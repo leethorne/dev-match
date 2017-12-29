@@ -4,7 +4,7 @@
         <h3 ui-sref="projects" class="search-projects">Projects</h3>
         <h3 ui-sref="users" class="search-projects">Devs</h3>
         <div class="logout-btns">
-            <h3 ui-sref="user" class="projects-account">My Account</h3>
+            <h3 ui-sref="user ({id: user.id})" class="projects-account">My Account</h3>
             <h3 ng-click="logout()" class="projects-logout">Logout</h3>
         </div>
     </div>
@@ -22,7 +22,7 @@
 </div>
 </div>
 
-map below shows markers for all user locations. will filter markers by the user's search as well-->
+<!--map below shows markers for all user locations. will filter markers by the user's search as well-->
 <div id="map" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
     <ng-map center="{{ MapCenter }}" zoom="{{ MapZoom }}" style="display:block; width:auto; height:auto;" scrollwheel="false">
         <marker ng-repeat="user in users | filter: selectedCity" position="{{ user.addressLine1}} {{user.city}} {{user.state}}"></marker>

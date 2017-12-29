@@ -79,9 +79,9 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
                 //ADDING TECH SKILLS TO USER 
                     userService.updateUserTech(response.data.id, $scope.techName)
                         .then(function (response) {
-                            console.log(response)
+                            console.log("tech added to user - SUCCESS: ", response)
                         }, function (error) {
-                            console.log(error);
+                            console.log("error adding tech: ", error);
                             //do something here to alert user of fail 
                         })
                 
