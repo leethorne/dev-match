@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	font-family: 'Raleway', sans-serif;
 	letter-spacing: .05em;
+	color: #6a7989;
 }
 body {
 	background-color: #F8F6F5;
@@ -13,7 +14,7 @@ body {
 	height: 20px;
 }
 .light-btn {
-	background: #FFF;
+	background: #fbfbfb;
 	border-radius: 0;
 	color: #0844A4;
 	font-weight: bold;
@@ -44,6 +45,7 @@ body {
 .my-account {
 	display: inline-block;
 	margin: 0px 20px 0px 20px;
+	color: #FFF;
 }
 
 .logout {
@@ -77,6 +79,7 @@ body {
 .name {
 	display: inline-block;
 	margin-left: 20px;
+	color: #FFF;
 }
 .account-functions {
 	display: inline-block;
@@ -102,6 +105,7 @@ body {
 .users-create, .login {
 	display: inline;
 	margin: 0px 20px;
+	color: #FFF;
 }
 .login-form {
 	width: 300px;
@@ -153,12 +157,14 @@ body {
 	text-transform: uppercase;
 	text-align: center;
 	margin-bottom: 0px;
+	color: #FFF;
 }
 .subheadline {
 	font-size: 28px;
 	text-align: center;
 	margin-top: 40px;
 	margin-bottom: 40px;
+	color: #FFF;
 }
 .register-btn {
 	background: #0844A4;
@@ -168,6 +174,7 @@ body {
 	margin: 0px auto;
 	display: block;
 	text-transform: uppercase;
+	color: #FFF;
 }
 
 /* Register */
@@ -227,7 +234,8 @@ body {
 	background: transparent;
 	color: #595F6E;
 	font-size: 20px;
-	margin-top: 46px;
+	/* margin-top: 46px; */
+	margin-top: 33px;
 	padding-bottom: 10px;
 }
 .reg-sel {
@@ -274,7 +282,7 @@ span.select2-selection.select2-selection--multiple {
 }
 .ui-select-match.ng-scope {
 	padding: 5px !important;
-	background: #FFF !important;
+	background: #fbfbfb !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
 	text-shadow: none !important;
@@ -283,6 +291,7 @@ span.select2-selection.select2-selection--multiple {
 	padding: 4px 0 0 0;
 	border-left: 1px solid #0844A4;
 	color: #0844A4;
+	background: #fbfbfb;
 }
 .selectize-control.multi .selectize-input > div {
 	border: 1px solid #0844A4;
@@ -300,7 +309,7 @@ span.select2-selection.select2-selection--multiple {
 }
 
 .projectTile {
-	border: 1px solid black;
+	border: 1px solid  #ccc;
 	margin-top: 8px;
 	padding: 10px;
 }
@@ -312,6 +321,12 @@ span.select2-selection.select2-selection--multiple {
 
 .project-name {
 	display: inline;
+	transition: all 0.4s ease;
+}
+.project-name:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	transition: all 0.4s ease;
 }
 .proj-description {
 	margin-top: 60px !important;
@@ -394,9 +409,16 @@ textarea {
 	margin: 20px;
 }
 .user-header {
-	background: url('../img/header.jpg') no-repeat;
+	background: url('../img/header2.jpg') no-repeat;
 	background-size: cover;
 	height: 240px;
+}
+.user-proj-row {
+	max-width: 730px;
+	margin: 0px;
+	display: inline-block;
+	float: right;
+	margin-top: -45px;
 }
 .user-edit {
 	float: right;
@@ -516,4 +538,9 @@ textarea {
 	border: 2px solid black;
 	margin-top: 50px;
 	margin-bottom: 50px;
+}
+
+table.table.table-hover.table-bordered.table-responsive {
+	font-size: 18px;
+	text-transform: capitalize;
 }

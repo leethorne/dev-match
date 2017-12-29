@@ -13,16 +13,23 @@
 <h1 class="text-center">Search Developers In Your Area</h1>
 
 <div class="container">
-<div class="form-group col-md-10">
+<!-- <div class="form-group col-md-10">
     <select name="text" title="Cities" ng-model="selectedCity" ng-change="zoomCitySearch()">
         <option value="">Select your city</option>
         <option>Long Beach</option>
         <option>Brooklyn</option>
     </select>
-</div>
+</div> -->
+<div class="form-group col-md-12 reg-sel">
+    <select class="reg-skill-level input--hoshi" name="text" title="Cities" ng-model="selectedCity" ng-change="zoomCitySearch()">
+            <option value="">Select your city</option>
+            <option>Long Beach</option>
+            <option>Brooklyn</option>
+    </select>
+    </div>
 </div>
 
-map below shows markers for all user locations. will filter markers by the user's search as well-->
+<!--map below shows markers for all user locations. will filter markers by the user's search as well-->
 <div id="map" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
     <ng-map center="{{ MapCenter }}" zoom="{{ MapZoom }}" style="display:block; width:auto; height:auto;" scrollwheel="false">
         <marker ng-repeat="user in users | filter: selectedCity" position="{{ user.addressLine1}} {{user.city}} {{user.state}}"></marker>
