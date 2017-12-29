@@ -47,12 +47,14 @@
         <h3>
           <strong>Technologies Seeking:</strong>
         </h3>
-        <div ng-repeat="technology in project.projectTechnologies"> {{technology.technology.name}}</div>
+        <div ng-repeat="seekProjTechnology in project.projectTechnologies" ng-show="seekProjTechnology.isSeeking == true">  {{seekProjTechnology.technology.name}}</div>
       </div>
 
       <div>
         <h3>
           <strong>Technologies Using:</strong>
         </h3>
+        <div ng-repeat="useProjTechnology in project.projectTechnologies"> {{useProjTechnology.technology.name}}</div>
+        </div>
       </div>
   </div>

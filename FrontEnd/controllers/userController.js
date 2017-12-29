@@ -119,19 +119,63 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     }
 
     $scope.addProject = function () {
+        var skillsArray = []
+
+        // Looping through Seeking Skills array and setting isSeeking = True
+        for (var i = 0; i < $scope.project.seekingSkills.length; i++) {
+            $scope.project.seekingSkills[i].isSeeking = true;
+            skillsArray.push($scope.project.seekingSkills[i])
+        }
+
+        var added = null;
+
+        // Looping through Using Skills array and setting isUsing = True
+        for (var i = 0; i < $scope.project.usingSkills.length; i++) {
+            added = false
+            for (var j = 0; j < skillsArray.length; j++) {
+                if ($scope.project.usingSkills[i].name == skillsArray[j].name) {
+                    skillsArray[j].isUsing = true;
+                    added = true;
+                }
+            }
+            if (!added) {
+                $scope.project.usingSkills[i].isUsing = true;
+                skillsArray.push($scope.project.usingSkills[i])
+            }
+        }
+
+        console.log($scope.project)
+        console.log(skillsArray);
+
         projectService.addProject($scope.project)
             .then(function (response) {
-                $scope.project = response.data;
-                console.log("adding proj: ", $scope.project)
-                userService.updateUserProj($stateParams.id, $scope.project.id)
+                // $scope.project = response.data;
+                console.log("ADD proj SUCCESS: ", response)
+
+                //adding user to project
+                userService.updateUserProj($stateParams.id, response.data.id)
                     .then(function (response) {
-                        console.log(response)
+                        console.log("USER ADDED: ", response)
                     }, function (error) {
-                        console.log(error);
+                        console.log("error adding use to proj: ", error);
                         //do something here to alert user of fail 
                     })
+
+
+                //ADDING TECH TO PROJECT
+                skillsArray.forEach(function (element) {
+                    projectService.updateProjTech(response.data.id, element.name, element.isSeeking, element.isUsing)
+                        .then(function (response) {
+                            console.log("ADD TECH TO PROJ - SUCCESSFUL: ", response)
+                        }, function (error) {
+                            console.log("error updating seeking tech: ", error)
+                            //alert here 
+                        })
+                });
+
+                $state.go('user', {}, { reload: 'user'})
             }, function (error) {
-                console.log(error)
+                console.log("error adding proj: ", error)
                 //make error message for user if failed
             })
     }

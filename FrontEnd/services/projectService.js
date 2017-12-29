@@ -38,8 +38,8 @@ app.service("projectService", function($http, $state) {
         return $http.delete(serverLink + "projects/" + id)
     }
 
-    this.updateProjTech = function(id, techName, isSeeking) {
-        return $http.put(serverLink + "projects/" + id + "/addtechnology?techName=" + techName + "&isSeeking=" + isSeeking)
+    this.updateProjTech = function(projectId, techName, isSeeking, isUsing) {
+        return $http.put(serverLink + "projects/" + projectId + "/addtechnology?techName=" + techName + "&isSeeking=" + isSeeking + "&isUsing=" + isUsing)
     }
 
     this.getNews = function() {

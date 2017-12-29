@@ -18,6 +18,16 @@ namespace BackEnd.Controllers
         {
             _context = context;
 
+            if (_context.Projects.Count() == 0)
+            {
+                _context.Projects.Add(new Project() { Id = 1, ProjectName = "Blackjack Game", Description = "Looking to develop a Blackjack game in C# and would love to work with a Front End Dev to make it come alive on the screen!", Status = "Not Started", DesiredTeamSize = 2, CurrentTeamSize = 1 });
+                _context.Projects.Add(new Project() { Id = 2, ProjectName = "Pizza Delivery Tracker", Description = "I'd like to create a pizza delivery app with Javascript. Looking for some help from a fellow dev!", Status = "Not Started", DesiredTeamSize = 2, CurrentTeamSize = 1 });
+                _context.Projects.Add(new Project() { Id = 3, ProjectName = "Restauraunt Website", Description = "Novice coder - would like to practice my React skills to make a clone of Afters Ice Cream website. Seeking Node devs to make a complete site!", Status = "In Progress", DesiredTeamSize = 3, CurrentTeamSize = 1 });
+                _context.Projects.Add(new Project() { Id = 4, ProjectName = "Coffee Cart", Description = "Want to beef up my portfolio with a web & mobile app for a coffee cart that tracks it's location in real time and sends notifications to users in that area", Status = "Not Started", DesiredTeamSize = 5, CurrentTeamSize = 2 });
+                _context.Projects.Add(new Project() { Id = 5, ProjectName = "Animal Adoption Site", Description = "Looking to build an adoption site in AngularJS so I can improve - want to end up with a full stack app. BE C# devs preferred!", Status = "Not Started", DesiredTeamSize = 3, CurrentTeamSize = 1 });
+                _context.SaveChanges();
+            }
+
             if(_context.Users.Count() == 0)
             {
                 _context.Users.Add(new User() { Id = 1, FirstName = "Bob", LastName = "Smith", Email = "bob@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "176 Granada Ave", AddressLine2 = "Apt 10", City = "Long Beach", State = "CA", Zip = 90803, Image = "./Images/bob.jpg", UserName = "bobbo", Password = "bob", JobTitle = "Software Engineer", ProficiencyLevel = "Advanced", GitHubLink = "https://github.com/bobbysmith", LinkedIn = "https://www.linkedin.com/in/drrobertmsmith/"});
@@ -36,8 +46,55 @@ namespace BackEnd.Controllers
                 _context.Users.Add(new User() { Id = 14, FirstName = "Francis", LastName = "Marx", Email = "MF@gmail.com", PhoneNumber = "312-338-5533", AddressLine1 = "1282 Putnam Ave", AddressLine2 = "", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Francis.jpg", UserName = "frank", Password = "frank", JobTitle = "Software Developer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/francis", LinkedIn = "https://www.linkedin.com/in/francis/" });
                 _context.Users.Add(new User() { Id = 15, FirstName = "Derek", LastName = "Kozar", Email = "dk@gmail.com", PhoneNumber = "310-220-2250", AddressLine1 = "1132 Greene Ave", AddressLine2 = "Apt 13", City = "Brooklyn", State = "NY", Zip = 11221, Image = "./Images/Derek.jpg", UserName = "dman", Password = "ddude", JobTitle = "Front End Developer, UX/UI Designer", ProficiencyLevel = "Intermediate", GitHubLink = "https://github.com/domenkozar", LinkedIn = "https://www.linkedin.com/in/derekkozar/" });
                 _context.Users.Add(new User() { Id = 16, FirstName = "Calvin", LastName = "Anderson", Email = "CA@gmail.com", PhoneNumber = "212-332-4433", AddressLine1 = "735 Chauncey St", AddressLine2 = "Apt 19", City = "Brooklyn", State = "NY", Zip = 11207, Image = "./Images/Calvin.jpg", UserName = "Calvin", Password = "mandude", JobTitle = "Back End Developer", ProficiencyLevel = "Beginner", GitHubLink = "https://github.com/calvinanderson", LinkedIn = "https://www.linkedin.com/in/calvin/" });
+               
+
+
+                _context.SaveChanges();
+
+                UserProject up = new UserProject();
+
+                up.User = _context.Users.FirstOrDefault(u => u.Id == 1);
+                up.Project = _context.Projects.FirstOrDefault(p => p.Id == 1);
+
+                _context.UserProjects.Add(up);
                 _context.SaveChanges();
             }
+
+            if (_context.Technologies.Count() == 0)
+            {
+                _context.Technologies.Add(new Technology() { Id = 1, Name = "Python" });
+                _context.Technologies.Add(new Technology() { Id = 2, Name = "Ajax" });
+                _context.Technologies.Add(new Technology() { Id = 3, Name = "jQuery" });
+                _context.Technologies.Add(new Technology() { Id = 4, Name = "Django" });
+                _context.Technologies.Add(new Technology() { Id = 5, Name = "MySQL" });
+                _context.Technologies.Add(new Technology() { Id = 6, Name = "MongoDB" });
+                _context.Technologies.Add(new Technology() { Id = 7, Name = "AngularJS" });
+                _context.Technologies.Add(new Technology() { Id = 8, Name = "React" });
+                _context.Technologies.Add(new Technology() { Id = 9, Name = "Node.js" });
+                _context.Technologies.Add(new Technology() { Id = 10, Name = "Swift" });
+                _context.Technologies.Add(new Technology() { Id = 11, Name = "Xcode" });
+                _context.Technologies.Add(new Technology() { Id = 12, Name = "C#" });
+                _context.Technologies.Add(new Technology() { Id = 13, Name = ".NET Core" });
+                _context.Technologies.Add(new Technology() { Id = 14, Name = "NancyFX" });
+                _context.Technologies.Add(new Technology() { Id = 15, Name = "ASP.NET Core" });
+                _context.Technologies.Add(new Technology() { Id = 16, Name = "SQL Server" });
+                _context.Technologies.Add(new Technology() { Id = 17, Name = "Dapper" });
+                _context.Technologies.Add(new Technology() { Id = 18, Name = "Entity Framework Core" });
+                _context.Technologies.Add(new Technology() { Id = 19, Name = "Azure" });
+                _context.Technologies.Add(new Technology() { Id = 20, Name = "AWS" });
+                _context.Technologies.Add(new Technology() { Id = 21, Name = "PHP" });
+                _context.Technologies.Add(new Technology() { Id = 22, Name = "Java" });
+                _context.Technologies.Add(new Technology() { Id = 23, Name = "SpringMVC" });
+                _context.Technologies.Add(new Technology() { Id = 24, Name = "Ruby" });
+                _context.Technologies.Add(new Technology() { Id = 25, Name = "C / C++" });
+                _context.Technologies.Add(new Technology() { Id = 26, Name = "Javascript" });
+                _context.Technologies.Add(new Technology() { Id = 27, Name = "Bootstrap" });
+                _context.Technologies.Add(new Technology() { Id = 28, Name = "Objective-C" });
+                _context.Technologies.Add(new Technology() { Id = 29, Name = "HTML" });
+                _context.Technologies.Add(new Technology() { Id = 30, Name = "CSS" });
+                _context.SaveChanges();
+            }
+
         }
         // GET api/users
         [HttpGet]

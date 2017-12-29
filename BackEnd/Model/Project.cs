@@ -12,6 +12,6 @@ namespace BackEnd.Controllers
         public int DesiredTeamSize { get; set; }
         public int CurrentTeamSize { get; set; }
         public List<ProjectTechnology> ProjectTechnologies { get; set; }
-        public List<UserProject> User { get; set; }
+        public List<UserProject> Users { get; set; }
     }
 }

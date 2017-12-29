@@ -25,6 +25,41 @@ namespace BackEnd.Controllers
                 _context.Projects.Add(new Project() { Id = 5, ProjectName = "Animal Adoption Site", Description = "Looking to build an adoption site in AngularJS so I can improve - want to end up with a full stack app. BE C# devs preferred!", Status = "Not Started", DesiredTeamSize = 3, CurrentTeamSize = 1 });
                 _context.SaveChanges();
             }
+
+            if (_context.Technologies.Count() == 0)
+            {
+                _context.Technologies.Add(new Technology() { Id = 1, Name = "Python" });
+                _context.Technologies.Add(new Technology() { Id = 2, Name = "Ajax" });
+                _context.Technologies.Add(new Technology() { Id = 3, Name = "jQuery" });
+                _context.Technologies.Add(new Technology() { Id = 4, Name = "Django" });
+                _context.Technologies.Add(new Technology() { Id = 5, Name = "MySQL" });
+                _context.Technologies.Add(new Technology() { Id = 6, Name = "MongoDB" });
+                _context.Technologies.Add(new Technology() { Id = 7, Name = "AngularJS" });
+                _context.Technologies.Add(new Technology() { Id = 8, Name = "React" });
+                _context.Technologies.Add(new Technology() { Id = 9, Name = "Node.js" });
+                _context.Technologies.Add(new Technology() { Id = 10, Name = "Swift" });
+                _context.Technologies.Add(new Technology() { Id = 11, Name = "Xcode" });
+                _context.Technologies.Add(new Technology() { Id = 12, Name = "C#" });
+                _context.Technologies.Add(new Technology() { Id = 13, Name = ".NET Core" });
+                _context.Technologies.Add(new Technology() { Id = 14, Name = "NancyFX" });
+                _context.Technologies.Add(new Technology() { Id = 15, Name = "ASP.NET Core" });
+                _context.Technologies.Add(new Technology() { Id = 16, Name = "SQL Server" });
+                _context.Technologies.Add(new Technology() { Id = 17, Name = "Dapper" });
+                _context.Technologies.Add(new Technology() { Id = 18, Name = "Entity Framework Core" });
+                _context.Technologies.Add(new Technology() { Id = 19, Name = "Azure" });
+                _context.Technologies.Add(new Technology() { Id = 20, Name = "AWS" });
+                _context.Technologies.Add(new Technology() { Id = 21, Name = "PHP" });
+                _context.Technologies.Add(new Technology() { Id = 22, Name = "Java" });
+                _context.Technologies.Add(new Technology() { Id = 23, Name = "SpringMVC" });
+                _context.Technologies.Add(new Technology() { Id = 24, Name = "Ruby" });
+                _context.Technologies.Add(new Technology() { Id = 25, Name = "C / C++" });
+                _context.Technologies.Add(new Technology() { Id = 26, Name = "Javascript" });
+                _context.Technologies.Add(new Technology() { Id = 27, Name = "Bootstrap" });
+                _context.Technologies.Add(new Technology() { Id = 28, Name = "Objective-C" });
+                _context.Technologies.Add(new Technology() { Id = 29, Name = "HTML" });
+                _context.Technologies.Add(new Technology() { Id = 30, Name = "CSS" });
+                _context.SaveChanges();
+            }
         }
 
         // GET api/values
@@ -61,7 +96,7 @@ namespace BackEnd.Controllers
         [HttpPut("{id}/addtechnology")]
         public Project AddTechnology(int id, string techName, bool isSeeking, bool isUsing)
         {
-            foreach (Project p in _context.Projects.Include("ProjectTechnologies"))
+            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("Users").Include("ProjectTechnologies.Technology"))
             {
                 if (p.Id == id)
                 {

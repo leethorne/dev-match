@@ -58,21 +58,24 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
             .then(function (response) {
                 console.log("ADD PROJECT SUCCESSFUL: ", response)
 
+
+
                 //ADDING USER TO PROJECT(user service)
                 userService.updateUserProj(currentUser.id, response.data.id)
                     .then(function (response) {
                         console.log("ADD USER SUCCESSFUL: ", response)
 
                     }, function (error) {
-                        console.log("error updating proj: ", error);
+                        console.log("error updating user on proj: ", error);
                         //do something here to alert user of fail 
                     });
 
                 //ADDING TECH TO PROJECT
                 skillsArray.forEach(function(element) {
-                    projectService.updateProjTech(currentUser.id, element.name, element.isSeeking, element.isUsing)
+                    projectService.updateProjTech(response.data.id, element.name, element.isSeeking, element.isUsing)
                         .then(function (response) {
                             console.log("ADD TECH TO PROJ - SUCCESSFUL: ", response)
+
                         }, function (error) {
                             console.log("error updating seeking tech: ", error)
                             //alert here 
@@ -82,16 +85,58 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
 
                 $state.go('projects', {}, { reload: 'projects'}) 
             }, function (error) {
-              console.log("error to add: ", error)
+              console.log("error to add proj: ", error)
               //make error message for user if failed to add 
             })
         }
 
+
+
     $scope.updateProject = function () {
+        var skillsArray = []
+
+        // Looping through Seeking Skills array and setting isSeeking = True
+        for (var i = 0; i < $scope.project.seekingSkills.length; i++) {
+            $scope.project.seekingSkills[i].isSeeking = true;
+            skillsArray.push($scope.project.seekingSkills[i])
+        }
+
+        var added = null;
+
+        // Looping through Using Skills array and setting isUsing = True
+        for (var i = 0; i < $scope.project.usingSkills.length; i++) {
+            added = false
+            for (var j = 0; j < skillsArray.length; j++) {
+                if ($scope.project.usingSkills[i].name == skillsArray[j].name) {
+                    skillsArray[j].isUsing = true;
+                    added = true;
+                }
+            }
+
+            if (!added) {
+                $scope.project.usingSkills[i].isUsing = true;
+                skillsArray.push($scope.project.usingSkills[i])
+            }
+        }
+
+            console.log($scope.project)
+            console.log(skillsArray);
+
+            //ADDING TECH TO PROJECT
+            skillsArray.forEach(function (element) {
+                projectService.updateProjTech($scope.project.id, element.name, element.isSeeking, element.isUsing)
+                    .then(function (response) {
+                        console.log("ADD TECH TO PROJ - SUCCESSFUL: ", response)
+                    }, function (error) {
+                        console.log("error updating seeking tech: ", error)
+                        //alert here 
+                    })
+            });
+
         projectService.updateProject($stateParams.id, $scope.project)
             .then(function (response) {
               console.log(response)
-              $state.go("project", { id: $scope.project.id })
+            //   $state.go("project", { id: $scope.project.id })
             },
             function (error) {
               console.log(error)

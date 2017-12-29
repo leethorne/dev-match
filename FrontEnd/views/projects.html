@@ -85,7 +85,6 @@
     <div class="row">
       <div ng-repeat="project in projects | filter: userInput" class="projectTile">
         <img class="edit pull-right" src="./img/edit.svg" ui-sref="projectUpdate({id: project.id})" />
-        <!-- <img class="delete pull-right" src="./img/delete.png" ng-click="deleteProject();" /> -->
         <h4 class="project-name" ui-sref="project ({id: project.id})">
           <strong>{{project.projectName}} </strong>
         </h4>

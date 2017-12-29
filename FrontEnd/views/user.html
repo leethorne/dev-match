@@ -11,7 +11,7 @@
 </div>
 <div class="container">
   <div class="col-md-4 user-contact-block">
-    <img class="user-profile-pic img-responsive" src="{{currentUser.image}}">
+    <img class="user-profile-pic img-responsive" src="{{user.image}}">
     <div class="user-contact-tile">
       <h3 class="user-contact-header">Contact</h3>
       <h4><strong>Phone:</strong> {{user.phoneNumber}}</h4>
@@ -31,12 +31,19 @@
 
     <div>
       <h3>My Skills: </h3>
-      <!--bind technologies info to the user profile-->
+      {{  }}
     </div>
 
     <div>
       <h3>My Projects: </h3>
-      <!--list projects once bind data is possible (join table)-->
+      <div ng-repeat="project in user.userProjects" class="projectTile">
+        <h4 class="project-name" ui-sref="project ({id: project.project.id})">
+          <strong>{{project.project.projectName}} </strong>
+        </h4>
+        <h5>{{project.project.description}}</h5>
+        <p><em>{{project.project.status}}</em></p>
+      </div>
+  
       <div class="row">
         <p class="user-add-proj"><span class="add-proj">+</span></p>
         <div class="col-md-12 create-project">
