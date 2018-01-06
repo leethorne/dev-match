@@ -128,8 +128,12 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
 
           //ADDING TECH TO PROJECT
           skillsArray.forEach(function (element) {
+              console.log("element.name (before user tech) = ", element.name)
               projectService.updateProjTech($scope.project.id, element.name, element.isSeeking, element.isUsing)
                   .then(function (response) {
+                      console.log("element.name (inside .then) = ", element.name)
+                      console.log("element.isSeeking (inside .then) = ", element.isSeeking)
+                      console.log("element.isUsing (inside .then) = ", element.isUsing)
                       console.log("ADD TECH TO PROJ - SUCCESSFUL: ", response)
                   }, function (error) {
                       console.log("error updating seeking tech: ", error)
@@ -145,7 +149,7 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
             //     $state.go("projects", { id: $scope.project.id });
             // }, 3000);
 
-            $state.go("projects", { id: $scope.project.id })
+            $state.go("project", { id: $scope.project.id })
 
           },
           function (error) {
@@ -182,38 +186,38 @@ app.controller("projectController", function ($scope, $state, $stateParams, proj
 //   }
 
   $scope.availableTechnologies = [
-      {name: "BootStrap", isSeeking: false, isUsing: false},
-      {name: "JavaScript", isSeeking: false, isUsing: false},
-      {name: "AngularJS", isSeeking: false, isUsing: false},
-      {name: "C#", isSeeking: false, isUsing: false},
-      {name: "ASP.NET Core", isSeeking: false, isUsing: false},
-      {name: "Node.js", isSeeking: false, isUsing: false},
-      {name: "CSS", isSeeking: false, isUsing: false},
-      {name: "MySQL", isSeeking: false, isUsing: false},
-      {name: "React", isSeeking: false, isUsing: false},
-      {name: "Ojective-C", isSeeking: false, isUsing: false},
-      {name: "jQuery", isSeeking: false, isUsing: false},
-      {name: "MongoDB", isSeeking: false, isUsing: false},
-      {name: "C / C++", isSeeking: false, isUsing: false},
-      {name: "Ruby", isSeeking: false, isUsing: false},
-      {name: "SpringMVC", isSeeking: false, isUsing: false},
-      {name: "Java", isSeeking: false, isUsing: false},
-      {name: "PHP", isSeeking: false, isUsing: false},
-      {name: "AWS", isSeeking: false, isUsing: false},
-      {name: "Azure", isSeeking: false, isUsing: false},
-      {name: "Entity Framework Core", isSeeking: false, isUsing: false},
-      {name: "SQL Server", isSeeking: false, isUsing: false},
-      {name: "Dapper", isSeeking: false, isUsing: false},
-      {name: "NancyFX", isSeeking: false, isUsing: false},
-      {name: ".Net Core 2.0", isSeeking: false, isUsing: false},
-      {name: "C#", isSeeking: false, isUsing: false},
-      {name: "Xcode", isSeeking: false, isUsing: false},
-      {name: "Swift", isSeeking: false, isUsing: false},
-      {name: "Django", isSeeking: false, isUsing: false},
-      {name: "Ajax", isSeeking: false, isUsing: false},
-      {name: "Python" , isSeeking: false, isUsing: false},
-      {name: "HTML", isSeeking: false, isUsing: false}
+      { name: "BootStrap", isSeeking: false, isUsing: false },
+      { name: "JavaScript", isSeeking: false, isUsing: false },
+      { name: "AngularJS", isSeeking: false, isUsing: false },
+      { name: "ASP.NET Core", isSeeking: false, isUsing: false },
+      { name: "Node.js", isSeeking: false, isUsing: false },
+      { name: "CSS", isSeeking: false, isUsing: false },
+      { name: "MySQL", isSeeking: false, isUsing: false },
+      { name: "React", isSeeking: false, isUsing: false },
+      { name: "Objective-C", isSeeking: false, isUsing: false },
+      { name: "jQuery", isSeeking: false, isUsing: false },
+      { name: "MongoDB", isSeeking: false, isUsing: false },
+      { name: "C / C++", isSeeking: false, isUsing: false },
+      { name: "Ruby", isSeeking: false, isUsing: false },
+      { name: "SpringMVC", isSeeking: false, isUsing: false },
+      { name: "Java", isSeeking: false, isUsing: false },
+      { name: "PHP", isSeeking: false, isUsing: false },
+      { name: "AWS", isSeeking: false, isUsing: false },
+      { name: "Azure", isSeeking: false, isUsing: false },
+      { name: "Entity Framework Core", isSeeking: false, isUsing: false },
+      { name: "SQL Server", isSeeking: false, isUsing: false },
+      { name: "Dapper", isSeeking: false, isUsing: false },
+      { name: "NancyFX", isSeeking: false, isUsing: false },
+      { name: ".NET Core", isSeeking: false, isUsing: false },
+      { name: "C#", isSeeking: false, isUsing: false },
+      { name: "Xcode", isSeeking: false, isUsing: false },
+      { name: "Swift", isSeeking: false, isUsing: false },
+      { name: "Django", isSeeking: false, isUsing: false },
+      { name: "Ajax", isSeeking: false, isUsing: false },
+      { name: "Python", isSeeking: false, isUsing: false },
+      { name: "HTML", isSeeking: false, isUsing: false }
   ]
+
 
   // collapse create project form
   $(".add-proj").click(function () {

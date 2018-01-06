@@ -59,7 +59,7 @@ namespace BackEnd.Controllers
 
                 UserProject up2 = new UserProject();
 
-                up2.User = _context.Users.FirstOrDefault(u => u.Id == 1);
+                up2.User = _context.Users.FirstOrDefault(u => u.Id == 2);
                 up2.Project = _context.Projects.FirstOrDefault(p => p.Id == 2);
 
                 _context.UserProjects.Add(up2);
@@ -67,7 +67,7 @@ namespace BackEnd.Controllers
 
                 UserProject up3 = new UserProject();
 
-                up3.User = _context.Users.FirstOrDefault(u => u.Id == 10);
+                up3.User = _context.Users.FirstOrDefault(u => u.Id == 3);
                 up3.Project = _context.Projects.FirstOrDefault(p => p.Id == 3);
 
                 _context.UserProjects.Add(up3);
@@ -75,7 +75,7 @@ namespace BackEnd.Controllers
 
                 UserProject up4 = new UserProject();
 
-                up4.User = _context.Users.FirstOrDefault(u => u.Id == 10);
+                up4.User = _context.Users.FirstOrDefault(u => u.Id == 4);
                 up4.Project = _context.Projects.FirstOrDefault(p => p.Id == 4);
 
                 _context.UserProjects.Add(up4);
@@ -118,17 +118,18 @@ namespace BackEnd.Controllers
                 _context.Technologies.Add(new Technology() { Id = 23, Name = "SpringMVC" });
                 _context.Technologies.Add(new Technology() { Id = 24, Name = "Ruby" });
                 _context.Technologies.Add(new Technology() { Id = 25, Name = "C / C++" });
-                _context.Technologies.Add(new Technology() { Id = 26, Name = "Javascript" });
-                _context.Technologies.Add(new Technology() { Id = 27, Name = "Bootstrap" });
+                _context.Technologies.Add(new Technology() { Id = 26, Name = "JavaScript" });
+                _context.Technologies.Add(new Technology() { Id = 27, Name = "BootStrap" });
                 _context.Technologies.Add(new Technology() { Id = 28, Name = "Objective-C" });
                 _context.Technologies.Add(new Technology() { Id = 29, Name = "HTML" });
                 _context.Technologies.Add(new Technology() { Id = 30, Name = "CSS" });
                 _context.SaveChanges();
+            
 
                 UserTechnology ut = new UserTechnology();
 
                 ut.User = _context.Users.FirstOrDefault(u => u.Id == 1);
-                ut.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 12);
+                ut.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "Entity Framework Core");
 
                 _context.UserTechnologies.Add(ut);
                 _context.SaveChanges();
@@ -136,10 +137,35 @@ namespace BackEnd.Controllers
                 UserTechnology ut1 = new UserTechnology();
 
                 ut1.User = _context.Users.FirstOrDefault(u => u.Id == 10);
-                ut1.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 9);
+                ut1.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "Objective-C");
 
                 _context.UserTechnologies.Add(ut1);
                 _context.SaveChanges();
+
+                UserTechnology ut2 = new UserTechnology();
+
+                ut2.User = _context.Users.FirstOrDefault(u => u.Id == 2);
+                ut2.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "JavaScript");
+
+                _context.UserTechnologies.Add(ut2);
+                _context.SaveChanges();
+
+                UserTechnology ut3 = new UserTechnology();
+
+                ut3.User = _context.Users.FirstOrDefault(u => u.Id == 3);
+                ut3.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "Python");
+
+                _context.UserTechnologies.Add(ut3);
+                _context.SaveChanges();
+
+                UserTechnology ut4 = new UserTechnology();
+
+                ut4.User = _context.Users.FirstOrDefault(u => u.Id == 4);
+                ut4.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "Node.js");
+
+                _context.UserTechnologies.Add(ut4);
+                _context.SaveChanges();
+     
             }
 
         }
@@ -148,12 +174,10 @@ namespace BackEnd.Controllers
         public List<User> Get(string username, string password)
         {
             Console.WriteLine("it works");
-            Console.WriteLine(username);
-            Console.WriteLine(password);
 
             if(username == null || password == null)
             {
-                return _context.Users.Include("UserProjects").Include("UserProjects.User").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies.Technology").ToList();
+                return _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies").Include("UserTechnologies.Technology").Include("UserTechnologies.User").ToList();
             }
 
             foreach (User u in _context.Users)
@@ -173,7 +197,7 @@ namespace BackEnd.Controllers
         [HttpGet("{id}")]
         public User Get(int id)
         {
-            foreach(User u in _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies.Technology"))
+            foreach(User u in _context.Users.Include("UserProjects").Include("UserProjects.Project").Include("UserProjects.Project.ProjectTechnologies").Include("UserProjects.Project.ProjectTechnologies.Technology").Include("UserTechnologies").Include("UserTechnologies.Technology").Include("UserTechnologies.User"))
             {
                 if(u.Id == id)
                 {
@@ -223,7 +247,7 @@ namespace BackEnd.Controllers
         [HttpPut("{id}/addtechnology")]
         public User AddTechnology(int id, string techName)
         {
-            foreach (User u in _context.Users.Include("UserTechnologies").Include("UserTechnologies.Technology"))
+            foreach (User u in _context.Users.Include("UserTechnologies").Include("UserTechnologies.Technology").Include("UserTechnologies.Technology.Technology").Include("UserTechnologies.User").Include("UserTechnologies.Technology.Project"))
             {
                 if (u.Id == id)
                 {

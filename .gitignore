@@ -5,3 +5,4 @@ FrontEnd/node_modules
 .vs
 FrontEnd/js/globalVar.js
 node_modules
+.DS_Store

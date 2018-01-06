@@ -24,10 +24,9 @@
     <img ui-sref="userUpdate({id: user.id})" class="edit user-edit" src="./img/edit.svg">
     <h1 class="user-full-name">{{user.firstName}} {{user.lastName}}</h1>
     <h4 class="user-username">{{user.userName}}</h4>
-
     <h4><strong>Job Title:</strong> {{user.jobTitle}}</h4>
     <h4><strong>Proficiency Level:</strong> {{user.proficiencyLevel}}</h4>
-
+    
     <div>
       <h3>My Skills: </h3>
       <p ng-repeat="userTech in user.userTechnologies">{{ userTech.technology.name }}</p>
@@ -35,22 +34,22 @@
 
     <div>
       <h3>My Projects: </h3>
-    
+
       <div class="row user-proj-row">
         <p class="user-add-proj"><span class="add-proj">+</span></p>
         <div class="col-md-12 create-project">
-  
+
           <div class="form-group create-name">
             <span class="input input--hoshi">
               <input class="input__field input__field--hoshi" type="text" id="projName" ng-model="project.projectName" />
               <label class="input__label input__label--hoshi input__label--hoshi-color-1">
                   <span class="input__label-content input__label-content--hoshi">Project Name</span>
-              </label>
+            </label>
             </span>
           </div>
-  
+
           <textarea class="col-md-12 user-proj-blurb" placeholder="Blurb" ng-model="project.description"></textarea>
-  
+
           <div class="form-group col-md-6 reg-sel">
             <select class="reg-skill-level input--hoshi" ng-model="project.desiredTeamSize">
                   <option value="">Select desired team size</option>
@@ -97,22 +96,22 @@
               </ui-select>
             </div>
           </div>
-  
+
           <div class="row">
             <button class="light-btn add-proj-btn pull-right btn-4" ng-click="addProject()"><span>Add Project</span></button>
           </div>
-  
+
         </div>
       </div>
 
       <div class="user-proj-list">
-          <div ng-repeat="project in user.userProjects" class="projectTile">
-            <h4 class="project-name" ui-sref="project ({id: project.project.id})">
-              <strong>{{project.project.projectName}} </strong>
-            </h4>
-            <h5>{{project.project.description}}</h5>
-            <p><em>{{project.project.status}}</em></p>
-          </div>
+        <div ng-repeat="project in user.userProjects" class="projectTile">
+          <h4 class="project-name" ui-sref="project ({id: project.project.id})">
+            <strong>{{project.project.projectName}} </strong>
+          </h4>
+          <h5>{{project.project.description}}</h5>
+          <p><em>{{project.project.status}}</em></p>
+        </div>
       </div>
     </div>
   </div>

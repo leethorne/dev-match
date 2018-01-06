@@ -37,10 +37,10 @@
   </div>
 
   <div class="col-md-8 user-info-block">
-    <img ui-sref="projectUpdate ({id: project.id})" class="edit user-edit pull-right" src="./img/edit.svg">
+    <img ng-if="currentUser.id == project.users[0].id" ui-sref="projectUpdate ({id: project.id})" class="edit user-edit pull-right"
+      src="./img/edit.svg">
     <h1 class="user-full-name">{{project.projectName}}</h1>
     <h4 class="proj-description">{{project.description}}</h4>
-
     <h4>
       <strong>Project Status: </strong>{{project.status}}
     </h4>

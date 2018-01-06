@@ -2,19 +2,20 @@
   <img ui-sref="home" class="logo reg-logo" src="./img/Logo.png">
   <h1 class="text-center reg-heading"> {{ heading }} </h1>
   <div class="row">
+    <!--if we can host images on 3rd party api and return a string, we can use image preview box for upload-->
     <!-- <div class="form-group image-sel">
       <div id="image-preview">
         <label for="image-upload" id="image-label">Choose File</label>
         <input type="file" name="image" id="image-upload" fileread="scope.uploadme"/>
       </div> -->
-      <!-- <button ng-click="postImage()" style="position: absolute; margin-top: 215px; width: 120px; left: 0; right: 0; margin-left: -155px;">save image</button> -->
+    <!-- <button ng-click="postImage()" style="position: absolute; margin-top: 215px; width: 120px; left: 0; right: 0; margin-left: -155px;">save image</button> -->
     <!-- </div> -->
     <div class="form-group col-md-4">
       <span class="input input--hoshi">
         <input class="input__field input__field--hoshi" type="text" id="username" ng-model="user.userName">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="username">
           <span class="input__label-content input__label-content--hoshi">Username</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -24,7 +25,7 @@
         <input class="input__field input__field--hoshi" type="text" id="img" ng-model="user.image">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="img">
           <span class="input__label-content input__label-content--hoshi">Image URL</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -34,7 +35,7 @@
         <input class="input__field input__field--hoshi" type="password" id="password" ng-model="user.password">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="password">
           <span class="input__label-content input__label-content--hoshi">Password</span>
-        </label>
+      </label>
       </span>
     </div>
     <div class="form-group col-md-4">
@@ -42,7 +43,7 @@
         <input class="input__field input__field--hoshi" type="password" id="confirmPassword" ng-model="user.confirmPassword">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="confirmPassword">
           <span class="input__label-content input__label-content--hoshi">Confirm Password</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -52,7 +53,7 @@
         <input class="input__field input__field--hoshi" type="text" id="firstName" ng-model="user.firstName">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="firstName">
           <span class="input__label-content input__label-content--hoshi">First Name</span>
-        </label>
+      </label>
       </span>
     </div>
     <div class="form-group col-md-4">
@@ -60,7 +61,7 @@
         <input class="input__field input__field--hoshi" type="text" id="lastName" ng-model="user.lastName">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="lastName">
           <span class="input__label-content input__label-content--hoshi">Last Name</span>
-        </label>
+      </label>
       </span>
     </div>
     <div class="form-group col-md-4">
@@ -68,7 +69,7 @@
         <input class="input__field input__field--hoshi" type="text" id="jobTitle" ng-model="user.jobTitle">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="jobTitle">
           <span class="input__label-content input__label-content--hoshi">Job Title</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -78,7 +79,7 @@
         <input class="input__field input__field--hoshi" type="email" id="email" ng-model="user.email">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="email">
           <span class="input__label-content input__label-content--hoshi">Email</span>
-        </label>
+      </label>
       </span>
     </div>
     <div class="form-group col-md-6">
@@ -86,7 +87,7 @@
         <input class="input__field input__field--hoshi" type="text" id="phoneNum" ng-model="user.phoneNumber">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="phoneNum">
           <span class="input__label-content input__label-content--hoshi">Phone</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -96,7 +97,7 @@
         <input class="input__field input__field--hoshi" type="text" id="addressLine1" ng-model="user.addressLine1">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="addressLine1">
           <span class="input__label-content input__label-content--hoshi">Address Line 1</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -106,7 +107,7 @@
         <input class="input__field input__field--hoshi" type="text" id="addressLine2" ng-model="user.addressLine2">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="addressLine2">
           <span class="input__label-content input__label-content--hoshi">Address Line 2</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -116,7 +117,7 @@
         <input class="input__field input__field--hoshi" type="text" id="city" ng-model="user.city">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="city">
           <span class="input__label-content input__label-content--hoshi">City</span>
-        </label>
+      </label>
       </span>
     </div>
     <div class="form-group col-md-4">
@@ -124,7 +125,7 @@
         <input class="input__field input__field--hoshi" type="text" id="state" ng-model="user.state">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="state">
           <span class="input__label-content input__label-content--hoshi">State</span>
-        </label>
+      </label>
       </span>
     </div>
     <div class="form-group col-md-4">
@@ -132,7 +133,7 @@
         <input class="input__field input__field--hoshi" type="number" id="zip" ng-model="user.zip">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="zip">
           <span class="input__label-content input__label-content--hoshi">Zip Code</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
@@ -150,7 +151,7 @@
         <input class="input__field input__field--hoshi" type="text" id="linkedIn" ng-model="user.linkedIn">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="linkedIn">
           <span class="input__label-content input__label-content--hoshi">LinkedIn</span>
-        </label>
+      </label>
       </span>
     </div>
     <div class="form-group col-md-4">
@@ -158,18 +159,18 @@
         <input class="input__field input__field--hoshi" type="text" id="gitHub" ng-model="user.gitHubLink">
         <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="gitHub">
           <span class="input__label-content input__label-content--hoshi">GitHub</span>
-        </label>
+      </label>
       </span>
     </div>
   </div>
-  
+
   <!--list to set TECH to USER-->
   <div class="row form-group">
     <label class="col-md-12 control-label">Technical Skillset:</label>
     <div class="col-md-12">
       <ui-select ng-model="user.userTechnologies" multiple theme="selectize">
         <ui-select-match placeholder="Please select languages">{{ $item.name }}</ui-select-match>
-        <ui-select-choices repeat="item in availableTechnologies | filter: $select.search">
+        <ui-select-choices repeat="item in availableUserTech | filter: $select.search">
           <div ng-bind-html="item.name | highlight: $select.search"></div>
         </ui-select-choices>
       </ui-select>
@@ -178,5 +179,5 @@
 
   <button class="light-btn pull-right btn-4" ng-show="submitButton" ng-click="registerUser()"><span>Submit</span></button>
   <button class="light-btn update-btn pull-right btn-4" ng-show="!submitButton" ng-click="updateUser()"><span>Update</span></button>
-  <button class="light-btn pull-right btn-4" ng-show="!submitButton" ng-click="deleteUser()"><span>Delete</span></button> 
+  <button class="light-btn pull-right btn-4" ng-show="!submitButton" ng-click="deleteUser()"><span>Delete</span></button>
 </div>

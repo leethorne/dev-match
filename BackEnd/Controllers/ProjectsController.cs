@@ -53,8 +53,8 @@ namespace BackEnd.Controllers
                 _context.Technologies.Add(new Technology() { Id = 23, Name = "SpringMVC" });
                 _context.Technologies.Add(new Technology() { Id = 24, Name = "Ruby" });
                 _context.Technologies.Add(new Technology() { Id = 25, Name = "C / C++" });
-                _context.Technologies.Add(new Technology() { Id = 26, Name = "Javascript" });
-                _context.Technologies.Add(new Technology() { Id = 27, Name = "Bootstrap" });
+                _context.Technologies.Add(new Technology() { Id = 26, Name = "JavaScript" });
+                _context.Technologies.Add(new Technology() { Id = 27, Name = "BootStrap" });
                 _context.Technologies.Add(new Technology() { Id = 28, Name = "Objective-C" });
                 _context.Technologies.Add(new Technology() { Id = 29, Name = "HTML" });
                 _context.Technologies.Add(new Technology() { Id = 30, Name = "CSS" });
@@ -67,7 +67,8 @@ namespace BackEnd.Controllers
                 ProjectTechnology pt = new ProjectTechnology();
 
                 pt.Project = _context.Projects.FirstOrDefault(p => p.Id == 1);
-                pt.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 12);
+                pt.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "C#");
+                pt.IsUsing = true;
 
 
                 _context.ProjectTechnologies.Add(pt);
@@ -76,7 +77,9 @@ namespace BackEnd.Controllers
                 ProjectTechnology pt2 = new ProjectTechnology();
 
                 pt2.Project = _context.Projects.FirstOrDefault(p => p.Id == 2);
-                pt2.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 26);
+                pt2.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "Javascript");
+                pt2.IsUsing = true;
+
 
                 _context.ProjectTechnologies.Add(pt2);
                 _context.SaveChanges();
@@ -84,8 +87,8 @@ namespace BackEnd.Controllers
                 ProjectTechnology pt3 = new ProjectTechnology();
 
                 pt3.Project = _context.Projects.FirstOrDefault(p => p.Id == 3);
-                pt3.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 8);
-
+                pt3.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "React");
+                pt3.IsSeeking = true;
 
                 _context.ProjectTechnologies.Add(pt3);
                 _context.SaveChanges();
@@ -93,8 +96,8 @@ namespace BackEnd.Controllers
                 ProjectTechnology pt4 = new ProjectTechnology();
 
                 pt4.Project = _context.Projects.FirstOrDefault(p => p.Id == 4);
-                pt4.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 10);
-
+                pt4.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "Swift");
+                pt4.IsUsing = true;
 
                 _context.ProjectTechnologies.Add(pt4);
                 _context.SaveChanges();
@@ -102,8 +105,9 @@ namespace BackEnd.Controllers
                 ProjectTechnology pt5 = new ProjectTechnology();
 
                 pt5.Project = _context.Projects.FirstOrDefault(p => p.Id == 5);
-                pt5.Technology = _context.Technologies.FirstOrDefault(t => t.Id == 7);
-      
+                pt5.Technology = _context.Technologies.FirstOrDefault(t => t.Name == "AngularJS");
+                pt5.IsSeeking = true;
+                pt5.IsUsing = true;
 
                 _context.ProjectTechnologies.Add(pt5);
                 _context.SaveChanges();
@@ -115,14 +119,14 @@ namespace BackEnd.Controllers
         [HttpGet]
         public IQueryable<Project> Get()
         {
-            return _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology");
+            return _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology").Include("ProjectTechnologies.Project").Include("ProjectTechnologies.Project.Users");
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public Project Get(int id)
         {
-            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology").Include("Users").Include("Users.User"))
+            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology").Include("ProjectTechnologies.Project").Include("ProjectTechnologies.Project.Users"))
             {
                 if (p.Id == id)
                 {
@@ -145,7 +149,7 @@ namespace BackEnd.Controllers
         [HttpPut("{id}/addtechnology")]
         public Project AddTechnology(int id, string techName, bool isSeeking, bool isUsing)
         {
-            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("Users").Include("Users.User").Include("ProjectTechnologies.Technology"))
+            foreach (Project p in _context.Projects.Include("ProjectTechnologies").Include("ProjectTechnologies.Technology"))
             {
                 if (p.Id == id)
                 {
@@ -162,7 +166,6 @@ namespace BackEnd.Controllers
                     }
 
                     p.ProjectTechnologies.Add(pt);
-
                     _context.SaveChanges();
 
                     return p;

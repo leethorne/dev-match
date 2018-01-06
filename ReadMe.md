@@ -23,13 +23,25 @@
 
 ###Data Model
 *** 
-![DataModel] (./FrontEnd/img/dataModel.png)
+![DataModel](https://i.imgur.com/BamnxCr.png)
 
 ###Initial Wireframes
 ***
-![WireFrame] (./FrontEnd/img/wireframe.png) 
+![WireFrame](https://i.imgur.com/AXtyRWl.png) 
 
-###Planning and Approach 
+### Finished Views 
+
+![homescreen](https://i.imgur.com/yCkodk0.jpg)
+![projview](https://i.imgur.com/fyOhgge.png)
+![addproj](https://i.imgur.com/JrHzxzW.png)
+![userpage](https://i.imgur.com/vniDQvo.png)
+![updateproj](https://i.imgur.com/KhxJuWJ.png)
+
 
 ###Challenges
+- Complex data types as properties / relational data
+- jQuery combo box of technologies
+- Timeout errors on promises
+
+
 

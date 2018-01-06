@@ -8,29 +8,29 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state("home", {
       url: "/",
       templateUrl: "./views/home.html",
-      controller: "userController"
+      controller: "masterController"
     })
 
     // USERS
     .state("users", { // users index
       url: "/users",
       templateUrl: "./views/users.html",
-      controller: "userController"
+      controller: "masterController"
     })
         .state("usersCreate", { // create user
           url: "/users/new",
           templateUrl: "./views/user-form.html",
-          controller: "userController"
+          controller: "masterController"
         })
         .state("user", { //show - user profile
           url: "/users/:id",
           templateUrl: "./views/user.html",
-          controller: "userController"
+          controller: "masterController"
         })
         .state("userUpdate", { // update user
           url: "/users/:id/edit",
           templateUrl: "./views/user-form.html",
-          controller: "userController",
+          controller: "masterController",
           css: "./css/update-user.css"
         })
 
@@ -38,7 +38,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state("projects", { // index
       url: "/projects",
       templateUrl: "./views/projects.html",
-      controller: "projectController"
+      controller: "masterController"
     })
         // .state("projectsCreate", { // create
         //   url: "/projects/new",
@@ -48,12 +48,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state("project", { // show
           url: "/projects/:id",
           templateUrl: "./views/project.html",
-          controller: "projectController"
+          controller: "masterController"
         })
         .state("projectUpdate", { // update
           url: "/projects/:id/edit",
           templateUrl: "./views/project-form.html",
-          controller: "projectController",
+          controller: "masterController",
           css: "./css/update-user.css"
         })
 

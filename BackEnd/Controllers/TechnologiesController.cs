@@ -43,8 +43,8 @@ namespace BackEnd.Controllers
                 _context.Technologies.Add(new Technology() { Id = 23, Name = "SpringMVC" });
                 _context.Technologies.Add(new Technology() { Id = 24, Name = "Ruby" });
                 _context.Technologies.Add(new Technology() { Id = 25, Name = "C / C++" });
-                _context.Technologies.Add(new Technology() { Id = 26, Name = "Javascript" });
-                _context.Technologies.Add(new Technology() { Id = 27, Name = "Bootstrap" });
+                _context.Technologies.Add(new Technology() { Id = 26, Name = "JavaScript" });
+                _context.Technologies.Add(new Technology() { Id = 27, Name = "BootStrap" });
                 _context.Technologies.Add(new Technology() { Id = 28, Name = "Objective-C" });
                 _context.Technologies.Add(new Technology() { Id = 29, Name = "HTML" });
                 _context.Technologies.Add(new Technology() { Id = 30, Name = "CSS" });

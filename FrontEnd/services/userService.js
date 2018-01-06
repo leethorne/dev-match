@@ -46,22 +46,13 @@ app.service("userService", function ($http, $state) {
       return that.currentUser
     }
 
-    // this.editUser = function (id) {
-    //   $state.go("userUpdate", { id: id });
-    // }
-
-        // this.postImage = function(image) {
-    //     // return $http.post("http://uploads.im/api?upload=" + image + "&format=json")
-    //     return $http.post("http://uploads.im/api", image)
-    // }
-
     that.currentUser = null;
     
     this.login = function (user, cb) {
       console.log(user)
       $http.get(serverLink + "users/?username=" + user.username + "&password=" + user.password)
         .then(function (response) {
-          console.log("res", response.data[0]);
+          console.log("login response, ", response.data[0]);
           if (response.data[0] != undefined) {
             that.currentUser = response.data[0];
             $state.go("user", { id: that.currentUser.id });
