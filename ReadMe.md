@@ -1,5 +1,5 @@
 # DevMatch
----
+
 #### A project collaborating tool that connects developers based on their skills and interests. 
 ***
 This website allows users to create an account that will connect them to a network of developers, displaying their tech stack, proficiency level, job title, and contact information. Projects will be created by users based on their interests, the skills they are using on the project, and the qualifications they are seeking from other developers in the network. The users will have access to a list of current projects, as well as, a map of developers that can be sorted by their location. 
