@@ -2,7 +2,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
     //combination of project and user controllers --- trying to centralize logic and cut down issues of relational data by controller everything from one area --- work in progress. 
 
     ///////////////////////////USER CONTROLLER INFO 
-
     $scope.friendArray = [];
     $scope.errorMessage = false;
     $scope.currentUser = userService.getCurrentUser();
@@ -15,7 +14,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
             console.log(error);
             alert("Error: Something went wrong. User information is unavailable.")
         })
-
 
     if ($stateParams.id == null || $stateParams.id == undefined || $stateParams.id == "") {
         $scope.submitButton = true;
@@ -57,13 +55,9 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                 // $scope.user = response.data;
                 console.log("user registered - SUCCESS: ", response)
                 console.log("SCOPE USER: ", $scope.user)
-
                 $state.go("home").then(function () {
                     alert("Congrats! You've successfully registered.\nYou may now log into your page!"); // navigate to login on homepage. first receive window alert. 
                 })
-
-                // $state.go("user", { id: $scope.user.id });
-
             }, function (error) {
                 console.log("you have an error: ", error)
                 alert("Error: Something went wrong. User was not added")
@@ -73,7 +67,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
     ////////UPDATE EXISTING USER FUNCTION ///////
     $scope.updateUser = function () {
         var userTechSkills = [];
-
         for (var i = 0; i < $scope.user.userTechnologies.length; i++) {
             for (var j = 0; j < $scope.availableTechnologies; i++) {
                 if ($scope.user.userTechnologies[i] == $scope.availableTechnologies[j]) {
@@ -88,7 +81,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                 .then(function (response) {
                     // $scope.user = response.data;
                     console.log("user tech added to registered user --- SUCCESS: ", response)
-
                 }, function (error) {
                     console.log("you have an error: ", error)
                     alert("Error: Something went wrong. User technology cannot be updated.")
@@ -98,17 +90,13 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
         userService.updateUser($stateParams.id, $scope.currentUser)
             .then(function (response) {
                 console.log(response.data);
-
                 $scope.currentUser = response.data;
-
                 // $timeout(function () {
                 //     $state.go("user", { id: $scope.user.id });
                 // }, 3000);
-
                 $state.go("user", {
                     id: $scope.currentUser.id
                 });
-
             }, function (error) {
                 console.log("error add user:", error)
                 alert("Error: Something went wrong. User cannot be updated.")
@@ -151,10 +139,8 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                 skillsArray.push($scope.project.usingSkills[i])
             }
         }
-
         console.log($scope.project)
         console.log(skillsArray);
-
         projectService.addProject($scope.project)
             .then(function (response) {
                     // $scope.project = response.data;
@@ -169,7 +155,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                             //do something here to alert user of fail
                         })
 
-
                     //ADDING TECH TO PROJECT
                     skillsArray.forEach(function (element) {
                         projectService.updateProjTech(response.data.id, element.name, element.isSeeking, element.isUsing)
@@ -179,7 +164,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                                 console.log("error updating seeking tech: ", error)
                             })
                     });
-
                     $state.go('projects')
                 },
                 function (error) {
@@ -218,101 +202,37 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
         $state.go("home");
     }
 
-    // user page --> user form
-    // $scope.editUser = function () {
-    //   userService.editUser($stateParams.id)
-    // }
-
-    $scope.availableUserTech = [{
-            name: "BootStrap",
-        },
-        {
-            name: "JavaScript",
-        },
-        {
-            name: "AngularJS",
-        },
-        {
-            name: "ASP.NET Core",
-        },
-        {
-            name: "Node.js",
-        },
-        {
-            name: "CSS",
-        },
-        {
-            name: "MySQL",
-        },
-        {
-            name: "React",
-        },
-        {
-            name: "Objective-C",
-        },
-        {
-            name: "jQuery",
-        },
-        {
-            name: "MongoDB",
-        },
-        {
-            name: "C / C++",
-        },
-        {
-            name: "Ruby",
-        },
-        {
-            name: "SpringMVC",
-        },
-        {
-            name: "Java",
-        },
-        {
-            name: "PHP",
-        },
-        {
-            name: "AWS",
-        },
-        {
-            name: "Azure",
-        },
-        {
-            name: "Entity Framework Core",
-        },
-        {
-            name: "SQL Server",
-        },
-        {
-            name: "Dapper",
-        },
-        {
-            name: "NancyFX",
-        },
-        {
-            name: ".NET Core",
-        },
-        {
-            name: "C#",
-        },
-        {
-            name: "Xcode",
-        },
-        {
-            name: "Swift",
-        },
-        {
-            name: "Django",
-        },
-        {
-            name: "Ajax",
-        },
-        {
-            name: "Python",
-        },
-        {
-            name: "HTML",
-        }
+    $scope.availableUserTech = [
+        { name: "BootStrap"},
+        { name: "JavaScript"},
+        { name: "AngularJS"},
+        { name: "ASP.NET Core"},
+        { name: "Node.js"},
+        { name: "CSS"},
+        { name: "MySQL"},
+        { name: "React"},
+        { name: "Objective-C"},
+        { name: "jQuery"},
+        { name: "MongoDB"},
+        { name: "C / C++"},
+        { name: "Ruby"},
+        { name: "SpringMVC"},
+        { name: "Java"},
+        { name: "PHP"},
+        { name: "AWS"},
+        { name: "Azure"},
+        { name: "Entity Framework Core"},
+        { name: "SQL Server"},
+        { name: "Dapper"},
+        { name: "NancyFX"},
+        { name: ".NET Core"},
+        { name: "C#"},
+        { name: "Xcode"},
+        { name: "Swift"},
+        { name: "Django"},
+        { name: "Ajax"},
+        { name: "Python"},
+        { name: "HTML"}
     ]
 
 
@@ -569,15 +489,12 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                             alert("Error: Something went wrong. Project technology cannot be added.")
                         })
                 });
-
                 //   $timeout(function () {
                 //       $state.go("projects", { id: $scope.project.id });
                 //   }, 3000);
-
                 $state.go('projects', {}, {
                     id: $scope.project.id
                 })
-
             }, function (error) {
                 console.log("error to add proj: ", error)
                 alert("Error: Something went wrong. Project was not added")
@@ -611,10 +528,8 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                 skillsArray.push($scope.project.usingSkills[i])
             }
         }
-
         console.log($scope.project)
         console.log(skillsArray);
-
         //ADDING TECH TO PROJECT
         skillsArray.forEach(function (element) {
             console.log("element.name (before user tech) = ", element.name)
@@ -633,15 +548,12 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
         projectService.updateProject($stateParams.id, $scope.project)
             .then(function (response) {
                     console.log(response)
-
                     // $timeout(function () {
                     //     $state.go("projects", { id: $scope.project.id });
                     // }, 3000);
-
                     $state.go("project", {
                         id: $scope.project.id
                     })
-
                 },
                 function (error) {
                     console.log(error)
@@ -671,10 +583,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
         })
 
     $(".create-project").hide();
-
-    //   $scope.checkOutProj = function() {
-    //       console.log($scope.project)
-    //   }
 
     $scope.availableTechnologies = [{
             name: "BootStrap",
@@ -828,7 +736,6 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
         }
     ]
 
-
     // collapse create project form
     $(".add-proj").click(function () {
         $(".create-project").slideToggle(500);
@@ -904,6 +811,4 @@ app.controller("masterController", function ($scope, $state, $stateParams, userS
                 $scope.MapZoom = 5;
         }
     }
-
-
 })

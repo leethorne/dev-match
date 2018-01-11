@@ -31,17 +31,24 @@ This website allows users to create an account that will connect them to a netwo
 
 ### Finished Views 
 
-![homescreen](https://i.imgur.com/yCkodk0.jpg)
+![homescreen](https://i.imgur.com/gQfX4VH.jpg)
 ![projview](https://i.imgur.com/fyOhgge.png)
 ![addproj](https://i.imgur.com/JrHzxzW.png)
 ![userpage](https://i.imgur.com/vniDQvo.png)
 ![updateproj](https://i.imgur.com/KhxJuWJ.png)
-
+![searchdevBig](https://i.imgur.com/Wpa64D1.png)
+![searchdevZoom](https://i.imgur.com/jK3e6PJ.png)
 
 ### Challenges
 - Complex data types as properties / relational data
 - jQuery combo box of technologies
 - Timeout errors on promises
-
+---
+#### Things to complete: 
+- Access to edit/delete properties only for owner of project
+- Repopulation of selected jQuery combobox technologies 
+- User info populating on project page
+- Dev search page - second drop down for technology search vs table
+- Clean up logic placement and remove unneccessary files once completed
 
 
