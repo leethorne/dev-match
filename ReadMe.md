@@ -33,7 +33,7 @@ This website allows users to create an account that will connect them to a netwo
 
 ![homescreen](https://i.imgur.com/gQfX4VH.jpg)
 ![projview](https://i.imgur.com/fyOhgge.png)
-![addproj](https://i.imgur.com/JrHzxzW.png)
+![addproj](https://i.imgur.com/JrHzxzW.png?1)
 ![userpage](https://i.imgur.com/vniDQvo.png)
 ![updateproj](https://i.imgur.com/KhxJuWJ.png)
 ![searchdevBig](https://i.imgur.com/Wpa64D1.png)
